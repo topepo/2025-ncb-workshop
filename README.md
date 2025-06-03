@@ -22,7 +22,7 @@ A nonclinical statistician often has many simultaneous data analysis projects. S
 
 We’ll discuss some tools to
 
-- Understanding pject oriented workflows
+- Understanding project-oriented workflows
 - Organize your project work
 - Painlessly write good R code
 - Manage changes to code and data
