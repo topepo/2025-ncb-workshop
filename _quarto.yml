@@ -1,5 +1,6 @@
 project:
   type: website
-  title: Project-Oriented Workflow
+  title: Making Project Work Better with R 
+  output-dir: docs  
 execute:
   freeze: auto
