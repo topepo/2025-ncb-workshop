@@ -1,0 +1,1150 @@
+---
+title: "Project oriented workflows"
+author: "Max Kuhn, E. David Aja, Shannon Pileggi"
+footer:  "[Project oriented workflows]()"
+logo: "img/wtf-logo-square-transparent.png"
+format: 
+  revealjs: 
+    height: 900
+    width: 1600
+    theme: [night, slides.scss]
+    highlight-style: a11y
+    transition: fade
+    slide-number: true
+editor: visual
+execute:
+  freeze: auto
+---
+
+# Getting started
+
+```{r}
+library(countdown)
+```
+
+```{r font-awesome-color}
+# fill for font awesome icons
+fa_fill <- "#C7B41D"
+```
+
+## Licensing
+
+<br>
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA4.0).
+
+<br>
+
+  - Part 1: Original sides were authored by [**Shannon Pileggi**](https://www.pipinghotdata.com/){target="_blank"}, some added or altered by [**Max Kuhn**](https://max-kuhn.org/){target="_blank"}
+
+- Part 2: [**Max Kuhn**](https://max-kuhn.org/){target="_blank"}  largely created these
+
+- Part 3: Created from [**E. David Aja**](https://edavidaja.com/){target="_blank"}'s previous work
+
+Other authors are identified on a slide-by-slide basis. 
+
+None of this would exist without vision (and patience) of [**Jennifer Bryan**](https://jennybryan.org/){target="_blank"}
+
+## Checklist
+
+<br>
+
+`r fontawesome::fa("check", fill = fa_fill)` R installed? Pretty recent?
+
+     Recommended R ≥ 4.3.0
+
+`r fontawesome::fa("check", fill = fa_fill)` RStudio installed?
+
+     I'm on 2023.06.1 Build 524     
+
+`r fontawesome::fa("check", fill = fa_fill)` Packages?
+
+`install.packages(c("tidyverse", "rmarkdown", "usethis", "fs", "here"))`
+
+## Resources
+
+<br>
+
+Book: [What They Forgot to Teach You About R](https://rstats.wtf/){target="_blank"}
+
+<br>
+
+Book: [Happy Git and GitHub for the useR](https://happygitwithr.com/){target="_blank"}
+
+## 
+
+<br>
+
+::: {.center-x .r-fit-text}
+What [*Did*]{.important} They Forget <br> to Teach You?
+:::
+
+##  {background-image="img/everything-else.PNG"}
+
+## Learning objectives
+
+1.  Establish the concept of the project as the basic organizational unit of work.
+
+2.  Apply best practices in and leverage benefits of working in RStudio projects, including
+
+-   Creating robust file paths that travel well in time and space.
+
+-   Constructing human and machine readable file names that sort nicely.
+
+-   Differentiating workflow elements, analysis inputs, and analysis outputs in project structure to create navigable programming interfaces.
+
+-   Restarting R frequently, with a blank slate.
+
+# Part 1: Organized Projects {background-color="#A60A3D"}
+
+##  {background-image="img/deep_thoughts.PNG"}
+
+## Be organized as you go, <br> not "tomorrow"
+
+:::::: columns
+::: {.column width="50%"}
+Don't fret over past mistakes.
+
+![](img/beer-house.png)
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column .fragment width="46%"}
+Raise the bar for new work.
+
+![](img/beer-organized.png)
+:::
+::::::
+
+## Be organized
+
+<br>
+
+<br>
+
+::: r-fit-text
+self-explaining `>>>` wordy, needy explainers
+:::
+
+## Be organized
+
+::::::: {.columns .v-center-container}
+::: {.column width="45%"}
+![](img/packages-report-example.png)
+:::
+
+:::: {.column width="10%"}
+::: r-fit-text
+`>>>`
+:::
+::::
+
+::: {.column width="45%"}
+  file salad <br>   + an out of date README
+:::
+:::::::
+
+## Good enough practices in scientific computing
+
+:::::: {.columns .v-center-container}
+::: {.column width="45%"}
+![](img/airplane-duct.png)
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.fragment .column width="53%"}
+*PLOS Computational Biology*
+
+Wilson, Bryan, Cranston, Kitzes, Nederbragt, Teal (2017)
+
+<https://doi.org/10.1371/journal.pcbi.1005510>
+
+<http://bit.ly/good-enuff>
+:::
+::::::
+
+# Practical Example
+
+## Your R installation
+
+::: {.fragment fragment-index="1"}
+**R packages**
+
+-   the natural unit for distributing R code
+:::
+
+::: {.fragment fragment-index="2"}
+**base R**
+
+-   14 base + 15 recommended packages
+
+-   ships with all binary distributions of R
+:::
+
+::: {.fragment fragment-index="3"}
+**For example, have you used lattice recently?** 🤷
+
+-   it came with your R installation, can use out of the box
+
+-   `library(lattice)`
+:::
+
+## Additional packages
+
+<br>
+
+:::::: columns
+::: {.column width="40%"}
+**CRAN, \~20k packages**
+
+```{r, eval = FALSE, echo = TRUE}
+# install from CRAN
+install.packages("devtools")
+# attach
+library(devtools)
+```
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column .fragment width="58%"}
+**GitHub, ??? packages**
+
+```{r, eval = FALSE, echo = TRUE}
+# install via devtools
+devtools::install_github("rstats-wtf/wtfdbg")
+# attach
+library(wtfdbg)
+```
+:::
+::::::
+
+::: footer
+we'll use `wtfdbg` later in *Debugging*
+:::
+
+## Where do packages live locally?
+
+<br>
+
+By default, in the default library
+
+`.Library`
+
+<br>
+
+All libraries for the current session
+
+`.libPaths()`
+
+<br>
+
+All installed packages
+
+`installed.packages()`
+
+## Syntax aside: pipes
+
+-   2014+ magrittr pipe `%>%`
+
+-   2021+ (R $\geq$ 4.1.0) native R pipe `|>`
+
+2022 Isabella Velásquez Understanding the native R pipe \|\> <https://ivelasq.rbind.io/blog/understanding-the-r-pipe/>
+
+. . .
+
+<brshort>
+
+:::::: columns
+::: {.column width="50%"}
+```{r echo=TRUE, eval=FALSE}
+whatever(arg1, arg2, arg3, ...)
+arg1 |>  
+  whatever(arg2, arg3)
+```
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+```{r echo=TRUE, eval=FALSE}
+mean(0:10)
+0:10 |> 
+  mean()
+```
+:::
+::::::
+
+::: footer
+Change `CTRL + Shift + M` shortcut to native pipe:
+
+`Tools -> Global Options -> Code ->`
+
+   `Editing -> check Use Native Pipe Operator`
+:::
+
+## Syntax aside: namespacing
+
+`dplyr::select()`
+
+-   tells R explicitly to use the function `select` from the package `dplyr`
+
+-   can help to avoid name conflicts (e.g., `MASS::select()`)
+
+-   does not require `library(dplyr)`
+
+. . .
+
+:::::: columns
+::: {.column width="45%"}
+```{r echo=TRUE, eval=FALSE}
+library(dplyr)
+select(mtcars, mpg, cyl) 
+mtcars |>  
+  select(mpg, cyl) 
+```
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="50%"}
+```{r echo=TRUE, eval=FALSE}
+# library(dplyr) not needed
+dplyr::select(mtcars, mpg, cyl) 
+mtcars |>  
+  dplyr::select(mpg, cyl) 
+```
+:::
+::::::
+
+## 🧐 Explore your R installation
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("usethis")
+library(usethis)
+# saves project on desktop by default for most users
+use_course("rstats-wtf/wtf-explore-libraries")
+# use_course("rstats-wtf/wtf-explore-libraries", destdir = "my/new/location")
+# can alternatively download from 
+# https://github.com/rstats-wtf/wtf-explore-libraries
+```
+
+::: small
+Read the `README.md` to get started.
+
+-   `01_explore-libraries_spartan.R` <br> (directions to explore without suggested code)
+
+-   `01_explore-libraries_comfy.R`<br> (directions to explore with suggested code)
+
+-   `01_explore-libraries_solution.R`<br> (directions to explore with code solutions)
+:::
+
+```{r}
+countdown(
+  minutes = 10,
+  # Fanfare when it's over
+  play_sound = TRUE,
+  # Set timer theme to match solarized colors
+  color_border              = "#FFFFFF",
+  color_text                = "#7aa81e",
+  color_running_background  = "#7aa81e",
+  color_running_text        = "#FFFFFF",
+  color_finished_background = "#ffa07a",
+  color_finished_text       = "#FFFFFF",
+  font_size = "2em",
+  bottom = "30%"
+  )
+```
+
+# Project-oriented workflows
+
+## Adopt a project-oriented workflow
+
+<br>
+
+:::::: columns
+::: {.column width="48%"}
+### Why
+
+-   work on more than 1 thing at a time
+
+-   collaborate, communicate, distribute
+
+-   start and stop
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column .fragment width="48%"}
+### How
+
+-   dedicated directory
+
+-   RStudio <ins>**P**</ins>roject
+
+-   Git repo, probably syncing to a remote
+:::
+::::::
+
+## If the top of your script is
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE}
+setwd("C:\Users\jenny\path\that\only\I\have")
+rm(list = ls())
+```
+
+<br>
+
+Jenny will come into your your office and SET YOUR COMPUTER ON FIRE 🔥.
+
+<br>
+
+::: {.fragment fragment-index="1"}
+Project-oriented workflow designs this away. 🙌
+:::
+
+::: footer
+<https://twitter.com/hadleywickham/status/940021008764846080>
+
+<https://www.tidyverse.org/articles/2017/12/workflow-vs-script/>
+
+<https://rstats.wtf/project-oriented-workflow.html>
+:::
+
+## Which persist after rm(list = ls())?
+
+| Option | Persists? |
+|------------------------------------------------------|------------------|
+| A. library(dplyr) | `r fontawesome::fa("check", fill = "#343838")` |
+| B. summary \<- head | `r fontawesome::fa("xmark", fill = "#343838")` |
+| C. options(stringsAsFactors = FALSE) | `r fontawesome::fa("check", fill = "#343838")` |
+| D. Sys.setenv(LANGUAGE = "fr") | `r fontawesome::fa("check", fill = "#343838")` |
+| E. x \<- 1:5 | `r fontawesome::fa("xmark", fill = "#343838")` |
+| F. attach(iris) | `r fontawesome::fa("check", fill = "#343838")` |
+
+```{r}
+countdown(
+  minutes = 2
+  )
+```
+
+## Which persist after rm(list = ls())?
+
+| Option | Persists? |
+|------------------------------------------------------|------------------|
+| A. library(dplyr) | `r fontawesome::fa("check", fill = fa_fill)` |
+| B. summary \<- head | `r fontawesome::fa("xmark", fill = "white")` |
+| C. options(stringsAsFactors = FALSE) | `r fontawesome::fa("check", fill = fa_fill)` |
+| D. Sys.setenv(LANGUAGE = "fr") | `r fontawesome::fa("check", fill = fa_fill)` |
+| E. x \<- 1:5 | `r fontawesome::fa("xmark", fill = "white")` |
+| F. attach(iris) | `r fontawesome::fa("check", fill = fa_fill)` |
+
+## What does it mean to be an RStudio <ins>**P**</ins>roject?
+
+<br>
+
+RStudio leaves notes to itself in foo.Rproj
+
+. . .
+
+<br>
+
+Open Project = dedicated instance of RStudio
+
+-   dedicated R process
+
+-   file browser pointed at Project directory
+
+-   working directory set to Project directory
+
+## Many projects open
+
+<br>
+
+![](img/many-projects.jpg)
+
+## Use a "blank slate"
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE}
+usethis::use_blank_slate()
+```
+
+<br>
+
+OR
+
+<br>
+
+Tools -\> Global Options
+
+![](img/workspace.PNG)
+
+## Restart R often
+
+<br>
+
+:::::: columns
+::: {.column width="48%"}
+Session -\> Restart R
+
+![](img/restart.jpg)
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+Windows
+
+-   Ctrl + Shift + F10
+
+Mac
+
+-   Cmd + Shift + 0
+
+-   Cmd + Shift + F10
+:::
+::::::
+
+## Project initiation: the local case
+
+1.  New folder + make it an RStudio Project
+
+-   `usethis::create_project("~/i_am_new")`
+
+-   File -\> New Project -\> New Directory -\> New Project
+
+. . .
+
+2.  Make existing folder into an RStudio Project
+
+-   `usethis::create_project("~/i_exist")`
+
+-   File -\> New Project -\> Existing Directory
+
+. . .
+
+::: question
+Try option 2 now for wtf-explore-libraries.
+:::
+
+```{r}
+countdown(
+  minutes = 2
+  )
+```
+
+# Safe paths
+
+##  {background-image="img/deep_thoughts.PNG"}
+
+## On reproducibility of code
+
+:::::: columns
+::: {.column width="50%"}
+![](img/kieran-healy-setwd.PNG)
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="46%"}
+<br> A large-scale study on research code quality and execution. <br> Trisovic, A., Lau, M.K., Pasquier, T. et al. <br> *Sci Data* **9**, 60 (2022).
+:::
+::::::
+
+::: footer
+<https://twitter.com/kjhealy/status/1514169782060429320> <br> <https://doi.org/10.1038/s41597-022-01143-6>
+:::
+
+## Do you know where<br> your files are?
+
+![](img/street-sign.png)
+
+::: notes
+Working directory is associated with a specific process or running application.
+
+For a newly launched process or application instance, the working directory (probably? usually?) defaults to user's home directory. Or perhaps the application consults a config file to set the working directory at launch time. This is sort of how I would describe launching an RStudio Project.
+
+"Working directory" as a concept is not comparable to "home directory". "Home directory" is a static, persistent thing.
+:::
+
+## Practice "safe paths"
+
+<br>
+
+relative to a [stable base]{.important}
+
+<br>
+
+use [file system functions]{.important}
+
+    not paste(), strsplit(), etc.
+
+## Packages with file system functions
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("fs")
+```
+
+`fs` = file path handling
+
+<br>
+
+. . .
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("here")
+```
+
+`here` = project-relative paths
+
+## Examples of a stable base
+
+<brshort>
+
+Project directory
+
+```{r, echo=TRUE, eval=FALSE}
+here::here("data", "raw-data.csv")
+here::here("data/raw-data.csv")
+```
+
+*Automatically complete paths with `Tab`.*
+
+<brshort>
+
+. . .
+
+User's home directory
+
+```{r, echo=TRUE, eval=FALSE}
+file.path("~", ...)
+fs::path_home(...)
+```
+
+. . .
+
+<brshort>
+
+Official location for installed software
+
+```{r, echo=TRUE, eval=FALSE}
+library(thingy)
+system.file(..., package = "thingy")
+```
+
+*See example in [gapminder readme](https://github.com/jennybc/gapminder#plain-text-delimited-files).*
+
+::: notes
+see where tilde goes with fs::path_expand(file.path("\~"))
+:::
+
+## Absolute paths
+
+I have nothing against absolute paths.
+
+Some of my best friends are absolute paths!
+
+But don't hard-wire them into your scripts.
+
+Instead, form at runtime relative to a [stable base]{.important}
+
+<brshort>
+
+```{r, echo=TRUE, eval=FALSE}
+> (BAD <- "/Users/shannon/tmp/test.csv")
+[1] "/Users/shannon/tmp/test.csv"
+```
+
+. . .
+
+<brshort>
+
+```{r, echo=TRUE, eval=FALSE}
+> (GOOD <- fs::path_home("tmp/test.csv")
+[1] "/Users/shannon/tmp/test.csv"
+```
+
+## Practice safe paths
+
+:::::: columns
+::: {.column width="50%"}
+![](img/here.png)
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column .fragment width="46%"}
+-   Use the `here` package to build paths inside a project.
+
+-   Leave working directory at top-level at all times, during development.
+
+-   Absolute paths are formed at runtime.
+:::
+::::::
+
+::: footer
+Artwork by [\@allison_horst](https://twitter.com/allison_horst).
+:::
+
+## here example
+
+```{r, echo=TRUE, eval=FALSE}
+ggsave(here::here("figs", "built-barchart.png"))
+```
+
+-   Works on my machine, works on yours!
+
+-   Works even if working directory is in a sub-folder.
+
+-   Works for RStudio <ins>**P**</ins>rojects, Git repos, R packages, etc.
+
+-   Works with knitr / rmarkdown.
+
+## here::here()
+
+The `here` package is designed to work inside a project, where that could mean:
+
+-   RStudio <ins>**P**</ins>roject
+
+-   Git repo
+
+-   R package
+
+-   Folder with a file named .here
+
+`here::here()` does not create directories; that's your job.
+
+## Kinds of paths
+
+Absolute path.
+
+```{r, echo=TRUE, eval=FALSE}
+dat <- read.csv("C:/Users/pileggis/Documents/wtf-fix-paths/data/installed-packages.csv")
+```
+
+<br>
+
+Relative path to working directory, established by the RStudio <ins>**P**</ins>roject.
+
+```{r, echo=TRUE, eval=FALSE}
+dat <- read.csv("data/installed-packages.csv")
+```
+
+<br>
+
+Relative path within the RStudio <ins>**P**</ins>roject directory.
+
+```{r, echo=TRUE, eval=FALSE}
+dat <- read.csv(here::here("data/installed-packages.csv"))
+```
+
+## Your turn
+
+<br>
+
+Practice calling `here::here()` in a project <br> to get a feel for it.
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+library(usethis)
+# saves project on desktop by default for most users
+use_course("rstats-wtf/wtf-fix-paths")
+# use_course("rstats-wtf/wtf-fix-paths", destdir = "my/new/location")
+# can alternatively download from 
+# https://github.com/rstats-wtf/wtf-fix-paths
+```
+
+<br> Read the `README.md` to get started.
+
+```{r}
+countdown(
+  minutes = 10
+  )
+```
+
+## What if my data can't live in my project directory? {.smaller}
+
+1.  Are you sure it can't?
+
+2.  Review the Good Enough Practices paper for tips.
+
+3.  Create a symbolic link to access the data. ([fs::link_create()](https://fs.r-lib.org/reference/create.html), [fs::link_path()](https://fs.r-lib.org/reference/create.html))
+
+4.  Put the data in an [R package](https://r-pkgs.org/data.html).
+
+5.  Use [pins](https://pins.rstudio.com/).
+
+6.  Explore other data warehousing options.
+
+RStudio Community threads:
+
+-   [Project-oriented workflow; setwd(), rm(list = ls()) and computer fires](https://community.rstudio.com/t/project-oriented-workflow-setwd-rm-list-ls-and-computer-fires/3549/1)
+
+-   [Best way to define paths for a file running on a cron?](https://community.rstudio.com/t/best-way-to-define-paths-for-a-file-running-on-a-cron/2061/7)
+
+# Names matter
+
+##  {background-image="img/deep_thoughts.PNG"}
+
+## 
+
+:::::: {.columns .v-center-container}
+::: {.column .small .hand width="60%"}
+’Tis but thy name that is my enemy;<br> Thou art thyself, though not a Montague.<br> What’s Montague? It is nor hand, nor foot,<br> Nor arm, nor face, nor any other part<br> Belonging to a man. O, be some other name!<br> [What’s in a name? That which we call a rose]{.important}<br> [By any other name would smell as sweet;]{.important}<br> So Romeo would, were he not Romeo call’d,<br> Retain that dear perfection which he owes<br> Without that title. Romeo, doff thy name;<br> And for thy name, which is no part of thee,<br> Take all myself.
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column .fragment .center-x width="35%"}
+This
+
+is
+
+[not]{.important}
+
+[true]{.important}
+
+for
+
+file
+
+names.
+:::
+::::::
+
+::: footer
+From Danielle Navarro's *Project Structure* slides
+
+<https://slides.djnavarro.net/>
+:::
+
+## Names matter
+
+<br>
+
+machine readable
+
+<br>
+
+human readable
+
+<br>
+
+sort nicely
+
+## 
+
+::: question
+What features differentiate 😔 vs 😍?
+:::
+
+:::::::: columns
+::::: {.column width="10%"}
+<br>
+
+::: r-fit-text
+😔
+:::
+
+<br>
+
+<br>
+
+::: r-fit-text
+😍
+:::
+:::::
+
+::: {.column width="4%"}
+:::
+
+::: {.column .small width="86%"}
+myabstract.docx
+
+Joe's Filenames Use Spaces and Punctuation.xlsx
+
+figure 1.png
+
+homework1.R
+
+JW7d\^(2sl\@deletethisandyourcareerisoverWx2\*.txt
+
+<br>
+
+2018-01_bryan-abstract-rstudio-conf.docx
+
+joes-filenames-are-getting-better.xlsx
+
+fig01_scatterplot-talk-length-vs-interest.png
+
+bryan_hw01.R
+
+1986-01-28_raw-data-from-challenger-o-rings.txt
+:::
+::::::::
+
+```{r}
+countdown(
+  minutes = 1
+  )
+```
+
+## Names machines like {.smaller}
+
+1.  don't leave white space
+
+. . .
+
+2.  use letters, numbers, hyphens and underscores... that's it <br> (characters like \^.\*?+\|\$ can have a special meaning)
+
+. . .
+
+3.  be consistent with case <br> (some operating systems treat a and A the same, some differently).
+
+. . .
+
+4.  use separator characters wisely
+
+    use underscore `_` to separate different chunks
+
+    use hyphen `-` for words in the same chunk
+
+. . .
+
+<br>
+
+This creates names that are regular expression and globbing friendly, and easy to compute on! 🎉
+
+::: footer
+Adapted from <br> <https://djnavarro.net/slides-project-structure/#1>.
+:::
+
+## Names humans like
+
+<br>
+
+name contains info on content
+
+name anticipates context
+
+concept of a slug 🐌 from user-friendly URLs
+
+-   1986-01-28\_`raw-data-from-challenger-o-rings`.txt
+
+-   concise, meaningful description
+
+-   usually appended to the end
+
+::: notes
+Note: A URL slug is the part of the URL after the last backslash - important for keyword SEO
+:::
+
+## Names that sort nicely
+
+<br>
+
+put something numeric in there
+
+left pad with zeros for constant width, nice sorting, `01`
+
+use the ISO 8601 standard for dates, `YYYY-MM-DD`
+
+order = chronological or ... consider common sense
+
+## ISO 8601
+
+::::::: {.columns .v-center-container}
+::: {.column width="40%"}
+![](img/jenny-chicken-broth.PNG)
+:::
+
+::: {.column width="4%"}
+:::
+
+:::: {.column width="56%"}
+::: r-fit-text
+YYYY-MM-DD
+
+ISO 8601
+:::
+
+<https://www.iso.org/iso-8601-date-and-time-format.html>
+::::
+:::::::
+
+::: footer
+<https://twitter.com/JennyBryan/status/816143967695687684>
+:::
+
+## 👍 file names {.center-x}
+
+![](img/file-names-01.png)
+
+. . .
+
+Anyone can guess at file's purpose
+
+## 👍 file names {.center-x}
+
+![](img/file-names-02.png)
+
+Easy to filter in R (or the shell or whatever)
+
+## 👍 file names {.center-x}
+
+![](img/file-names-03.png)
+
+Intentional delimiters means meta-data is easily recovered.
+
+`_` delimits fields; `-` delimits words
+
+## 👍 file names {.center-x}
+
+![](img/file-names-04.png)
+
+Sorts in the same order as you <br> experience in real life.
+
+## Names matter
+
+<br>
+
+machine readable, human readable, and sort nicely
+
+<br>
+
+. . .
+
+easy to implement NOW
+
+<br>
+
+payoffs accumulate as your skills evolve and <br> projects get more complex
+
+# Project structure
+
+## Break logic and output into pieces
+
+![](img/monolith.jpg)
+
+## Process
+
+![](img/process-naked.jpg)
+
+::: footer
+<https://r4ds.had.co.nz/introduction.html#what-you-will-learn>
+:::
+
+## Project code
+
+::::::: {.columns .v-center-container}
+::: {.column width="30%"}
+smell.test.R
+
+wrangle.R
+
+model.R
+
+make-figs.R
+
+report.Rmd
+:::
+
+:::: {.column width="10%"}
+::: r-fit-text
+`>>>`
+:::
+::::
+
+::: {.column width="35%"}
+    everything.R
+:::
+:::::::
+
+## Process and code
+
+![](img/process-script.jpg)
+
+## Project artifacts
+
+::::::: {.columns .v-center-container}
+::: {.column width="30%"}
+raw-data.xlsx
+
+data.csv
+
+fit.rds
+
+ests.csv
+:::
+
+:::: {.column width="10%"}
+::: r-fit-text
+`>>>`
+:::
+::::
+
+::: {.column .center-x width="30%"}
+.Rdata
+:::
+:::::::
+
+## Process and artifacts
+
+![](img/process-out.jpg)
+
+## A humane API for analysis
+
+![](img/input-code-output.jpg)
+
+## Your turn
+
+<br>
+
+Create a report that adheres to project organization strategies.
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+library(usethis)
+# saves project on desktop by default for most users
+use_course("rstats-wtf/wtf-packages-report")
+# use_course("rstats-wtf/wtf-packages-report", destdir = "my/new/location")
+# can alternatively download from 
+# https://github.com/rstats-wtf/wtf-packages-report
+```
+
+<br> Read the `README.md` to get started.
+
+```{r}
+countdown(
+  minutes = 10
+  )
+```
+
+# Part 2: Resilient Reports {background-color="#A60A3D"}
+
+
+# Part 3: Project Admin {background-color="#A60A3D"}
+
+
+
+

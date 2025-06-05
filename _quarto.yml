@@ -1,0 +1,5 @@
+project:
+  type: website
+  title: Project-Oriented Workflow
+execute:
+  freeze: auto
