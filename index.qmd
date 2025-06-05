@@ -71,6 +71,10 @@ Book: [What They Forgot to Teach You About R](https://rstats.wtf/){target="_blan
 
 Book: [Happy Git and GitHub for the useR](https://happygitwithr.com/){target="_blank"}
 
+<br> 
+
+Website: [Tidyteam code review principles](https://code-review.tidyverse.org/){target="_blank"}
+
 ## 
 
 <br>
