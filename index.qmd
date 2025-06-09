@@ -85,172 +85,46 @@ What [*Did*]{.important} They Forget <br> to Teach You?
 
 ##  {background-image="img/everything-else.PNG"}
 
-## Learning objectives
+## Syntax aside: tildes
 
-1.  Establish the concept of the project as the basic organizational unit of work.
+In a character string, what does `"~"` indicate?
 
-2.  Apply best practices in and leverage benefits of working in RStudio projects, including
+<br> 
 
--   Creating robust file paths that travel well in time and space.
+. . .
 
--   Constructing human and machine readable file names that sort nicely.
+The _home_ directory on your computer. 
 
--   Differentiating workflow elements, analysis inputs, and analysis outputs in project structure to create navigable programming interfaces.
+. . .
 
--   Restarting R frequently, with a blank slate.
 
-# Part 1: Organized Projects {background-color="#A60A3D"}
+:::: {.columns}
 
-##  {background-image="img/deep_thoughts.PNG"}
-
-## Be organized as you go, <br> not "tomorrow"
-
-:::::: columns
 ::: {.column width="50%"}
-Don't fret over past mistakes.
 
-![](img/beer-house.png)
+For example, on my mac, it is `/Users/max`
+
 :::
 
-::: {.column width="4%"}
+::: {.column width="50%"}
+
+On windows it is the user's homew directory (aka `%USERPROFILE%` environment variable)
+
 :::
 
-::: {.column .fragment width="46%"}
-Raise the bar for new work.
-
-![](img/beer-organized.png)
-:::
-::::::
-
-## Be organized
-
-<br>
-
-<br>
-
-::: r-fit-text
-self-explaining `>>>` wordy, needy explainers
-:::
-
-## Be organized
-
-::::::: {.columns .v-center-container}
-::: {.column width="45%"}
-![](img/packages-report-example.png)
-:::
-
-:::: {.column width="10%"}
-::: r-fit-text
-`>>>`
-:::
 ::::
 
-::: {.column width="45%"}
-  file salad <br>   + an out of date README
-:::
-:::::::
 
-## Good enough practices in scientific computing
+<br> <br> 
 
-:::::: {.columns .v-center-container}
-::: {.column width="45%"}
-![](img/airplane-duct.png)
-:::
 
-::: {.column width="2%"}
-:::
+. . . 
 
-::: {.fragment .column width="53%"}
-*PLOS Computational Biology*
+You should *never use absolute paths* but, if you do, make them platform agnostic using the tilde. 
 
-Wilson, Bryan, Cranston, Kitzes, Nederbragt, Teal (2017)
 
-<https://doi.org/10.1371/journal.pcbi.1005510>
 
-<http://bit.ly/good-enuff>
-:::
-::::::
 
-# Practical Example
-
-## Your R installation
-
-::: {.fragment fragment-index="1"}
-**R packages**
-
--   the natural unit for distributing R code
-:::
-
-::: {.fragment fragment-index="2"}
-**base R**
-
--   14 base + 15 recommended packages
-
--   ships with all binary distributions of R
-:::
-
-::: {.fragment fragment-index="3"}
-**For example, have you used lattice recently?** 🤷
-
--   it came with your R installation, can use out of the box
-
--   `library(lattice)`
-:::
-
-## Additional packages
-
-<br>
-
-:::::: columns
-::: {.column width="40%"}
-**CRAN, \~20k packages**
-
-```{r, eval = FALSE, echo = TRUE}
-# install from CRAN
-install.packages("devtools")
-# attach
-library(devtools)
-```
-:::
-
-::: {.column width="2%"}
-:::
-
-::: {.column .fragment width="58%"}
-**GitHub, ??? packages**
-
-```{r, eval = FALSE, echo = TRUE}
-# install via devtools
-devtools::install_github("rstats-wtf/wtfdbg")
-# attach
-library(wtfdbg)
-```
-:::
-::::::
-
-::: footer
-we'll use `wtfdbg` later in *Debugging*
-:::
-
-## Where do packages live locally?
-
-<br>
-
-By default, in the default library
-
-`.Library`
-
-<br>
-
-All libraries for the current session
-
-`.libPaths()`
-
-<br>
-
-All installed packages
-
-`installed.packages()`
 
 ## Syntax aside: pipes
 
@@ -328,44 +202,103 @@ mtcars |>
 :::
 ::::::
 
-## 🧐 Explore your R installation
 
-```{r, eval=FALSE, echo=TRUE}
-install.packages("usethis")
-library(usethis)
-# saves project on desktop by default for most users
-use_course("rstats-wtf/wtf-explore-libraries")
-# use_course("rstats-wtf/wtf-explore-libraries", destdir = "my/new/location")
-# can alternatively download from 
-# https://github.com/rstats-wtf/wtf-explore-libraries
-```
 
-::: small
-Read the `README.md` to get started.
+# Part 1: Organized Projects {background-color="#A60A3D"}
 
--   `01_explore-libraries_spartan.R` <br> (directions to explore without suggested code)
+## Be organized as you go, <br> not "tomorrow"
 
--   `01_explore-libraries_comfy.R`<br> (directions to explore with suggested code)
+:::::: columns
+::: {.column width="50%"}
+Don't fret over past mistakes.
 
--   `01_explore-libraries_solution.R`<br> (directions to explore with code solutions)
+![](img/beer-house.png)
 :::
 
-```{r}
-countdown(
-  minutes = 10,
-  # Fanfare when it's over
-  play_sound = TRUE,
-  # Set timer theme to match solarized colors
-  color_border              = "#FFFFFF",
-  color_text                = "#7aa81e",
-  color_running_background  = "#7aa81e",
-  color_running_text        = "#FFFFFF",
-  color_finished_background = "#ffa07a",
-  color_finished_text       = "#FFFFFF",
-  font_size = "2em",
-  bottom = "30%"
-  )
-```
+::: {.column width="4%"}
+:::
+
+::: {.column .fragment width="46%"}
+Raise the bar for new work.
+
+![](img/beer-organized.png)
+:::
+::::::
+
+## Be organized
+
+<br>
+
+<br>
+
+::: r-fit-text
+self-explaining `>>>` wordy, needy explainers
+:::
+
+## Be organized
+
+::::::: {.columns .v-center-container}
+::: {.column width="45%"}
+![](img/packages-report-example.png)
+:::
+
+:::: {.column width="10%"}
+::: r-fit-text
+`>>>`
+:::
+::::
+
+::: {.column width="45%"}
+  file salad <br>   + an out of date README
+:::
+:::::::
+
+## Good enough practices in scientific computing
+
+:::::: {.columns .v-center-container}
+::: {.column width="45%"}
+![](img/airplane-duct.png)
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.fragment .column width="53%"}
+*PLOS Computational Biology*
+
+Wilson, Bryan, Cranston, Kitzes, Nederbragt, Teal (2017)
+
+<https://doi.org/10.1371/journal.pcbi.1005510>
+
+<http://bit.ly/good-enuff>
+:::
+::::::
+
+# Practical Example: 
+
+## Predictors of reproductive toxicity
+
+Original GH repo for [publication](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C7&q=More+than+just+hormones%3A+H295R+cells+as+predictors+of+reproductive+toxicity&btnG=) (circa 2012):
+
+
+[https://github.com/topepo/steroidogenic_tox](https://github.com/topepo/steroidogenic_tox)
+
+<br>
+
+. . .
+
+
+Refactored to look like a modern data analysis project: 
+
+[https://github.com/topepo/steroidogenic-tox-wtf](https://github.com/topepo/steroidogenic-tox-wtf)
+
+
+. . .
+
+<br>
+
+Normally, I would put the Quarto report/summary in a `reports` directory but using `index.qmd` I get a [free website out of it](https://topepo.github.io/steroidogenic-tox-wtf/).
+
 
 # Project-oriented workflows
 
@@ -379,6 +312,8 @@ countdown(
 
 -   work on more than 1 thing at a time
 
+-   the things are fairly similar
+
 -   collaborate, communicate, distribute
 
 -   start and stop
@@ -391,6 +326,8 @@ countdown(
 ### How
 
 -   dedicated directory
+
+-   have a template to follow
 
 -   RStudio <ins>**P**</ins>roject
 
@@ -495,6 +432,36 @@ Tools -\> Global Options
 
 ![](img/workspace.PNG)
 
+## Get (git) vaccinated!!!
+
+
+<br> 
+
+
+:::::: columns
+::: {.column width="50%"}
+![](img/vaccinate.jpeg)
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="46%"}
+
+> Adds `.Rproj.user`, `.Rhistory`, `.Rdata`, `.httr-oauth`, .`DS_Stor`e, and `.quarto` to your global (a.k.a. user-level) `.gitignore`. This is good practice as it decreases the chance that you will accidentally leak credentials to GitHub.
+
+<br>
+
+```r
+usethis::git_vaccinate()
+```
+:::
+::::::
+
+
+
+
+
 ## Restart R often
 
 <br>
@@ -541,7 +508,7 @@ Mac
 . . .
 
 ::: question
-Try option 2 now for wtf-explore-libraries.
+Try option 1 now.
 :::
 
 ```{r}
@@ -551,8 +518,6 @@ countdown(
 ```
 
 # Safe paths
-
-##  {background-image="img/deep_thoughts.PNG"}
 
 ## On reproducibility of code
 
@@ -806,8 +771,6 @@ RStudio Community threads:
 
 # Names matter
 
-##  {background-image="img/deep_thoughts.PNG"}
-
 ## 
 
 :::::: {.columns .v-center-container}
@@ -854,6 +817,10 @@ human readable
 <br>
 
 sort nicely
+
+<br>
+
+optimized for tab-complete
 
 ## 
 
@@ -1119,30 +1086,61 @@ ests.csv
 
 ![](img/input-code-output.jpg)
 
-## Your turn
+## Max's Preference
+
+- `raw_data`: original source data (e.g., xls*, csv, images, etc)
+- `code`: source files for import, preprocessing, analysis, summaries
+- `rdata`: location for any {`.RData`, `.rds`, `.rda`} files that will be used later
+- `reports`: files and sub-directories created for dissemination (`[Rq]md` files). 
+- `exports`: objects that are given to someone else (e.g., model object, shiny app)
+
+<br> 
+
+Subjective but thought out. 
+
+
+## Max's Preference
+
+<br><br>
+
+```r
+usethis::create_project("~/potato")
+
+# ... wait for it
+
+fs::dir_ls()
+
+fs::dir_delete("R")
+
+purrr::walk(
+  c("code", "rdata", "raw_data", "reports", "exports"),
+  fs::dir_create
+)
+```
+
+
+
+## A little bit on partial automation
+
+ If your project requires many computing iterations because it:
+ 
+ - requires a lot of data transformations _and_ 
+ - the rows may change (in number or value)
+ 
+then think about how you would automate some parts. 
 
 <br>
 
-Create a report that adheres to project organization strategies.
+Using [`makefiles`](https://makefiletutorial.com/) or the [targets package](https://books.ropensci.org/targets/) could be a lifesaver. 
 
 <br>
 
-```{r, echo=TRUE, eval=FALSE}
-library(usethis)
-# saves project on desktop by default for most users
-use_course("rstats-wtf/wtf-packages-report")
-# use_course("rstats-wtf/wtf-packages-report", destdir = "my/new/location")
-# can alternatively download from 
-# https://github.com/rstats-wtf/wtf-packages-report
-```
+You'll want to make sure that the raw data and intermediary data are consistent with the results that you are giving to your clients. 
 
-<br> Read the `README.md` to get started.
+<br>
 
-```{r}
-countdown(
-  minutes = 10
-  )
-```
+But you probably can't automate interpretation. 
+
 
 # Part 2: Resilient Reports {background-color="#A60A3D"}
 
