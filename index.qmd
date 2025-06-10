@@ -1,6 +1,6 @@
 ---
 title: "Project oriented workflows"
-author: "Max Kuhn, E. David Aja, Shannon Pileggi"
+author: "Max Kuhn, E. David Aja, and others"
 footer:  "[Project oriented workflows]()"
 logo: "img/wtf-logo-square-transparent.png"
 format: 
@@ -11,7 +11,6 @@ format:
     highlight-style: a11y
     transition: fade
     slide-number: true
-editor: visual
 execute:
   freeze: auto
 ---
@@ -407,23 +406,38 @@ setwd("C:\Users\jenny\path\that\only\I\have")
 rm(list = ls())
 ```
 
-<br>
+...
 
-Jenny will come into your your office and SET YOUR COMPUTER ON FIRE 🔥.
 
-<br>
+. . . 
 
-::: {.fragment fragment-index="1"}
-Project-oriented workflow designs this away. 🙌
+:::: {.columns}
+
+::: {.column width="7%"}
+
 :::
+
+::: {.column width="40%"}
+![](img/fire-1.jpeg)
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="40%"}
+![](img/fire-2.jpeg)
+:::
+
+::::
 
 ::: footer
 <https://twitter.com/hadleywickham/status/940021008764846080>
 
 <https://www.tidyverse.org/articles/2017/12/workflow-vs-script/>
 
-<https://rstats.wtf/project-oriented-workflow.html>
 :::
+
 
 ## Which persist after rm(list = ls())?
 
