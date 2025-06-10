@@ -1,0 +1,464 @@
+[
+  {
+    "objectID": "index.html#licensing",
+    "href": "index.html#licensing",
+    "title": "Making Project Work Better with R",
+    "section": "Licensing",
+    "text": "Licensing\n\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA4.0).\n\n\nPart 1: Original sides were authored by Shannon Pileggi, some added or altered by Max Kuhn\nPart 2: Max Kuhn largely created these\nPart 3: Created from E. David Aja’s previous work\n\nOther authors are identified on a slide-by-slide basis.\nNone of this would exist without vision (and patience) of Jennifer Bryan"
+  },
+  {
+    "objectID": "index.html#checklist",
+    "href": "index.html#checklist",
+    "title": "Making Project Work Better with R",
+    "section": "Checklist",
+    "text": "Checklist\n\n R installed? Pretty recent?\n     Recommended R ≥ 4.3.0\n RStudio installed?\n     I’m on 2023.06.1 Build 524     \n Packages?\ninstall.packages(c(\"tidyverse\", \"rmarkdown\", \"usethis\", \"fs\", \"here\"))"
+  },
+  {
+    "objectID": "index.html#resources",
+    "href": "index.html#resources",
+    "title": "Making Project Work Better with R",
+    "section": "Resources",
+    "text": "Resources\n\nBook: What They Forgot to Teach You About R\n\nBook: Happy Git and GitHub for the useR\n\nWebsite: Tidyteam code review principles"
+  },
+  {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "Making Project Work Better with R",
+    "section": "",
+    "text": "What Did They Forget  to Teach You?"
+  },
+  {
+    "objectID": "index.html#learning-objectives",
+    "href": "index.html#learning-objectives",
+    "title": "Project oriented workflows",
+    "section": "Learning objectives",
+    "text": "Learning objectives\n\nEstablish the concept of the project as the basic organizational unit of work.\nApply best practices in and leverage benefits of working in RStudio projects, including\n\n\nCreating robust file paths that travel well in time and space.\nConstructing human and machine readable file names that sort nicely.\nDifferentiating workflow elements, analysis inputs, and analysis outputs in project structure to create navigable programming interfaces.\nRestarting R frequently, with a blank slate."
+  },
+  {
+    "objectID": "index.html#be-organized-as-you-go-not-tomorrow",
+    "href": "index.html#be-organized-as-you-go-not-tomorrow",
+    "title": "Making Project Work Better with R",
+    "section": "Be organized as you go,  not “tomorrow”",
+    "text": "Be organized as you go,  not “tomorrow”\n\n\nDon’t fret over past mistakes.\n\n\n\n\nRaise the bar for new work."
+  },
+  {
+    "objectID": "index.html#be-organized",
+    "href": "index.html#be-organized",
+    "title": "Making Project Work Better with R",
+    "section": "Be organized",
+    "text": "Be organized\n\n\n\nself-explaining &gt;&gt;&gt; wordy, needy explainers"
+  },
+  {
+    "objectID": "index.html#be-organized-1",
+    "href": "index.html#be-organized-1",
+    "title": "Making Project Work Better with R",
+    "section": "Be organized",
+    "text": "Be organized\n\n\n\n\n\n&gt;&gt;&gt;\n\n\n  file salad    + an out of date README"
+  },
+  {
+    "objectID": "index.html#good-enough-practices-in-scientific-computing",
+    "href": "index.html#good-enough-practices-in-scientific-computing",
+    "title": "Making Project Work Better with R",
+    "section": "Good enough practices in scientific computing",
+    "text": "Good enough practices in scientific computing\n\n\n\n\n\n\nPLOS Computational Biology\nWilson, Bryan, Cranston, Kitzes, Nederbragt, Teal (2017)\nhttps://doi.org/10.1371/journal.pcbi.1005510\nhttp://bit.ly/good-enuff"
+  },
+  {
+    "objectID": "index.html#your-r-installation",
+    "href": "index.html#your-r-installation",
+    "title": "Project oriented workflows",
+    "section": "Your R installation",
+    "text": "Your R installation\n\nR packages\n\nthe natural unit for distributing R code\n\n\n\nbase R\n\n14 base + 15 recommended packages\nships with all binary distributions of R\n\n\n\nFor example, have you used lattice recently? 🤷\n\nit came with your R installation, can use out of the box\nlibrary(lattice)"
+  },
+  {
+    "objectID": "index.html#additional-packages",
+    "href": "index.html#additional-packages",
+    "title": "Project oriented workflows",
+    "section": "Additional packages",
+    "text": "Additional packages\n\n\n\nCRAN, ~20k packages\n\n# install from CRAN\ninstall.packages(\"devtools\")\n# attach\nlibrary(devtools)\n\n\n\n\nGitHub, ??? packages\n\n# install via devtools\ndevtools::install_github(\"rstats-wtf/wtfdbg\")\n# attach\nlibrary(wtfdbg)\n\n\n\nwe’ll use wtfdbg later in Debugging"
+  },
+  {
+    "objectID": "index.html#where-do-packages-live-locally",
+    "href": "index.html#where-do-packages-live-locally",
+    "title": "Project oriented workflows",
+    "section": "Where do packages live locally?",
+    "text": "Where do packages live locally?\n\nBy default, in the default library\n.Library\n\nAll libraries for the current session\n.libPaths()\n\nAll installed packages\ninstalled.packages()"
+  },
+  {
+    "objectID": "index.html#syntax-aside-pipes",
+    "href": "index.html#syntax-aside-pipes",
+    "title": "Making Project Work Better with R",
+    "section": "Syntax aside: pipes",
+    "text": "Syntax aside: pipes\n\n2014+ magrittr pipe %&gt;%\n2021+ (R \\(\\geq\\) 4.1.0) native R pipe |&gt;\n\n2022 Isabella Velásquez Understanding the native R pipe |&gt; https://ivelasq.rbind.io/blog/understanding-the-r-pipe/\n\n\n\n\n\nwhatever(arg1, arg2, arg3, ...)\narg1 |&gt;  \n  whatever(arg2, arg3)\n\n\n\n\n\nmean(0:10)\n0:10 |&gt; \n  mean()\n\n\n\nChange CTRL + Shift + M shortcut to native pipe:\nTools -&gt; Global Options -&gt; Code -&gt;\n   Editing -&gt; check Use Native Pipe Operator"
+  },
+  {
+    "objectID": "index.html#syntax-aside-namespacing",
+    "href": "index.html#syntax-aside-namespacing",
+    "title": "Making Project Work Better with R",
+    "section": "Syntax aside: namespacing",
+    "text": "Syntax aside: namespacing\ndplyr::select()\n\ntells R explicitly to use the function select from the package dplyr\ncan help to avoid name conflicts (e.g., MASS::select())\ndoes not require library(dplyr)\n\n\n\n\n\nlibrary(dplyr)\nselect(mtcars, mpg, cyl) \nmtcars |&gt;  \n  select(mpg, cyl) \n\n\n\n\n\n# library(dplyr) not needed\ndplyr::select(mtcars, mpg, cyl) \nmtcars |&gt;  \n  dplyr::select(mpg, cyl)"
+  },
+  {
+    "objectID": "index.html#explore-your-r-installation",
+    "href": "index.html#explore-your-r-installation",
+    "title": "Project oriented workflows",
+    "section": "🧐 Explore your R installation",
+    "text": "🧐 Explore your R installation\n\ninstall.packages(\"usethis\")\nlibrary(usethis)\n# saves project on desktop by default for most users\nuse_course(\"rstats-wtf/wtf-explore-libraries\")\n# use_course(\"rstats-wtf/wtf-explore-libraries\", destdir = \"my/new/location\")\n# can alternatively download from \n# https://github.com/rstats-wtf/wtf-explore-libraries\n\n\nRead the README.md to get started.\n\n01_explore-libraries_spartan.R  (directions to explore without suggested code)\n01_explore-libraries_comfy.R (directions to explore with suggested code)\n01_explore-libraries_solution.R (directions to explore with code solutions)\n\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "index.html#adopt-a-project-oriented-workflow",
+    "href": "index.html#adopt-a-project-oriented-workflow",
+    "title": "Making Project Work Better with R",
+    "section": "Adopt a project-oriented workflow",
+    "text": "Adopt a project-oriented workflow\n\n\n\nWhy\n\nwork on more than 1 thing at a time\nthe things are fairly similar\ncollaborate, communicate, distribute\nstart and stop\n\n\n\n\nHow\n\ndedicated directory\nhave a template to follow\nRStudio Project\nGit repo, probably syncing to a remote"
+  },
+  {
+    "objectID": "index.html#if-the-top-of-your-script-is",
+    "href": "index.html#if-the-top-of-your-script-is",
+    "title": "Making Project Work Better with R",
+    "section": "If the top of your script is",
+    "text": "If the top of your script is\n\n\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nrm(list = ls())\n\n…\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://twitter.com/hadleywickham/status/940021008764846080\nhttps://www.tidyverse.org/articles/2017/12/workflow-vs-script/"
+  },
+  {
+    "objectID": "index.html#which-persist-after-rmlist-ls",
+    "href": "index.html#which-persist-after-rmlist-ls",
+    "title": "Making Project Work Better with R",
+    "section": "Which persist after rm(list = ls())?",
+    "text": "Which persist after rm(list = ls())?\n\n\n\n\n\n\n\nOption\nPersists?\n\n\n\n\nA. library(dplyr)\n\n\n\nB. summary &lt;- head\n\n\n\nC. options(stringsAsFactors = FALSE)\n\n\n\nD. Sys.setenv(LANGUAGE = “fr”)\n\n\n\nE. x &lt;- 1:5\n\n\n\nF. attach(iris)\n\n\n\n\n\n\n\n−+\n02:00"
+  },
+  {
+    "objectID": "index.html#which-persist-after-rmlist-ls-1",
+    "href": "index.html#which-persist-after-rmlist-ls-1",
+    "title": "Making Project Work Better with R",
+    "section": "Which persist after rm(list = ls())?",
+    "text": "Which persist after rm(list = ls())?\n\n\n\n\n\n\n\nOption\nPersists?\n\n\n\n\nA. library(dplyr)\n\n\n\nB. summary &lt;- head\n\n\n\nC. options(stringsAsFactors = FALSE)\n\n\n\nD. Sys.setenv(LANGUAGE = “fr”)\n\n\n\nE. x &lt;- 1:5\n\n\n\nF. attach(iris)"
+  },
+  {
+    "objectID": "index.html#what-does-it-mean-to-be-an-rstudio-project",
+    "href": "index.html#what-does-it-mean-to-be-an-rstudio-project",
+    "title": "Making Project Work Better with R",
+    "section": "What does it mean to be an RStudio Project?",
+    "text": "What does it mean to be an RStudio Project?\n\nRStudio leaves notes to itself in foo.Rproj\n\n\nOpen Project = dedicated instance of RStudio\n\ndedicated R process\nfile browser pointed at Project directory\nworking directory set to Project directory"
+  },
+  {
+    "objectID": "index.html#many-projects-open",
+    "href": "index.html#many-projects-open",
+    "title": "Making Project Work Better with R",
+    "section": "Many projects open",
+    "text": "Many projects open"
+  },
+  {
+    "objectID": "index.html#use-a-blank-slate",
+    "href": "index.html#use-a-blank-slate",
+    "title": "Making Project Work Better with R",
+    "section": "Use a “blank slate”",
+    "text": "Use a “blank slate”\n\n\nusethis::use_blank_slate()\n\n\nOR\n\nTools -&gt; Global Options"
+  },
+  {
+    "objectID": "index.html#restart-r-often",
+    "href": "index.html#restart-r-often",
+    "title": "Making Project Work Better with R",
+    "section": "Restart R often",
+    "text": "Restart R often\n\n\n\nSession -&gt; Restart R\n\n\n\n\nWindows\n\nCtrl + Shift + F10\n\nMac\n\nCmd + Shift + 0\nCmd + Shift + F10"
+  },
+  {
+    "objectID": "index.html#project-initiation-the-local-case",
+    "href": "index.html#project-initiation-the-local-case",
+    "title": "Making Project Work Better with R",
+    "section": "Project initiation: the local case",
+    "text": "Project initiation: the local case\n\nNew folder + make it an RStudio Project\n\n\nusethis::create_project(\"~/i_am_new\")\nFile -&gt; New Project -&gt; New Directory -&gt; New Project\n\n\n\nMake existing folder into an RStudio Project\n\n\nusethis::create_project(\"~/i_exist\")\nFile -&gt; New Project -&gt; Existing Directory\n\n\n\n\nTry option 1 now.\n\n\n\n\n−+\n02:00"
+  },
+  {
+    "objectID": "index.html#on-reproducibility-of-code",
+    "href": "index.html#on-reproducibility-of-code",
+    "title": "Making Project Work Better with R",
+    "section": "On reproducibility of code",
+    "text": "On reproducibility of code\n\n\n\n\n\n\n A large-scale study on research code quality and execution.  Trisovic, A., Lau, M.K., Pasquier, T. et al.  Sci Data 9, 60 (2022).\n\n\nhttps://twitter.com/kjhealy/status/1514169782060429320  https://doi.org/10.1038/s41597-022-01143-6"
+  },
+  {
+    "objectID": "index.html#do-you-know-where-your-files-are",
+    "href": "index.html#do-you-know-where-your-files-are",
+    "title": "Making Project Work Better with R",
+    "section": "Do you know where your files are?",
+    "text": "Do you know where your files are?\n\n\nWorking directory is associated with a specific process or running application.\nFor a newly launched process or application instance, the working directory (probably? usually?) defaults to user’s home directory. Or perhaps the application consults a config file to set the working directory at launch time. This is sort of how I would describe launching an RStudio Project.\n“Working directory” as a concept is not comparable to “home directory”. “Home directory” is a static, persistent thing."
+  },
+  {
+    "objectID": "index.html#practice-safe-paths",
+    "href": "index.html#practice-safe-paths",
+    "title": "Making Project Work Better with R",
+    "section": "Practice “safe paths”",
+    "text": "Practice “safe paths”\n\nrelative to a stable base\n\nuse file system functions\n    not paste(), strsplit(), etc."
+  },
+  {
+    "objectID": "index.html#packages-with-file-system-functions",
+    "href": "index.html#packages-with-file-system-functions",
+    "title": "Making Project Work Better with R",
+    "section": "Packages with file system functions",
+    "text": "Packages with file system functions\n\n\ninstall.packages(\"fs\")\n\nfs = file path handling\n\n\n\ninstall.packages(\"here\")\n\nhere = project-relative paths"
+  },
+  {
+    "objectID": "index.html#examples-of-a-stable-base",
+    "href": "index.html#examples-of-a-stable-base",
+    "title": "Making Project Work Better with R",
+    "section": "Examples of a stable base",
+    "text": "Examples of a stable base\n\nProject directory\n\nhere::here(\"data\", \"raw-data.csv\")\nhere::here(\"data/raw-data.csv\")\n\nAutomatically complete paths with Tab.\n\n\nUser’s home directory\n\nfile.path(\"~\", ...)\nfs::path_home(...)\n\n\n\n\nOfficial location for installed software\n\nlibrary(thingy)\nsystem.file(..., package = \"thingy\")\n\nSee example in gapminder readme.\n\nsee where tilde goes with fs::path_expand(file.path(“~”))"
+  },
+  {
+    "objectID": "index.html#absolute-paths",
+    "href": "index.html#absolute-paths",
+    "title": "Making Project Work Better with R",
+    "section": "Absolute paths",
+    "text": "Absolute paths\nI have nothing against absolute paths.\nSome of my best friends are absolute paths!\nBut don’t hard-wire them into your scripts.\nInstead, form at runtime relative to a stable base\n\n\n&gt; (BAD &lt;- \"/Users/shannon/tmp/test.csv\")\n[1] \"/Users/shannon/tmp/test.csv\"\n\n\n\n\n&gt; (GOOD &lt;- fs::path_home(\"tmp/test.csv\")\n[1] \"/Users/shannon/tmp/test.csv\""
+  },
+  {
+    "objectID": "index.html#practice-safe-paths-1",
+    "href": "index.html#practice-safe-paths-1",
+    "title": "Making Project Work Better with R",
+    "section": "Practice safe paths",
+    "text": "Practice safe paths\n\n\n\n\n\n\n\nUse the here package to build paths inside a project.\nLeave working directory at top-level at all times, during development.\nAbsolute paths are formed at runtime.\n\n\n\nArtwork by @allison_horst."
+  },
+  {
+    "objectID": "index.html#here-example",
+    "href": "index.html#here-example",
+    "title": "Making Project Work Better with R",
+    "section": "here example",
+    "text": "here example\n\nggsave(here::here(\"figs\", \"built-barchart.png\"))\n\n\nWorks on my machine, works on yours!\nWorks even if working directory is in a sub-folder.\nWorks for RStudio Projects, Git repos, R packages, etc.\nWorks with knitr / rmarkdown."
+  },
+  {
+    "objectID": "index.html#herehere",
+    "href": "index.html#herehere",
+    "title": "Making Project Work Better with R",
+    "section": "here::here()",
+    "text": "here::here()\nThe here package is designed to work inside a project, where that could mean:\n\nRStudio Project\nGit repo\nR package\nFolder with a file named .here\n\nhere::here() does not create directories; that’s your job."
+  },
+  {
+    "objectID": "index.html#kinds-of-paths",
+    "href": "index.html#kinds-of-paths",
+    "title": "Making Project Work Better with R",
+    "section": "Kinds of paths",
+    "text": "Kinds of paths\nAbsolute path.\n\ndat &lt;- read.csv(\"C:/Users/pileggis/Documents/wtf-fix-paths/data/installed-packages.csv\")\n\n\nRelative path to working directory, established by the RStudio Project.\n\ndat &lt;- read.csv(\"data/installed-packages.csv\")\n\n\nRelative path within the RStudio Project directory.\n\ndat &lt;- read.csv(here::here(\"data/installed-packages.csv\"))"
+  },
+  {
+    "objectID": "index.html#your-turn",
+    "href": "index.html#your-turn",
+    "title": "Making Project Work Better with R",
+    "section": "Your turn",
+    "text": "Your turn\n\nPractice calling here::here() in a project  to get a feel for it.\n\n\nlibrary(usethis)\n# saves project on desktop by default for most users\nuse_course(\"rstats-wtf/wtf-fix-paths\")\n# use_course(\"rstats-wtf/wtf-fix-paths\", destdir = \"my/new/location\")\n# can alternatively download from \n# https://github.com/rstats-wtf/wtf-fix-paths\n\n Read the README.md to get started.\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "index.html#what-if-my-data-cant-live-in-my-project-directory",
+    "href": "index.html#what-if-my-data-cant-live-in-my-project-directory",
+    "title": "Making Project Work Better with R",
+    "section": "What if my data can’t live in my project directory?",
+    "text": "What if my data can’t live in my project directory?\n\nAre you sure it can’t?\nReview the Good Enough Practices paper for tips.\nCreate a symbolic link to access the data. (fs::link_create(), fs::link_path())\nPut the data in an R package.\nUse pins.\nExplore other data warehousing options.\n\nRStudio Community threads:\n\nProject-oriented workflow; setwd(), rm(list = ls()) and computer fires\nBest way to define paths for a file running on a cron?"
+  },
+  {
+    "objectID": "index.html#section-5",
+    "href": "index.html#section-5",
+    "title": "Project oriented workflows",
+    "section": "",
+    "text": "’Tis but thy name that is my enemy; Thou art thyself, though not a Montague. What’s Montague? It is nor hand, nor foot, Nor arm, nor face, nor any other part Belonging to a man. O, be some other name! What’s in a name? That which we call a rose By any other name would smell as sweet; So Romeo would, were he not Romeo call’d, Retain that dear perfection which he owes Without that title. Romeo, doff thy name; And for thy name, which is no part of thee, Take all myself.\n\n\n\nThis\nis\nnot\ntrue\nfor\nfile\nnames.\n\n\nFrom Danielle Navarro’s Project Structure slides\nhttps://slides.djnavarro.net/"
+  },
+  {
+    "objectID": "index.html#names-matter-1",
+    "href": "index.html#names-matter-1",
+    "title": "Making Project Work Better with R",
+    "section": "Names matter",
+    "text": "Names matter\n\nmachine readable\n\nhuman readable\n\nsort nicely\n\noptimized for tab-complete"
+  },
+  {
+    "objectID": "index.html#section-6",
+    "href": "index.html#section-6",
+    "title": "Project oriented workflows",
+    "section": "",
+    "text": "What features differentiate 😔 vs 😍?\n\n\n\n\n\n😔\n\n\n\n\n😍\n\n\n\n\nmyabstract.docx\nJoe’s Filenames Use Spaces and Punctuation.xlsx\nfigure 1.png\nhomework1.R\nJW7d^(2sl@deletethisandyourcareerisoverWx2*.txt\n\n2018-01_bryan-abstract-rstudio-conf.docx\njoes-filenames-are-getting-better.xlsx\nfig01_scatterplot-talk-length-vs-interest.png\nbryan_hw01.R\n1986-01-28_raw-data-from-challenger-o-rings.txt\n\n\n\n\n−+\n01:00"
+  },
+  {
+    "objectID": "index.html#names-machines-like",
+    "href": "index.html#names-machines-like",
+    "title": "Making Project Work Better with R",
+    "section": "Names machines like",
+    "text": "Names machines like\n\ndon’t leave white space\n\n\n\nuse letters, numbers, hyphens and underscores… that’s it  (characters like ^.*?+|$ can have a special meaning)\n\n\n\n\nbe consistent with case  (some operating systems treat a and A the same, some differently).\n\n\n\n\nuse separator characters wisely\n\n    use underscore _ to separate different chunks\n    use hyphen - for words in the same chunk\n\n\n\nThis creates names that are regular expression and globbing friendly, and easy to compute on! 🎉\n\nAdapted from  https://djnavarro.net/slides-project-structure/#1."
+  },
+  {
+    "objectID": "index.html#names-humans-like",
+    "href": "index.html#names-humans-like",
+    "title": "Making Project Work Better with R",
+    "section": "Names humans like",
+    "text": "Names humans like\n\nname contains info on content\nname anticipates context\nconcept of a slug 🐌 from user-friendly URLs\n\n1986-01-28_raw-data-from-challenger-o-rings.txt\nconcise, meaningful description\nusually appended to the end\n\n\nNote: A URL slug is the part of the URL after the last backslash - important for keyword SEO"
+  },
+  {
+    "objectID": "index.html#names-that-sort-nicely",
+    "href": "index.html#names-that-sort-nicely",
+    "title": "Making Project Work Better with R",
+    "section": "Names that sort nicely",
+    "text": "Names that sort nicely\n\nput something numeric in there\nleft pad with zeros for constant width, nice sorting, 01\nuse the ISO 8601 standard for dates, YYYY-MM-DD\norder = chronological or … consider common sense"
+  },
+  {
+    "objectID": "index.html#iso-8601",
+    "href": "index.html#iso-8601",
+    "title": "Making Project Work Better with R",
+    "section": "ISO 8601",
+    "text": "ISO 8601\n\n\n\n\n\n\n\nYYYY-MM-DD\nISO 8601\n\nhttps://www.iso.org/iso-8601-date-and-time-format.html\n\n\nhttps://twitter.com/JennyBryan/status/816143967695687684"
+  },
+  {
+    "objectID": "index.html#file-names",
+    "href": "index.html#file-names",
+    "title": "Making Project Work Better with R",
+    "section": "👍 file names",
+    "text": "👍 file names\n\n\nAnyone can guess at file’s purpose"
+  },
+  {
+    "objectID": "index.html#file-names-1",
+    "href": "index.html#file-names-1",
+    "title": "Making Project Work Better with R",
+    "section": "👍 file names",
+    "text": "👍 file names\n\nEasy to filter in R (or the shell or whatever)"
+  },
+  {
+    "objectID": "index.html#file-names-2",
+    "href": "index.html#file-names-2",
+    "title": "Making Project Work Better with R",
+    "section": "👍 file names",
+    "text": "👍 file names\n\nIntentional delimiters means meta-data is easily recovered.\n_ delimits fields; - delimits words"
+  },
+  {
+    "objectID": "index.html#file-names-3",
+    "href": "index.html#file-names-3",
+    "title": "Making Project Work Better with R",
+    "section": "👍 file names",
+    "text": "👍 file names\n\nSorts in the same order as you  experience in real life."
+  },
+  {
+    "objectID": "index.html#names-matter-2",
+    "href": "index.html#names-matter-2",
+    "title": "Making Project Work Better with R",
+    "section": "Names matter",
+    "text": "Names matter\n\nmachine readable, human readable, and sort nicely\n\n\neasy to implement NOW\n\npayoffs accumulate as your skills evolve and  projects get more complex"
+  },
+  {
+    "objectID": "index.html#break-logic-and-output-into-pieces",
+    "href": "index.html#break-logic-and-output-into-pieces",
+    "title": "Making Project Work Better with R",
+    "section": "Break logic and output into pieces",
+    "text": "Break logic and output into pieces"
+  },
+  {
+    "objectID": "index.html#process",
+    "href": "index.html#process",
+    "title": "Making Project Work Better with R",
+    "section": "Process",
+    "text": "Process\n\n\nhttps://r4ds.had.co.nz/introduction.html#what-you-will-learn"
+  },
+  {
+    "objectID": "index.html#project-code",
+    "href": "index.html#project-code",
+    "title": "Making Project Work Better with R",
+    "section": "Project code",
+    "text": "Project code\n\n\nsmell.test.R\nwrangle.R\nmodel.R\nmake-figs.R\nreport.Rmd\n\n\n&gt;&gt;&gt;\n\n\n    everything.R"
+  },
+  {
+    "objectID": "index.html#process-and-code",
+    "href": "index.html#process-and-code",
+    "title": "Making Project Work Better with R",
+    "section": "Process and code",
+    "text": "Process and code"
+  },
+  {
+    "objectID": "index.html#project-artifacts",
+    "href": "index.html#project-artifacts",
+    "title": "Making Project Work Better with R",
+    "section": "Project artifacts",
+    "text": "Project artifacts\n\n\nraw-data.xlsx\ndata.csv\nfit.rds\nests.csv\n\n\n&gt;&gt;&gt;\n\n\n.Rdata"
+  },
+  {
+    "objectID": "index.html#process-and-artifacts",
+    "href": "index.html#process-and-artifacts",
+    "title": "Making Project Work Better with R",
+    "section": "Process and artifacts",
+    "text": "Process and artifacts"
+  },
+  {
+    "objectID": "index.html#a-humane-api-for-analysis",
+    "href": "index.html#a-humane-api-for-analysis",
+    "title": "Making Project Work Better with R",
+    "section": "A humane API for analysis",
+    "text": "A humane API for analysis"
+  },
+  {
+    "objectID": "index.html#your-turn-1",
+    "href": "index.html#your-turn-1",
+    "title": "Project oriented workflows",
+    "section": "Your turn",
+    "text": "Your turn\n\nCreate a report that adheres to project organization strategies.\n\n\nlibrary(usethis)\n# saves project on desktop by default for most users\nuse_course(\"rstats-wtf/wtf-packages-report\")\n# use_course(\"rstats-wtf/wtf-packages-report\", destdir = \"my/new/location\")\n# can alternatively download from \n# https://github.com/rstats-wtf/wtf-packages-report\n\n Read the README.md to get started.\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
+    "href": "LICENSE.html#creative-commons-attribution-sharealike-4.0-international-public-license",
+    "title": "Attribution-ShareAlike 4.0 International",
+    "section": "Creative Commons Attribution-ShareAlike 4.0 International Public License",
+    "text": "Creative Commons Attribution-ShareAlike 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\n\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\n\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\nA. reproduce and Share the Licensed Material, in whole or in part; and\nB. produce, reproduce, and Share Adapted Material.\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.\nDownstream recipients.\nA. Offer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nB. __Additional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nC. No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\nA. retain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nB. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nC. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\n\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\n\n\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUnless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.\nTo the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\n\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\n\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.t stated herein are separate from and independent of the terms and conditions of this Public License.\n\n\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org"
+  },
+  {
+    "objectID": "index.html#section-2",
+    "href": "index.html#section-2",
+    "title": "Making Project Work Better with R",
+    "section": "",
+    "text": "’Tis but thy name that is my enemy; Thou art thyself, though not a Montague. What’s Montague? It is nor hand, nor foot, Nor arm, nor face, nor any other part Belonging to a man. O, be some other name! What’s in a name? That which we call a rose By any other name would smell as sweet; So Romeo would, were he not Romeo call’d, Retain that dear perfection which he owes Without that title. Romeo, doff thy name; And for thy name, which is no part of thee, Take all myself.\n\n\n\nThis\nis\nnot\ntrue\nfor\nfile\nnames.\n\n\nFrom Danielle Navarro’s Project Structure slides\nhttps://slides.djnavarro.net/"
+  },
+  {
+    "objectID": "index.html#section-3",
+    "href": "index.html#section-3",
+    "title": "Making Project Work Better with R",
+    "section": "",
+    "text": "What features differentiate 😔 vs 😍?\n\n\n\n\n\n😔\n\n\n\n\n😍\n\n\n\n\nmyabstract.docx\nJoe’s Filenames Use Spaces and Punctuation.xlsx\nfigure 1.png\nhomework1.R\nJW7d^(2sl@deletethisandyourcareerisoverWx2*.txt\n\n2018-01_bryan-abstract-rstudio-conf.docx\njoes-filenames-are-getting-better.xlsx\nfig01_scatterplot-talk-length-vs-interest.png\nbryan_hw01.R\n1986-01-28_raw-data-from-challenger-o-rings.txt\n\n\n\n\n−+\n01:00"
+  },
+  {
+    "objectID": "index.html#maxs-preference",
+    "href": "index.html#maxs-preference",
+    "title": "Making Project Work Better with R",
+    "section": "Max’s Preference",
+    "text": "Max’s Preference\n\nraw_data: original source data (e.g., xls*, csv, images, etc)\ncode: source files for import, preprocessing, analysis, summaries\nrdata: location for any {.RData, .rds, .rda} files that will be used later\nreports: files and sub-directories created for dissemination ([Rq]md files).\nexports: objects that are given to someone else (e.g., model object, shiny app)\n\n\nSubjective but thought out."
+  },
+  {
+    "objectID": "index.html#a-little-bit-on-automation",
+    "href": "index.html#a-little-bit-on-automation",
+    "title": "Project oriented workflows",
+    "section": "A little bit on automation",
+    "text": "A little bit on automation\nIf your project requires many computing iterations because it:\n\nrequires a lot of data transformations and\nthe rows may change (in number or value)\n\nthen think about how you would automate some parts.\n\nUsing makefiles or the targets package could be a lifesaver.\n\nYou’ll want to make sure that the raw data and intermediary data are consistent with the results that you are giving to your clients."
+  },
+  {
+    "objectID": "index.html#a-little-bit-on-partial-automation",
+    "href": "index.html#a-little-bit-on-partial-automation",
+    "title": "Making Project Work Better with R",
+    "section": "A little bit on partial automation",
+    "text": "A little bit on partial automation\nIf your project requires many computing iterations because it:\n\nrequires a lot of data transformations and\nthe rows may change (in number or value)\n\nthen think about how you would automate some parts.\n\nUsing makefiles or the targets package could be a lifesaver.\n\nYou’ll want to make sure that the raw data and intermediary data are consistent with the results that you are giving to your clients.\n\nBut you probably can’t automate interpretation."
+  },
+  {
+    "objectID": "index.html#syntax-aside-tildes",
+    "href": "index.html#syntax-aside-tildes",
+    "title": "Making Project Work Better with R",
+    "section": "Syntax aside: tildes",
+    "text": "Syntax aside: tildes\nIn a character string, what does \"~\" indicate?\n\n\nThe home directory on your computer.\n\n\n\n\nFor example, on my mac, it is /Users/max\n\nOn windows it is the user’s home directory.\nProbably at:\n\nC:\\Users\\username\nbut really it is wherever %UserProfile% points to\n\n\n \n\n\nYou should never use absolute paths but, if you do, make them platform agnostic using the tilde."
+  },
+  {
+    "objectID": "index.html#predictors-of-reproductive-toxicity",
+    "href": "index.html#predictors-of-reproductive-toxicity",
+    "title": "Making Project Work Better with R",
+    "section": "Predictors of reproductive toxicity",
+    "text": "Predictors of reproductive toxicity\nOriginal GH repo for publication (circa 2012):\nhttps://github.com/topepo/steroidogenic_tox\n\n\nRefactored to look like a modern data analysis project:\nhttps://github.com/topepo/steroidogenic-tox-wtf\n\n\n\nNormally, I would put the Quarto report/summary in a reports directory but using index.qmd I get a free website out of it."
+  },
+  {
+    "objectID": "index.html#maxs-preference-1",
+    "href": "index.html#maxs-preference-1",
+    "title": "Making Project Work Better with R",
+    "section": "Max’s Preference",
+    "text": "Max’s Preference\n\nusethis::create_project(\"~/potato\")\n\n# ... wait for it\n\nfs::dir_ls()\n\nfs::dir_delete(\"R\")\n\npurrr::walk(\n  c(\"code\", \"rdata\", \"raw_data\", \"reports\", \"exports\"),\n  fs::dir_create\n)"
+  },
+  {
+    "objectID": "index.html#get-git-vaccinated",
+    "href": "index.html#get-git-vaccinated",
+    "title": "Making Project Work Better with R",
+    "section": "Get (git) vaccinated!!!",
+    "text": "Get (git) vaccinated!!!\n\n\n\n\n\n\n\nusethis::git_vaccinate()\n\n\nAdds .Rproj.user, .Rhistory, .Rdata, .httr-oauth, .DS_Store, and .quarto to your global (a.k.a. user-level) .gitignore. This is good practice as it decreases the chance that you will accidentally leak credentials to GitHub."
+  }
+]
