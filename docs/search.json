@@ -116,7 +116,7 @@
     "href": "index.html#if-the-top-of-your-script-is",
     "title": "Making Project Work Better with R",
     "section": "If the top of your script is",
-    "text": "If the top of your script is\n\n\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nrm(list = ls())\n\n\nJenny will come into your your office and SET YOUR COMPUTER ON FIRE 🔥.\n\n\nProject-oriented workflow designs this away. 🙌\n\n\nhttps://twitter.com/hadleywickham/status/940021008764846080\nhttps://www.tidyverse.org/articles/2017/12/workflow-vs-script/\nhttps://rstats.wtf/project-oriented-workflow.html"
+    "text": "If the top of your script is\n\n\nsetwd(\"C:\\Users\\jenny\\path\\that\\only\\I\\have\")\nrm(list = ls())\n\n…\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://twitter.com/hadleywickham/status/940021008764846080\nhttps://www.tidyverse.org/articles/2017/12/workflow-vs-script/"
   },
   {
     "objectID": "index.html#which-persist-after-rmlist-ls",

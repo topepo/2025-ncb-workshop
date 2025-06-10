@@ -348,22 +348,36 @@ setwd("C:\Users\jenny\path\that\only\I\have")
 rm(list = ls())
 ```
 
-<br>
+...
 
-Jenny will come into your your office and SET YOUR COMPUTER ON FIRE 🔥.
 
-<br>
+. . . 
 
-::: {.fragment fragment-index="1"}
-Project-oriented workflow designs this away. 🙌
+:::: {.columns}
+
+::: {.column width="7%"}
+
 :::
+
+::: {.column width="40%"}
+![](img/fire-1.jpeg)
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="40%"}
+![](img/fire-2.jpeg)
+:::
+
+::::
 
 ::: footer
 <https://twitter.com/hadleywickham/status/940021008764846080>
 
 <https://www.tidyverse.org/articles/2017/12/workflow-vs-script/>
 
-<https://rstats.wtf/project-oriented-workflow.html>
 :::
 
 ## Which persist after rm(list = ls())?
@@ -459,7 +473,7 @@ usethis::git_vaccinate()
 
 <br>
 
-> Adds `.Rproj.user`, `.Rhistory`, `.Rdata`, `.httr-oauth`, .`DS_Stor`e, and `.quarto` to your global (a.k.a. user-level) `.gitignore`. This is good practice as it decreases the chance that you will accidentally leak credentials to GitHub.
+> Adds `.Rproj.user`, `.Rhistory`, `.Rdata`, `.httr-oauth`, `.DS_Store`, and `.quarto` to your global (a.k.a. user-level) `.gitignore`. This is good practice as it decreases the chance that you will accidentally leak credentials to GitHub.
 
 :::
 ::::::
