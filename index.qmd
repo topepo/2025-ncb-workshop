@@ -1,7 +1,7 @@
 ---
-title: "Project oriented workflows"
-author: "Max Kuhn, E. David Aja, Shannon Pileggi"
-footer:  "[Project oriented workflows]()"
+title: "Making Project Work Better with R"
+author: "Max Kuhn, E. David Aja, and others"
+footer:  "[Making Project Work Better with R]()"
 logo: "img/wtf-logo-square-transparent.png"
 format: 
   revealjs: 
@@ -108,8 +108,12 @@ For example, on my mac, it is `/Users/max`
 
 ::: {.column width="50%"}
 
-On windows it is the user's homew directory (aka `%USERPROFILE%` environment variable)
+On windows it is the user's home directory. 
 
+_Probably_ at:
+
+ - `C:\Users\username`
+ - but really it is wherever `%UserProfile%` points to
 :::
 
 ::::
@@ -448,13 +452,15 @@ Tools -\> Global Options
 
 ::: {.column width="46%"}
 
-> Adds `.Rproj.user`, `.Rhistory`, `.Rdata`, `.httr-oauth`, .`DS_Stor`e, and `.quarto` to your global (a.k.a. user-level) `.gitignore`. This is good practice as it decreases the chance that you will accidentally leak credentials to GitHub.
-
-<br>
 
 ```r
 usethis::git_vaccinate()
 ```
+
+<br>
+
+> Adds `.Rproj.user`, `.Rhistory`, `.Rdata`, `.httr-oauth`, .`DS_Stor`e, and `.quarto` to your global (a.k.a. user-level) `.gitignore`. This is good practice as it decreases the chance that you will accidentally leak credentials to GitHub.
+
 :::
 ::::::
 

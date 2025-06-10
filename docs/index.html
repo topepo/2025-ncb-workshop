@@ -9,8 +9,8 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-732fb9ccd080a018ca85ca5d15770f52.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.31">
 
-  <meta name="author" content="Max Kuhn, E. David Aja, Shannon Pileggi">
-  <title>Making Project Work Better with R – Project oriented workflows</title>
+  <meta name="author" content="Max Kuhn, E. David Aja, and others">
+  <title>Making Project Work Better with R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -195,12 +195,12 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Project oriented workflows</h1>
+  <h1 class="title">Making Project Work Better with R</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Max Kuhn, E. David Aja, Shannon Pileggi 
+Max Kuhn, E. David Aja, and others 
 </div>
 </div>
 </div>
@@ -265,7 +265,12 @@ Max Kuhn, E. David Aja, Shannon Pileggi
 <div class="column" style="width:50%;">
 <p>For example, on my mac, it is <code>/Users/max</code></p>
 </div><div class="column" style="width:50%;">
-<p>On windows it is the user’s homew directory (aka <code>%USERPROFILE%</code> environment variable)</p>
+<p>On windows it is the user’s home directory.</p>
+<p><em>Probably</em> at:</p>
+<ul>
+<li><code>C:\Users\username</code></li>
+<li>but really it is wherever <code>%UserProfile%</code> points to</li>
+</ul>
 </div></div>
 <p><br> <br></p>
 </div>
@@ -496,7 +501,7 @@ Max Kuhn, E. David Aja, Shannon Pileggi
 </table>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_70025248" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_2f317826" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -584,11 +589,11 @@ Max Kuhn, E. David Aja, Shannon Pileggi
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:46%;">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>usethis<span class="sc">::</span><span class="fu">git_vaccinate</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
 <blockquote>
 <p>Adds <code>.Rproj.user</code>, <code>.Rhistory</code>, <code>.Rdata</code>, <code>.httr-oauth</code>, .<code>DS_Stor</code>e, and <code>.quarto</code> to your global (a.k.a. user-level) <code>.gitignore</code>. This is good practice as it decreases the chance that you will accidentally leak credentials to GitHub.</p>
 </blockquote>
-<p><br></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>usethis<span class="sc">::</span><span class="fu">git_vaccinate</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="restart-r-often" class="slide level2">
@@ -636,7 +641,7 @@ Max Kuhn, E. David Aja, Shannon Pileggi
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_aebcbf6d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_eafe96bf" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -838,7 +843,7 @@ Max Kuhn, E. David Aja, Shannon Pileggi
 <p><br> Read the <code>README.md</code> to get started.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_01ebdbd7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_5c4b4065" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -931,7 +936,7 @@ Max Kuhn, E. David Aja, Shannon Pileggi
 </div></div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_528a372d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_0ae6c0a9" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1171,7 +1176,7 @@ Max Kuhn, E. David Aja, Shannon Pileggi
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="img/wtf-logo-square-transparent.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="">Project oriented workflows</a></p>
+<p><a href="">Making Project Work Better with R</a></p>
 </div>
 </div></div>
 
