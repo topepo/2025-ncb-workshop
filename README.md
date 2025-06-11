@@ -47,7 +47,7 @@ See the discussion in Install or upgrade R and RStudio: https://happygitwithr.co
 install.packages("pak")
 library(pak)
 
-pkgs <- c("cli", "epoxy", "fs", "glue", "gtExtras", "gtsummary", "hadley/emo", 
+pkgs <- c("cli", "devtools", "epoxy", "fs", "glue", "gtExtras", "gtsummary", "hadley/emo", 
           "here", "prettyunits", "rmarkdown", "tidyverse", "usethis", "xfun")
 pak(pkgs)
 ```
