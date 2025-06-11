@@ -44,10 +44,6 @@ See the discussion in Install or upgrade R and RStudio: https://happygitwithr.co
 2. Install packages
 
 ```r
-#| label: inst
-#| eval: false
-#| echo: true
-
 install.packages("pak")
 library(pak)
 
