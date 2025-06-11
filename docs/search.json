@@ -11,7 +11,7 @@
     "href": "index.html#checklist",
     "title": "Making Project Work Better with R",
     "section": "Checklist",
-    "text": "Checklist\n\n R installed? Pretty recent?\n     Recommended R ≥ 4.3.0\n RStudio installed?\n     I’m on 2023.06.1 Build 524     \n Packages?\ninstall.packages(c(\"tidyverse\", \"rmarkdown\", \"usethis\", \"fs\", \"here\"))"
+    "text": "Checklist\n\n R installed? Pretty recent?\n     Recommended R ≥ 4.4.1 (4.5.0 has 🐧 though)\n RStudio installed?\n Packages?\n\ninstall.packages(\"pak\")\nlibrary(pak)\n\npkgs &lt;- c(\"cli\", \"epoxy\", \"fs\", \"glue\", \"gtExtras\", \"gtsummary\", \"hadley/emo\", \n          \"here\", \"prettyunits\", \"rmarkdown\", \"tidyverse\", \"usethis\", \"xfun\")\npak(pkgs)"
   },
   {
     "objectID": "index.html#resources",
@@ -431,7 +431,7 @@
     "href": "index.html#a-little-bit-on-partial-automation",
     "title": "Making Project Work Better with R",
     "section": "A little bit on partial automation",
-    "text": "A little bit on partial automation\nIf your project requires many computing iterations because it:\n\nrequires a lot of data transformations and\nthe rows may change (in number or value)\n\nthen think about how you would automate some parts.\n\nUsing makefiles or the targets package could be a lifesaver.\n\nYou’ll want to make sure that the raw data and intermediary data are consistent with the results that you are giving to your clients.\n\nBut you probably can’t automate interpretation."
+    "text": "A little bit on partial automation\nIf your project requires many computing iterations because:\n\nthe project requires a lot of data transformations and\nthe rows may change (in number or value)\n\nthen think about how you would automate some parts.\n\nUsing makefiles or the targets package could be a lifesaver.\n\nYou’ll want to make sure that the raw data and intermediary data are consistent with the results you give to your clients.\n\nBut you probably can’t automate interpretation."
   },
   {
     "objectID": "index.html#syntax-aside-tildes",
@@ -460,5 +460,131 @@
     "title": "Making Project Work Better with R",
     "section": "Get (git) vaccinated!!!",
     "text": "Get (git) vaccinated!!!\n\n\n\n\n\n\n\nusethis::git_vaccinate()\n\n\nAdds .Rproj.user, .Rhistory, .Rdata, .httr-oauth, .DS_Store, and .quarto to your global (a.k.a. user-level) .gitignore. This is good practice as it decreases the chance that you will accidentally leak credentials to GitHub."
+  },
+  {
+    "objectID": "index.html#syntax-aside-rmdqmd-chunk-options",
+    "href": "index.html#syntax-aside-rmdqmd-chunk-options",
+    "title": "Making Project Work Better with R",
+    "section": "Syntax aside: Rmd/qmd chunk options",
+    "text": "Syntax aside: Rmd/qmd chunk options\n\nWe’ve probably all be used to a knitr computing chunk that looks like this:\n```{r chunk_name, echo = TRUE, eval = FALSE}\n\nsummary(mtcars)\n```\n\n\nThe more modern version uses yaml arguments:\n```{r}\n#| label: chunk_name\n#| echo: true\n#| eval: false\n\nsummary(mtcars)\n```"
+  },
+  {
+    "objectID": "index.html#whats-your-horror-story",
+    "href": "index.html#whats-your-horror-story",
+    "title": "Making Project Work Better with R",
+    "section": "What’s your horror story?",
+    "text": "What’s your horror story?\nSo many of my projects went through different rounds of adding and removing rows of data.\n\nThe cascading effect wreaks havoc on reports, tables, and interpretation.\n\nSomeone tell their worst experience (or I will)\n\nHow can you avoid as much of this as possible?"
+  },
+  {
+    "objectID": "index.html#treat-writing-like-coding",
+    "href": "index.html#treat-writing-like-coding",
+    "title": "Making Project Work Better with R",
+    "section": "Treat writing like coding",
+    "text": "Treat writing like coding\n\nWrite for the most general result.\nNever hard-code a number\nThink about the end result. What format will it be?\n\nThe lesson of most of this workshop is"
+  },
+  {
+    "objectID": "index.html#cli-and-glue",
+    "href": "index.html#cli-and-glue",
+    "title": "Making Project Work Better with R",
+    "section": "cli and glue",
+    "text": "cli and glue\n\nThese two packages have excellent features for writing text from data.\nThey do many of the same things and your preference may vary.\nglue tends to be better for simple things\ncli can do more, especially for writing output in your code\nSites of interest:\n\nhttps://glue.tidyverse.org/\nhttps://cli.r-lib.org/\ncli pluralization\ncli inline formatting\n\n\n\nAlso, the epoxy package extends glue."
+  },
+  {
+    "objectID": "index.html#the-cli-package",
+    "href": "index.html#the-cli-package",
+    "title": "Making Project Work Better with R",
+    "section": "The cli package …",
+    "text": "The cli package …\n\nlibrary(cli)\n\nnum_samples &lt;- 12\ngroups &lt;- c(\"control\", \"low dose\", \"high dose\")\n\nformat_inline(\"{num_samples} sample{?s} {?was/were} available with groups: {groups}\")\n\n# This gives us:\n\n\n12 samples were available with groups: control, low dose, and high dose"
+  },
+  {
+    "objectID": "index.html#and-friends",
+    "href": "index.html#and-friends",
+    "title": "Making Project Work Better with R",
+    "section": "… and friends",
+    "text": "… and friends\n\nlibrary(xfun)  # numbers_to_words()\nlibrary(tools) # toTitleCase()\n\n# Order counts in the nested braces:\nformat_inline(\n  \"{numbers_to_words(qty(groups))} {qty(groups)}group{?s}: \n   {.or {.val {toTitleCase(groups)}}}\",\n   keep_whitespace = FALSE) \n\n# Now we have: \n\n\nthree groups: “Control”, “Low Dose”, or “High Dose”"
+  },
+  {
+    "objectID": "index.html#nice-data-conversions",
+    "href": "index.html#nice-data-conversions",
+    "title": "Making Project Work Better with R",
+    "section": "Nice data conversions",
+    "text": "Nice data conversions\n\nlibrary(scales)\n\nord &lt;- scales::label_ordinal()\nscale_p &lt;- scales::pvalue_format() # or prettyunits::pretty_p_value()\n\npvals &lt;- c(0.02, 0.000001)\nformat_inline(\"The { {ord(1:2)} } p-values were {scale_p(pvals)}\")\n\n\nThe 1st and 2nd p-values were 0.020 and &lt;0.001\n\n\n\nlibrary(emo)\nlibrary(prettyunits)\n\nduration &lt;- as.difftime(20.214, units = \"hours\")\nformat_inline(\"{ji('horror')} this workshop feels {pretty_dt(duration)} long\")\n\n\n😱 this workshop feels 20h 12m 50.4s long"
+  },
+  {
+    "objectID": "index.html#writing-longer-text",
+    "href": "index.html#writing-longer-text",
+    "title": "Making Project Work Better with R",
+    "section": "Writing longer text",
+    "text": "Writing longer text\nYou can make a glue chunk as long as there is no line break or empty lines.\n\n```{glue}\n#| label: glue-it\n#| results: asis\n#| echo: false\nDid I say that there were **{length(groups)} groups** and _{num_samples}_ samples?\n```\nDid I say that there were 3 groups and 12 samples?"
+  },
+  {
+    "objectID": "index.html#writing-longer-text-with-epoxy",
+    "href": "index.html#writing-longer-text-with-epoxy",
+    "title": "Making Project Work Better with R",
+    "section": "Writing longer text with epoxy",
+    "text": "Writing longer text with epoxy\nAfter loading epoxy you can make that type of chunk with line breaks and empty lines:\n\n```{epoxy}\n#| label: epoxy-ramble\n#| echo: false\nI was talking to by boss yesterday and he told me about priorities\n{.and paste0(\"1\", letters[1:3])}. I said {.emph \"'You can't be serious!'\"}. \nAnyway the text in this chunk went to a new\nline just to make a point. \n\n&lt;br&gt; \n  \n{ji(\"point_up_2\")} was an empty line and `&lt;br&gt;`!\n```\n\nI was talking to by boss yesterday and he told me about priorities 1a, 1b, and 1c. I said ‘You can’t be serious!’. Anyway the text in this chunk went to a new line just to make a point.\n\n👆 was an empty line and &lt;br&gt;!"
+  },
+  {
+    "objectID": "index.html#options-for-tables",
+    "href": "index.html#options-for-tables",
+    "title": "Making Project Work Better with R",
+    "section": "Options for tables",
+    "text": "Options for tables\nYou might want to keep a browser tab open with the Reproducible Research CRAN Task View.\n\nThe primary contenders are:\n\nkableExtra\ngt\n\n\n\ngt is my choice based on its design and support, but also because of extensions:\n\ngtsummary\ngtExtras\n\n(I don’t convert many reports to Word though)"
+  },
+  {
+    "objectID": "index.html#gt-is-very-tidyverse",
+    "href": "index.html#gt-is-very-tidyverse",
+    "title": "Making Project Work Better with R",
+    "section": "gt is very tidyverse",
+    "text": "gt is very tidyverse\n\n\n\n\nlibrary(tidyverse)\nlibrary(gt)\n\nset.seed(382)\nselect_penguins &lt;- \n  penguins |&gt; \n  slice_sample(n = 3, by = species) |&gt; \n  select(species, contains(\"bill\"), year)\n\nselect_penguins |&gt; \n  gt()\n\n\n\n\n\n\n\n\n\n\nspecies\nbill_len\nbill_dep\nyear\n\n\n\n\nAdelie\n39.8\n19.1\n2007\n\n\nAdelie\n40.6\n17.2\n2009\n\n\nAdelie\n39.2\n21.1\n2007\n\n\nGentoo\n49.1\n14.5\n2009\n\n\nGentoo\n50.0\n16.3\n2007\n\n\nGentoo\n47.7\n15.0\n2008\n\n\nChinstrap\n58.0\n17.8\n2007\n\n\nChinstrap\n51.7\n20.3\n2007\n\n\nChinstrap\n50.5\n19.6\n2007"
+  },
+  {
+    "objectID": "index.html#gt-is-very-tidyverse-1",
+    "href": "index.html#gt-is-very-tidyverse-1",
+    "title": "Making Project Work Better with R",
+    "section": "gt is very tidyverse",
+    "text": "gt is very tidyverse\n\n\n\n\nselect_penguins |&gt; \n  gt() |&gt; \n  cols_label(\n    contains(\"bill_len\") ~ \"length\",\n    contains(\"bill_dep\") ~ \"depth\"\n  )\n\n\n\n\n\n\n\n\n\n\nspecies\nlength\ndepth\nyear\n\n\n\n\nAdelie\n39.8\n19.1\n2007\n\n\nAdelie\n40.6\n17.2\n2009\n\n\nAdelie\n39.2\n21.1\n2007\n\n\nGentoo\n49.1\n14.5\n2009\n\n\nGentoo\n50.0\n16.3\n2007\n\n\nGentoo\n47.7\n15.0\n2008\n\n\nChinstrap\n58.0\n17.8\n2007\n\n\nChinstrap\n51.7\n20.3\n2007\n\n\nChinstrap\n50.5\n19.6\n2007"
+  },
+  {
+    "objectID": "index.html#gt-is-very-tidyverse-2",
+    "href": "index.html#gt-is-very-tidyverse-2",
+    "title": "Making Project Work Better with R",
+    "section": "gt is very tidyverse",
+    "text": "gt is very tidyverse\n\n\n\n\nselect_penguins |&gt; \n  gt() |&gt; \n  cols_label(\n    contains(\"bill_len\") ~ \"length\",\n    contains(\"bill_dep\") ~ \"depth\"\n  ) |&gt; \n  tab_spanner(\n    label = \"Bill\", \n    columns = contains(\"bill\")\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nspecies\n\nBill\n\nyear\n\n\nlength\ndepth\n\n\n\n\nAdelie\n39.8\n19.1\n2007\n\n\nAdelie\n40.6\n17.2\n2009\n\n\nAdelie\n39.2\n21.1\n2007\n\n\nGentoo\n49.1\n14.5\n2009\n\n\nGentoo\n50.0\n16.3\n2007\n\n\nGentoo\n47.7\n15.0\n2008\n\n\nChinstrap\n58.0\n17.8\n2007\n\n\nChinstrap\n51.7\n20.3\n2007\n\n\nChinstrap\n50.5\n19.6\n2007\n\n\n\n\n\n\n\n\netcetera, etcetera"
+  },
+  {
+    "objectID": "index.html#cross-referencing-in-quarto",
+    "href": "index.html#cross-referencing-in-quarto",
+    "title": "Making Project Work Better with R",
+    "section": "Cross-referencing in Quarto",
+    "text": "Cross-referencing in Quarto\n\n\n\nBefore:\n```{r}\n#| label: some-penguins\n\nselect_penguins |&gt; \n  gt() |&gt; \n  cols_label(\n    contains(\"bill_len\") ~ \"length\",\n    contains(\"bill_dep\") ~ \"depth\"\n  ) |&gt; \n  tab_spanner(\n    label = \"Bill\", \n    columns = contains(\"bill\")\n  )\n```\n\nAfter:\n```{r}\n#| label: tbl-some-penguins\n#| tbl-cap: \"These penguins are the best.\"\nselect_penguins |&gt; \n  gt() |&gt; \n  cols_label(\n    contains(\"bill_len\") ~ \"length\",\n    contains(\"bill_dep\") ~ \"depth\"\n  ) |&gt; \n  tab_spanner(\n    label = \"Bill\", \n    columns = contains(\"bill\")\n  )\n```\n\n\nIn our report, we can use @tbl-some-penguins to produce Table 1."
+  },
+  {
+    "objectID": "index.html#gtsummary-descriptive-statistics",
+    "href": "index.html#gtsummary-descriptive-statistics",
+    "title": "Making Project Work Better with R",
+    "section": "gtsummary descriptive statistics",
+    "text": "gtsummary descriptive statistics\n\n\n\n\npenguins |&gt; \ntbl_summary(\n  include = c(bill_len, bill_dep, island),\n  by = species\n) |&gt; \n  add_n() |&gt; \n  add_p() |&gt; \n  modify_header(label = \"**Predictor**\") |&gt; \n  bold_labels()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPredictor\nN\nAdelie\nN = 1521\nChinstrap\nN = 681\nGentoo\nN = 1241\np-value2\n\n\n\n\nbill_len\n342\n38.8 (36.7, 40.8)\n49.6 (46.3, 51.2)\n47.3 (45.3, 49.6)\n&lt;0.001\n\n\n    Unknown\n\n\n1\n0\n1\n\n\n\n\nbill_dep\n342\n18.40 (17.50, 19.00)\n18.45 (17.50, 19.40)\n15.00 (14.20, 15.70)\n&lt;0.001\n\n\n    Unknown\n\n\n1\n0\n1\n\n\n\n\nisland\n344\n\n\n\n\n\n\n&lt;0.001\n\n\n    Biscoe\n\n\n44 (29%)\n0 (0%)\n124 (100%)\n\n\n\n\n    Dream\n\n\n56 (37%)\n68 (100%)\n0 (0%)\n\n\n\n\n    Torgersen\n\n\n52 (34%)\n0 (0%)\n0 (0%)\n\n\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n2 Kruskal-Wallis rank sum test; Pearson’s Chi-squared test"
+  },
+  {
+    "objectID": "index.html#gtsummary-model-summaries",
+    "href": "index.html#gtsummary-model-summaries",
+    "title": "Making Project Work Better with R",
+    "section": "gtsummary model summaries",
+    "text": "gtsummary model summaries\n\n\n\n\nlm(bill_len ~ bill_dep + species, data = penguins,\n   na.action = \"na.omit\") |&gt;\n  tbl_regression()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nBeta\n95% CI\np-value\n\n\n\n\nbill_dep\n1.4\n1.2, 1.6\n&lt;0.001\n\n\nspecies\n\n\n\n\n\n\n\n\n    Adelie\n—\n—\n\n\n\n\n    Chinstrap\n9.9\n9.2, 11\n&lt;0.001\n\n\n    Gentoo\n13\n12, 14\n&lt;0.001\n\n\n\nAbbreviation: CI = Confidence Interval"
+  },
+  {
+    "objectID": "index.html#gtextras-descriptive-statistics-plot",
+    "href": "index.html#gtextras-descriptive-statistics-plot",
+    "title": "Making Project Work Better with R",
+    "section": "gtExtras descriptive statistics + plot",
+    "text": "gtExtras descriptive statistics + plot\n\n\n\n\nvertical_penguins &lt;- \n  penguins |&gt;\n  select(-island, -species, -sex, -year) |&gt;\n  pivot_longer(\n    everything(), \n    names_to = \"Variable\", values_to = \"value\"\n  ) |&gt;\n  summarize(\n    Mean = mean(value, na.rm = TRUE),\n    `Std. Dev` = sd(value, na.rm = TRUE),\n    Missing = mean(is.na(value)),\n    Distribution = list(value),\n    .by = c(Variable)\n  ) \n\n\nvertical_penguins |&gt; \n  gt() |&gt; \n  fmt_number(columns = c(-Distribution), n_sigfig = 3) |&gt;\n  gt_plt_dist(\n    Distribution, type = \"histogram\",\n    line_color = \"#222\", fill_color = \"white\",\n    same_limit = FALSE\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nMean\nStd. Dev\nMissing\nDistribution\n\n\n\n\nbill_len\n43.9\n5.46\n0.00581\n\n\n\n   \n\n\n\nbill_dep\n17.2\n1.97\n0.00581\n\n\n\n   \n\n\n\nflipper_len\n201\n14.1\n0.00581\n\n\n\n   \n\n\n\nbody_mass\n4,200\n802\n0.00581\n\n\n\n   \n\n\n\n\n\n\n\n\n\nAdd a gt_theme_dark():\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nMean\nStd. Dev\nMissing\nDistribution\n\n\n\n\nbill_len\n43.9\n5.46\n0.00581\n\n\n\n   \n\n\n\nbill_dep\n17.2\n1.97\n0.00581\n\n\n\n   \n\n\n\nflipper_len\n201\n14.1\n0.00581\n\n\n\n   \n\n\n\nbody_mass\n4,200\n802\n0.00581"
+  },
+  {
+    "objectID": "index.html#figures",
+    "href": "index.html#figures",
+    "title": "Making Project Work Better with R",
+    "section": "Figures",
+    "text": "Figures\nLike tables, Quarto has excellent cross-referencing\n\nuse label: fig-plot to reference @fig-plot later\n\n\n\nThe two best resources about plots that I know:\n\nTaking Control of Plot Scaling\nFonts in R\n\nBoth by Thomas Lin Pedersen.\nThe first post shows how to scale your ggplot so that your points and text are not too large or small."
   }
 ]
