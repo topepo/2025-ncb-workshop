@@ -48,7 +48,7 @@ install.packages("pak")
 library(pak)
 
 pkgs <- c("cli", "devtools", "epoxy", "fs", "glue", "gtExtras", "gtsummary", "hadley/emo", 
-          "here", "prettyunits", "rmarkdown", "tidyverse", "usethis", "xfun")
+          "here", "prettyunits", "renv", "rmarkdown", "tidyverse", "usethis", "xfun")
 pak(pkgs)
 ```
 
