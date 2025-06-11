@@ -41,7 +41,20 @@ You can find older versions of R [at this link for Windows](https://cran.r-proje
 
 See the discussion in Install or upgrade R and RStudio: https://happygitwithr.com/install-r-rstudio.html#install-r-rstudio
 
-2. Install the following packages: `install.packages(c("tidyverse", "rmarkdown", "usethis", "fs", "here", "renv", "devtools"))`
+2. Install packages
+
+```r
+#| label: inst
+#| eval: false
+#| echo: true
+
+install.packages("pak")
+library(pak)
+
+pkgs <- c("cli", "epoxy", "fs", "glue", "gtExtras", "gtsummary", "hadley/emo", 
+          "here", "prettyunits", "rmarkdown", "tidyverse", "usethis", "xfun")
+pak(pkgs)
+```
 
 3. Please make sure your system is ready to build packages. You can  confirm this by checking if `devtools::has_devel()` returns `Your system is ready to build packages!`.  If this returns `Could not find tools necessary to compile a package` this indicates your system needs additional tools - please see https://rstats-wtf.github.io/wtf-personal-radmin-slides/#/how-to-get-the-tools to identify what to install for your OS.
 
