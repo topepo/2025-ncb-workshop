@@ -6,7 +6,11 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-732fb9ccd080a018ca85ca5d15770f52.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-732fb9ccd080a018ca85ca5d15770f52.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
+<link href="site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.31">
 
   <meta name="author" content="Max Kuhn, E. David Aja, and others">
@@ -187,6 +191,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <link href="site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
   <script src="site_libs/countdown-0.4.0/countdown.js"></script>
 </head>
@@ -533,7 +540,7 @@ Max Kuhn, E. David Aja, and others
 </table>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_9c07d07d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_eecc57ab" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -673,7 +680,7 @@ Max Kuhn, E. David Aja, and others
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_7b40a41d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_0a5565bd" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -875,7 +882,7 @@ Max Kuhn, E. David Aja, and others
 <p><br> Read the <code>README.md</code> to get started.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_6eff61ad" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_254923da" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -968,7 +975,7 @@ Max Kuhn, E. David Aja, and others
 </div></div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_19d209b3" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_4d370e43" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1321,7 +1328,7 @@ Max Kuhn, E. David Aja, and others
 <span id="cb27-5"><a></a><span class="fu">format_inline</span>(<span class="st">"{ji('horror')} this workshop feels {pretty_dt(duration)} long"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote>
-<p>😱 this workshop feels 20h 12m 50.4s long</p>
+<p>🙀 this workshop feels 20h 12m 50.4s long</p>
 </blockquote>
 </section>
 <section id="writing-longer-text" class="slide level2">
@@ -3540,7 +3547,7 @@ N = 152<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 N = 68<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
 <th id="stat_3" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Gentoo</strong><br>
 N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
-<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
@@ -3550,7 +3557,8 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 <td class="gt_row gt_center" headers="stat_1">38.8 (36.7, 40.8)</td>
 <td class="gt_row gt_center" headers="stat_2">49.6 (46.3, 51.2)</td>
 <td class="gt_row gt_center" headers="stat_3">47.3 (45.3, 49.6)</td>
-<td class="gt_row gt_center" headers="p.value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
@@ -3568,7 +3576,8 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 <td class="gt_row gt_center" headers="stat_1">18.40 (17.50, 19.00)</td>
 <td class="gt_row gt_center" headers="stat_2">18.45 (17.50, 19.40)</td>
 <td class="gt_row gt_center" headers="stat_3">15.00 (14.20, 15.70)</td>
-<td class="gt_row gt_center" headers="p.value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
@@ -3589,7 +3598,8 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 </td>
 <td class="gt_row gt_center" headers="stat_3"><br>
 </td>
-<td class="gt_row gt_center" headers="p.value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Biscoe</td>
@@ -3625,9 +3635,6 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 <tr class="odd">
 <td colspan="6" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Median (Q1, Q3); n (%)</td>
 </tr>
-<tr class="even">
-<td colspan="6" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span> Kruskal-Wallis rank sum test; Pearson’s Chi-squared test</td>
-</tr>
 </tfoot>
 
 </table>
@@ -3650,23 +3657,23 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<div id="pfjvyskfmc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pfjvyskfmc table {
+<div id="gxvtrvbrvf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gxvtrvbrvf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pfjvyskfmc thead, #pfjvyskfmc tbody, #pfjvyskfmc tfoot, #pfjvyskfmc tr, #pfjvyskfmc td, #pfjvyskfmc th {
+#gxvtrvbrvf thead, #gxvtrvbrvf tbody, #gxvtrvbrvf tfoot, #gxvtrvbrvf tr, #gxvtrvbrvf td, #gxvtrvbrvf th {
   border-style: none;
 }
 
-#pfjvyskfmc p {
+#gxvtrvbrvf p {
   margin: 0;
   padding: 0;
 }
 
-#pfjvyskfmc .gt_table {
+#gxvtrvbrvf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3692,12 +3699,12 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-left-color: #D3D3D3;
 }
 
-#pfjvyskfmc .gt_caption {
+#gxvtrvbrvf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pfjvyskfmc .gt_title {
+#gxvtrvbrvf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3709,7 +3716,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-width: 0;
 }
 
-#pfjvyskfmc .gt_subtitle {
+#gxvtrvbrvf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3721,7 +3728,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-top-width: 0;
 }
 
-#pfjvyskfmc .gt_heading {
+#gxvtrvbrvf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3733,13 +3740,13 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#pfjvyskfmc .gt_bottom_border {
+#gxvtrvbrvf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pfjvyskfmc .gt_col_headings {
+#gxvtrvbrvf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3754,7 +3761,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#pfjvyskfmc .gt_col_heading {
+#gxvtrvbrvf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3774,7 +3781,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   overflow-x: hidden;
 }
 
-#pfjvyskfmc .gt_column_spanner_outer {
+#gxvtrvbrvf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3786,15 +3793,15 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 4px;
 }
 
-#pfjvyskfmc .gt_column_spanner_outer:first-child {
+#gxvtrvbrvf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pfjvyskfmc .gt_column_spanner_outer:last-child {
+#gxvtrvbrvf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pfjvyskfmc .gt_column_spanner {
+#gxvtrvbrvf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3806,11 +3813,11 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   width: 100%;
 }
 
-#pfjvyskfmc .gt_spanner_row {
+#gxvtrvbrvf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pfjvyskfmc .gt_group_heading {
+#gxvtrvbrvf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3836,7 +3843,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   text-align: left;
 }
 
-#pfjvyskfmc .gt_empty_group_heading {
+#gxvtrvbrvf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3851,15 +3858,15 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   vertical-align: middle;
 }
 
-#pfjvyskfmc .gt_from_md > :first-child {
+#gxvtrvbrvf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pfjvyskfmc .gt_from_md > :last-child {
+#gxvtrvbrvf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pfjvyskfmc .gt_row {
+#gxvtrvbrvf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3878,7 +3885,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   overflow-x: hidden;
 }
 
-#pfjvyskfmc .gt_stub {
+#gxvtrvbrvf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3891,7 +3898,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#pfjvyskfmc .gt_stub_row_group {
+#gxvtrvbrvf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3905,15 +3912,15 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   vertical-align: top;
 }
 
-#pfjvyskfmc .gt_row_group_first td {
+#gxvtrvbrvf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pfjvyskfmc .gt_row_group_first th {
+#gxvtrvbrvf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pfjvyskfmc .gt_summary_row {
+#gxvtrvbrvf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3923,16 +3930,16 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#pfjvyskfmc .gt_first_summary_row {
+#gxvtrvbrvf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pfjvyskfmc .gt_first_summary_row.thick {
+#gxvtrvbrvf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pfjvyskfmc .gt_last_summary_row {
+#gxvtrvbrvf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3942,7 +3949,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-color: #D3D3D3;
 }
 
-#pfjvyskfmc .gt_grand_summary_row {
+#gxvtrvbrvf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3952,7 +3959,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#pfjvyskfmc .gt_first_grand_summary_row {
+#gxvtrvbrvf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3962,7 +3969,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-top-color: #D3D3D3;
 }
 
-#pfjvyskfmc .gt_last_grand_summary_row_top {
+#gxvtrvbrvf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3972,11 +3979,11 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-color: #D3D3D3;
 }
 
-#pfjvyskfmc .gt_striped {
+#gxvtrvbrvf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pfjvyskfmc .gt_table_body {
+#gxvtrvbrvf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3985,7 +3992,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-color: #D3D3D3;
 }
 
-#pfjvyskfmc .gt_footnotes {
+#gxvtrvbrvf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3999,7 +4006,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#pfjvyskfmc .gt_footnote {
+#gxvtrvbrvf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4008,7 +4015,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#pfjvyskfmc .gt_sourcenotes {
+#gxvtrvbrvf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4022,7 +4029,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#pfjvyskfmc .gt_sourcenote {
+#gxvtrvbrvf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4030,72 +4037,72 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#pfjvyskfmc .gt_left {
+#gxvtrvbrvf .gt_left {
   text-align: left;
 }
 
-#pfjvyskfmc .gt_center {
+#gxvtrvbrvf .gt_center {
   text-align: center;
 }
 
-#pfjvyskfmc .gt_right {
+#gxvtrvbrvf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pfjvyskfmc .gt_font_normal {
+#gxvtrvbrvf .gt_font_normal {
   font-weight: normal;
 }
 
-#pfjvyskfmc .gt_font_bold {
+#gxvtrvbrvf .gt_font_bold {
   font-weight: bold;
 }
 
-#pfjvyskfmc .gt_font_italic {
+#gxvtrvbrvf .gt_font_italic {
   font-style: italic;
 }
 
-#pfjvyskfmc .gt_super {
+#gxvtrvbrvf .gt_super {
   font-size: 65%;
 }
 
-#pfjvyskfmc .gt_footnote_marks {
+#gxvtrvbrvf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pfjvyskfmc .gt_asterisk {
+#gxvtrvbrvf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pfjvyskfmc .gt_indent_1 {
+#gxvtrvbrvf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pfjvyskfmc .gt_indent_2 {
+#gxvtrvbrvf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pfjvyskfmc .gt_indent_3 {
+#gxvtrvbrvf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pfjvyskfmc .gt_indent_4 {
+#gxvtrvbrvf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pfjvyskfmc .gt_indent_5 {
+#gxvtrvbrvf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pfjvyskfmc .katex-display {
+#gxvtrvbrvf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pfjvyskfmc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gxvtrvbrvf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -4199,23 +4206,23 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 </div><div class="column" style="width:40%;">
 <div class="cell">
 <div class="cell-output-display">
-<div id="wwwnrgften" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wwwnrgften table {
+<div id="rddjkkxwoh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rddjkkxwoh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wwwnrgften thead, #wwwnrgften tbody, #wwwnrgften tfoot, #wwwnrgften tr, #wwwnrgften td, #wwwnrgften th {
+#rddjkkxwoh thead, #rddjkkxwoh tbody, #rddjkkxwoh tfoot, #rddjkkxwoh tr, #rddjkkxwoh td, #rddjkkxwoh th {
   border-style: none;
 }
 
-#wwwnrgften p {
+#rddjkkxwoh p {
   margin: 0;
   padding: 0;
 }
 
-#wwwnrgften .gt_table {
+#rddjkkxwoh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4241,12 +4248,12 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-left-color: #D3D3D3;
 }
 
-#wwwnrgften .gt_caption {
+#rddjkkxwoh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wwwnrgften .gt_title {
+#rddjkkxwoh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4258,7 +4265,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-width: 0;
 }
 
-#wwwnrgften .gt_subtitle {
+#rddjkkxwoh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4270,7 +4277,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-top-width: 0;
 }
 
-#wwwnrgften .gt_heading {
+#rddjkkxwoh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4282,13 +4289,13 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#wwwnrgften .gt_bottom_border {
+#rddjkkxwoh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wwwnrgften .gt_col_headings {
+#rddjkkxwoh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4303,7 +4310,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#wwwnrgften .gt_col_heading {
+#rddjkkxwoh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4323,7 +4330,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   overflow-x: hidden;
 }
 
-#wwwnrgften .gt_column_spanner_outer {
+#rddjkkxwoh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4335,15 +4342,15 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 4px;
 }
 
-#wwwnrgften .gt_column_spanner_outer:first-child {
+#rddjkkxwoh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wwwnrgften .gt_column_spanner_outer:last-child {
+#rddjkkxwoh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wwwnrgften .gt_column_spanner {
+#rddjkkxwoh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4355,11 +4362,11 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   width: 100%;
 }
 
-#wwwnrgften .gt_spanner_row {
+#rddjkkxwoh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wwwnrgften .gt_group_heading {
+#rddjkkxwoh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4385,7 +4392,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   text-align: left;
 }
 
-#wwwnrgften .gt_empty_group_heading {
+#rddjkkxwoh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4400,15 +4407,15 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   vertical-align: middle;
 }
 
-#wwwnrgften .gt_from_md > :first-child {
+#rddjkkxwoh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wwwnrgften .gt_from_md > :last-child {
+#rddjkkxwoh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wwwnrgften .gt_row {
+#rddjkkxwoh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4427,7 +4434,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   overflow-x: hidden;
 }
 
-#wwwnrgften .gt_stub {
+#rddjkkxwoh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4440,7 +4447,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#wwwnrgften .gt_stub_row_group {
+#rddjkkxwoh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4454,15 +4461,15 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   vertical-align: top;
 }
 
-#wwwnrgften .gt_row_group_first td {
+#rddjkkxwoh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wwwnrgften .gt_row_group_first th {
+#rddjkkxwoh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wwwnrgften .gt_summary_row {
+#rddjkkxwoh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4472,16 +4479,16 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#wwwnrgften .gt_first_summary_row {
+#rddjkkxwoh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wwwnrgften .gt_first_summary_row.thick {
+#rddjkkxwoh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wwwnrgften .gt_last_summary_row {
+#rddjkkxwoh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4491,7 +4498,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-color: #D3D3D3;
 }
 
-#wwwnrgften .gt_grand_summary_row {
+#rddjkkxwoh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4501,7 +4508,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#wwwnrgften .gt_first_grand_summary_row {
+#rddjkkxwoh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4511,7 +4518,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-top-color: #D3D3D3;
 }
 
-#wwwnrgften .gt_last_grand_summary_row_top {
+#rddjkkxwoh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4521,11 +4528,11 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-color: #D3D3D3;
 }
 
-#wwwnrgften .gt_striped {
+#rddjkkxwoh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wwwnrgften .gt_table_body {
+#rddjkkxwoh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4534,7 +4541,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-color: #D3D3D3;
 }
 
-#wwwnrgften .gt_footnotes {
+#rddjkkxwoh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4548,7 +4555,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#wwwnrgften .gt_footnote {
+#rddjkkxwoh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4557,7 +4564,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#wwwnrgften .gt_sourcenotes {
+#rddjkkxwoh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4571,7 +4578,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#wwwnrgften .gt_sourcenote {
+#rddjkkxwoh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4579,72 +4586,72 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#wwwnrgften .gt_left {
+#rddjkkxwoh .gt_left {
   text-align: left;
 }
 
-#wwwnrgften .gt_center {
+#rddjkkxwoh .gt_center {
   text-align: center;
 }
 
-#wwwnrgften .gt_right {
+#rddjkkxwoh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wwwnrgften .gt_font_normal {
+#rddjkkxwoh .gt_font_normal {
   font-weight: normal;
 }
 
-#wwwnrgften .gt_font_bold {
+#rddjkkxwoh .gt_font_bold {
   font-weight: bold;
 }
 
-#wwwnrgften .gt_font_italic {
+#rddjkkxwoh .gt_font_italic {
   font-style: italic;
 }
 
-#wwwnrgften .gt_super {
+#rddjkkxwoh .gt_super {
   font-size: 65%;
 }
 
-#wwwnrgften .gt_footnote_marks {
+#rddjkkxwoh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wwwnrgften .gt_asterisk {
+#rddjkkxwoh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wwwnrgften .gt_indent_1 {
+#rddjkkxwoh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wwwnrgften .gt_indent_2 {
+#rddjkkxwoh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wwwnrgften .gt_indent_3 {
+#rddjkkxwoh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wwwnrgften .gt_indent_4 {
+#rddjkkxwoh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wwwnrgften .gt_indent_5 {
+#rddjkkxwoh .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wwwnrgften .katex-display {
+#rddjkkxwoh .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wwwnrgften div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rddjkkxwoh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -4721,26 +4728,26 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 <p>Add a <code>gt_theme_dark()</code>:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fkpbyxjwot" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="lqjqsqmoyd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#fkpbyxjwot table {
+#lqjqsqmoyd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fkpbyxjwot thead, #fkpbyxjwot tbody, #fkpbyxjwot tfoot, #fkpbyxjwot tr, #fkpbyxjwot td, #fkpbyxjwot th {
+#lqjqsqmoyd thead, #lqjqsqmoyd tbody, #lqjqsqmoyd tfoot, #lqjqsqmoyd tr, #lqjqsqmoyd td, #lqjqsqmoyd th {
   border-style: none;
 }
 
-#fkpbyxjwot p {
+#lqjqsqmoyd p {
   margin: 0;
   padding: 0;
 }
 
-#fkpbyxjwot .gt_table {
+#lqjqsqmoyd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4766,12 +4773,12 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-left-color: #333333;
 }
 
-#fkpbyxjwot .gt_caption {
+#lqjqsqmoyd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fkpbyxjwot .gt_title {
+#lqjqsqmoyd .gt_title {
   color: #FFFFFF;
   font-size: 125%;
   font-weight: initial;
@@ -4783,7 +4790,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-width: 0;
 }
 
-#fkpbyxjwot .gt_subtitle {
+#lqjqsqmoyd .gt_subtitle {
   color: #FFFFFF;
   font-size: 85%;
   font-weight: initial;
@@ -4795,7 +4802,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-top-width: 0;
 }
 
-#fkpbyxjwot .gt_heading {
+#lqjqsqmoyd .gt_heading {
   background-color: #333333;
   text-align: left;
   border-bottom-color: #333333;
@@ -4807,13 +4814,13 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#fkpbyxjwot .gt_bottom_border {
+#lqjqsqmoyd .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fkpbyxjwot .gt_col_headings {
+#lqjqsqmoyd .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4828,7 +4835,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#fkpbyxjwot .gt_col_heading {
+#lqjqsqmoyd .gt_col_heading {
   color: #FFFFFF;
   background-color: #333333;
   font-size: 100%;
@@ -4848,7 +4855,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   overflow-x: hidden;
 }
 
-#fkpbyxjwot .gt_column_spanner_outer {
+#lqjqsqmoyd .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #333333;
   font-size: 100%;
@@ -4860,15 +4867,15 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 4px;
 }
 
-#fkpbyxjwot .gt_column_spanner_outer:first-child {
+#lqjqsqmoyd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fkpbyxjwot .gt_column_spanner_outer:last-child {
+#lqjqsqmoyd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fkpbyxjwot .gt_column_spanner {
+#lqjqsqmoyd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #FFFFFF;
@@ -4880,11 +4887,11 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   width: 100%;
 }
 
-#fkpbyxjwot .gt_spanner_row {
+#lqjqsqmoyd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fkpbyxjwot .gt_group_heading {
+#lqjqsqmoyd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4910,7 +4917,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   text-align: left;
 }
 
-#fkpbyxjwot .gt_empty_group_heading {
+#lqjqsqmoyd .gt_empty_group_heading {
   padding: 0.5px;
   color: #FFFFFF;
   background-color: #333333;
@@ -4925,15 +4932,15 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   vertical-align: middle;
 }
 
-#fkpbyxjwot .gt_from_md > :first-child {
+#lqjqsqmoyd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fkpbyxjwot .gt_from_md > :last-child {
+#lqjqsqmoyd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fkpbyxjwot .gt_row {
+#lqjqsqmoyd .gt_row {
   padding-top: 7px;
   padding-bottom: 7px;
   padding-left: 5px;
@@ -4952,7 +4959,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   overflow-x: hidden;
 }
 
-#fkpbyxjwot .gt_stub {
+#lqjqsqmoyd .gt_stub {
   color: #FFFFFF;
   background-color: #333333;
   font-size: 100%;
@@ -4965,7 +4972,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#fkpbyxjwot .gt_stub_row_group {
+#lqjqsqmoyd .gt_stub_row_group {
   color: #FFFFFF;
   background-color: #333333;
   font-size: 100%;
@@ -4979,15 +4986,15 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   vertical-align: top;
 }
 
-#fkpbyxjwot .gt_row_group_first td {
+#lqjqsqmoyd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fkpbyxjwot .gt_row_group_first th {
+#lqjqsqmoyd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fkpbyxjwot .gt_summary_row {
+#lqjqsqmoyd .gt_summary_row {
   color: #FFFFFF;
   background-color: #333333;
   text-transform: inherit;
@@ -4997,16 +5004,16 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#fkpbyxjwot .gt_first_summary_row {
+#lqjqsqmoyd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fkpbyxjwot .gt_first_summary_row.thick {
+#lqjqsqmoyd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fkpbyxjwot .gt_last_summary_row {
+#lqjqsqmoyd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5016,7 +5023,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-color: #D3D3D3;
 }
 
-#fkpbyxjwot .gt_grand_summary_row {
+#lqjqsqmoyd .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #333333;
   text-transform: inherit;
@@ -5026,7 +5033,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#fkpbyxjwot .gt_first_grand_summary_row {
+#lqjqsqmoyd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5036,7 +5043,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-top-color: #D3D3D3;
 }
 
-#fkpbyxjwot .gt_last_grand_summary_row_top {
+#lqjqsqmoyd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5046,11 +5053,11 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-color: #D3D3D3;
 }
 
-#fkpbyxjwot .gt_striped {
+#lqjqsqmoyd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fkpbyxjwot .gt_table_body {
+#lqjqsqmoyd .gt_table_body {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5059,7 +5066,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-bottom-color: #333333;
 }
 
-#fkpbyxjwot .gt_footnotes {
+#lqjqsqmoyd .gt_footnotes {
   color: #FFFFFF;
   background-color: #333333;
   border-bottom-style: none;
@@ -5073,7 +5080,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#fkpbyxjwot .gt_footnote {
+#lqjqsqmoyd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -5082,7 +5089,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#fkpbyxjwot .gt_sourcenotes {
+#lqjqsqmoyd .gt_sourcenotes {
   color: #FFFFFF;
   background-color: #333333;
   border-bottom-style: none;
@@ -5096,7 +5103,7 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   border-right-color: #D3D3D3;
 }
 
-#fkpbyxjwot .gt_sourcenote {
+#lqjqsqmoyd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5104,72 +5111,72 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
   padding-right: 5px;
 }
 
-#fkpbyxjwot .gt_left {
+#lqjqsqmoyd .gt_left {
   text-align: left;
 }
 
-#fkpbyxjwot .gt_center {
+#lqjqsqmoyd .gt_center {
   text-align: center;
 }
 
-#fkpbyxjwot .gt_right {
+#lqjqsqmoyd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fkpbyxjwot .gt_font_normal {
+#lqjqsqmoyd .gt_font_normal {
   font-weight: normal;
 }
 
-#fkpbyxjwot .gt_font_bold {
+#lqjqsqmoyd .gt_font_bold {
   font-weight: bold;
 }
 
-#fkpbyxjwot .gt_font_italic {
+#lqjqsqmoyd .gt_font_italic {
   font-style: italic;
 }
 
-#fkpbyxjwot .gt_super {
+#lqjqsqmoyd .gt_super {
   font-size: 65%;
 }
 
-#fkpbyxjwot .gt_footnote_marks {
+#lqjqsqmoyd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fkpbyxjwot .gt_asterisk {
+#lqjqsqmoyd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fkpbyxjwot .gt_indent_1 {
+#lqjqsqmoyd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fkpbyxjwot .gt_indent_2 {
+#lqjqsqmoyd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fkpbyxjwot .gt_indent_3 {
+#lqjqsqmoyd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fkpbyxjwot .gt_indent_4 {
+#lqjqsqmoyd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fkpbyxjwot .gt_indent_5 {
+#lqjqsqmoyd .gt_indent_5 {
   text-indent: 25px;
 }
 
-#fkpbyxjwot .katex-display {
+#lqjqsqmoyd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#fkpbyxjwot div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lqjqsqmoyd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -5261,11 +5268,570 @@ N = 124<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 <p>The first post shows how to <a href="https://www.tidyverse.org/blog/2020/08/taking-control-of-plot-scaling/#the-solution">scale your ggplot</a> so that your points and text are not too large or small.</p>
 </div>
 </section></section>
+<section>
 <section id="part-3-project-admin" class="title-slide slide level1 center" data-background-color="#A60A3D">
 <h1>Part 3: Project Admin</h1>
 
-
 </section>
+<section id="section-4" class="slide level2">
+<h2>➡️</h2>
+<p><a href="https://rstats-wtf.github.io/wtf-personal-radmin-slides/" class="uri">https://rstats-wtf.github.io/wtf-personal-radmin-slides/</a></p>
+</section>
+<section id="the-onion" class="slide level2">
+<h2>the onion</h2>
+<div class="r-stack">
+<p><img data-src="img/project-onion-base.svg"></p>
+</div>
+</section>
+<section id="starting-r" class="slide level2">
+<h2>starting R</h2>
+<div style="text-align: center;">
+<p><img data-src="img/project-onion-starting-r.svg"></p>
+</div>
+</section>
+<section id="why-1" class="slide level2">
+<h2>why?</h2>
+<p>Sometimes we want to change the way our code behaves <em>without</em> having to change the code.</p>
+<aside class="notes">
+<p>behaves might mean - “what computer do I think I’m on” - “is this dev or prod”?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="r-startup-sequence" class="slide level2 smaller" data-background-color="#cccccc">
+<h2>R startup sequence</h2>
+<div class="r-stack">
+<p><img data-src="img/R-startup.svg"></p>
+</div>
+</section>
+<section id="r-startup-sequence-our-focus" class="slide level2 smaller" data-background-color="#cccccc">
+<h2>R startup sequence (our focus)</h2>
+<div class="r-stack">
+<p><img data-src="img/r-startup-focus.svg"></p>
+</div>
+</section>
+<section id="renviron" class="slide level2">
+<h2><code>.Renviron</code></h2>
+<p>environment variables</p>
+<blockquote>
+<p>a […] named value that can affect the way running processes will behave on a computer</p>
+</blockquote>
+</section>
+<section id="what-goes-in-.renviron" class="slide level2">
+<h2>what goes in <code>.Renviron</code></h2>
+<p><span class="emoji" data-emoji="white_check_mark">✅</span> R-specific environment variables<br>
+<span class="emoji" data-emoji="white_check_mark">✅</span> API keys or other secrets<br>
+<span class="emoji" data-emoji="x">❌</span> R code</p>
+</section>
+<section id="editing-.renviron" class="slide level2">
+<h2>Editing <code>.Renviron</code></h2>
+<p><br></p>
+<div class="r-fit-text">
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>(<span class="at">scope =</span> ?)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="user">user</h3>
+<p><code>~/.Renviron</code></p>
+</div><div class="column" style="width:60%;">
+<h3 id="project">project</h3>
+<p><code>path/to/your/project/.Renviron</code></p>
+</div></div>
+</section>
+<section id="example-.renviron" class="slide level2">
+<h2>example <code>.Renviron</code></h2>
+<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a></a><span class="va">PATH</span><span class="op">=</span><span class="st">"</span><span class="va">${RTOOLS40_HOME}</span><span class="st">\usr\bin;</span><span class="va">${PATH}</span><span class="st">"</span> <span class="co"># windows users</span></span>
+<span id="cb40-2"><a></a><span class="va">CONNECT_API_KEY</span><span class="op">=</span>DaYK2hBUriSBYUEGIAiyXsRJHSjTYJN3</span>
+<span id="cb40-3"><a></a><span class="va">R_HISTSIZE</span><span class="op">=</span>100000</span>
+<span id="cb40-4"><a></a><span class="va">DB_USER</span><span class="op">=</span>elephant</span>
+<span id="cb40-5"><a></a><span class="va">DB_PASS</span><span class="op">=</span>p0stgr3s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="read-environment-variables" class="slide level2">
+<h2>read environment variables</h2>
+<div class="r r-fit-text">
+<p><code>Sys.getenv()</code></p>
+</div>
+</section>
+<section id="edit-your-user-.renviron" class="slide level2 smaller">
+<h2>edit your user <code>.Renviron</code></h2>
+<ol type="1">
+<li><code>usethis::edit_r_environ()</code></li>
+<li>add <code>WTF_USER=&lt;your name&gt;_user</code></li>
+<li>restart your R session<br>
+<code>CTRL + SHIFT + F10</code><br>
+<code>CMD  + SHIFT + 0</code></li>
+<li>Retrieve the value of WTF_USER <code>Sys.getenv("WTF_USER")</code></li>
+</ol>
+<div id="timer_1ba467aa7656d6a4edde4392b395bab89cb53c8a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="edit-your-project-.renviron" class="slide level2 smaller">
+<h2>edit your project <code>.Renviron</code></h2>
+<ol type="1">
+<li><code>usethis::edit_r_environ("project")</code></li>
+<li>add <code>WTF_PROJECT=&lt;your name&gt;_project</code></li>
+<li>restart your R session<br>
+<code>CTRL + SHIFT + F10</code><br>
+<code>CMD  + SHIFT + 0</code></li>
+<li>Retrieve the value of WTF_PROJECT <code>Sys.getenv("WTF_PROJECT")</code></li>
+</ol>
+<div id="timer_1ba467aa7656d6a4edde4392b395bab89cb53c8a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+<div class="question">
+<p>what’s the value of <code>WTF_USER</code> after you set <code>WTF_PROJECT</code>?</p>
+</div>
+</section>
+<section id="renviron-recap" class="slide level2">
+<h2><code>.Renviron</code> recap</h2>
+<p>project <code>.Renviron</code> “short-circuits” if it exists, your user <code>.Renviron</code> will not be evaluated</p>
+</section>
+<section id="rprofile" class="slide level2">
+<h2><code>.Rprofile</code></h2>
+<p>R code that runs at the start of each session</p>
+</section>
+<section id="interactive" class="slide level2">
+<h2>?interactive()</h2>
+<div class="columns">
+<div class="column">
+<h3 id="true"><code>TRUE</code></h3>
+<p><span class="emoji" data-emoji="technologist">🧑‍💻</span> <br></p>
+<ul>
+<li>sending individual lines of code to the console</li>
+</ul>
+<p><br> <br></p>
+<div class="fragment">
+<p><span class="emoji" data-emoji="point_up">☝️</span> most <code>.Rprofile</code> customization</p>
+</div>
+</div><div class="column">
+<h3 id="false"><code>FALSE</code></h3>
+<p><span class="emoji" data-emoji="robot">🤖</span> <br></p>
+<ul>
+<li>knitting an RMarkdown document</li>
+<li><code>R -e script.R</code></li>
+</ul>
+</div></div>
+</section>
+<section id="what-to-put-in-.rprofile" class="slide level2">
+<h2>what to put in <code>.Rprofile</code></h2>
+<ul>
+<li>set a default CRAN mirror</li>
+<li>customize <a href="https://github.com/gaborcsardi/prompt/">R prompt</a></li>
+</ul>
+</section>
+<section id="what-not-to-put-in-.rprofile" class="slide level2">
+<h2>what <em>not</em> to put in <code>.Rprofile</code></h2>
+<p>If it matters for code you share, it <strong>should not</strong> be in <code>.Rprofile</code></p>
+</section>
+<section id="why-shouldnt-these-go-in-.rprofile" class="slide level2">
+<h2>why shouldn’t these go in <code>.Rprofile</code>?</h2>
+<ul>
+<li class="fragment"><code>library(tidyverse)</code></li>
+<li class="fragment"><code>f &lt;- dplyr::filter</code></li>
+<li class="fragment"><code>theme_set(theme_bw())</code></li>
+</ul>
+</section>
+<section id="discuss-with-your-neighbor" class="slide level2">
+<h2>discuss with your neighbor</h2>
+<div class="question">
+<p>Why <em>might</em> these be safe to put in <code>.Rprofile</code>?</p>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">library</span>(usethis)</span>
+<span id="cb41-2"><a></a><span class="fu">library</span>(devtools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="timer_1ba467aa7656d6a4edde4392b395bab89cb53c8a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="dotfiles" class="slide level2">
+<h2>dotfiles</h2>
+<div class="r-fit-text">
+<p>https://github.com/search?q=.Rprofile</p>
+</div>
+<p><i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/csgillespie/rprofile">csgillespie/rprofile</a></p>
+<p><i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/klmr/rprofile">klmr/rprofile</a></p>
+<p><i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/HenrikBengtsson/dotfiles-for-R">HenrikBengtsson/dotfiles-for-R</a></p>
+</section>
+<section id="activity" class="slide level2">
+<h2>activity</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">edit your user <code>.Rprofile</code></a></li><li><a href="#tabset-1-2">edit your project <code>.Rprofile</code></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<ol type="1">
+<li><code>usethis::edit_r_profile()</code></li>
+<li>add <code>print("from my user Rprofile")</code></li>
+<li>restart your R session<br>
+<code>CTRL + SHIFT + F10</code><br>
+<code>CMD  + SHIFT + 0</code></li>
+<li>what value is printed when you restart?</li>
+</ol>
+</div>
+<div id="tabset-1-2">
+<ol type="1">
+<li><code>usethis::edit_r_profile("project")</code></li>
+<li>add <code>print("from my project Rprofile")</code></li>
+<li>restart your R session<br>
+<code>CTRL + SHIFT + F10</code><br>
+<code>CMD  + SHIFT + 0</code></li>
+<li>what value is printed when you restart?</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="timer_1ba467aa7656d6a4edde4392b395bab89cb53c8a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="rprofile-recap" class="slide level2">
+<h2><code>.Rprofile</code> recap</h2>
+<p>project <code>.Rprofile</code> “short-circuits”<br>
+if it exists, your user <code>.Rprofile</code> will not be evaluated</p>
+</section>
+<section id="wrapping-up" class="slide level2">
+<h2>wrapping up</h2>
+<div class="columns">
+<div class="column">
+<h3 id="renviron-1"><code>.Renviron</code></h3>
+<ul>
+<li>secrets</li>
+<li>environment information</li>
+</ul>
+</div><div class="column">
+<h3 id="rprofile-1"><code>.Rprofile</code></h3>
+<ul>
+<li>development dependencies</li>
+</ul>
+</div></div>
+<aside class="notes">
+<p>environment variables are inherited by child processes, so setting them early in the startup process is valuable Hosting providers trying to deal with secrets will often let you supply environment variables</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reproducible-environments" class="slide level2">
+<h2>reproducible environments</h2>
+<div style="text-align: center;">
+<p><img data-src="img/project-onion-reproducible-environments.svg"></p>
+</div>
+</section>
+<section id="reproducibility-strategies" class="slide level2">
+<h2><a href="https://solutions.posit.co/envs-pkgs/environments/">reproducibility strategies</a></h2>
+
+<img data-src="https://solutions.posit.co/envs-pkgs/environments/reproduce/reproducibility-strategies-and-danger-zones.png" class="r-stretch"><aside class="notes">
+<p>we’re focused in particular on systems where we have both access and responsibility</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tools" class="slide level2">
+<h2>tools</h2>
+<div class="columns">
+<div class="column">
+<h3 id="p3m">p3m</h3>
+<div class="r-stack">
+<img data-src="img/icon-rspm.png" class="r-stretch">
+</div>
+</div><div class="column">
+<h3 id="renv">renv</h3>
+<div class="r-stack">
+<img data-src="img/renv-small.png" class="r-stretch">
+</div>
+</div></div>
+<aside class="notes">
+<p>renv has a number of tools that are helpful for adopting a project-based workflow: - lockfile records what packages you use and where you instaled them from - <code>renv::install()</code> can handle installation from remote sources, local sources, package versions, bioconductor, rspm - per-project library isolation with global package cache - makes it easy to install experimental versions of packages and then roll back to a stable release if it doesn’t work out</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="p3m-1" class="slide level2">
+<h2>p3m</h2>
+<div class="r-stack">
+<img data-src="img/icon-rspm.png" class="r-stretch">
+</div>
+</section>
+<section id="p3m-latest" class="slide level2">
+<h2>p3m: latest</h2>
+
+<img data-src="img/p3m-latest.png" class="r-stretch"></section>
+<section id="p3m-date-based-snapshots" class="slide level2">
+<h2>p3m: date-based snapshots</h2>
+
+<img data-src="img/rspm-2021-03-31-highlight.png" class="r-stretch"></section>
+<section id="activity-1" class="slide level2">
+<h2>activity</h2>
+<div class="question">
+<p>time travel!</p>
+</div>
+<ol type="1">
+<li><p>open the <code>wtf-explore-libraries</code> project</p></li>
+<li><p>run <code>packageVersion("dplyr")</code></p></li>
+<li><p>update your project <code>.Rprofile</code> with a date-based snapshot of CRAN</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">P3M =</span> <span class="st">"https://p3m.dev/cran/2023-12-31"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Restart R</p></li>
+<li><p><code>install.packages("dplyr")</code></p></li>
+</ol>
+<p>what version of dplyr did you install?</p>
+<div id="timer_1ba467aa7656d6a4edde4392b395bab89cb53c8a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="section-5" class="slide level2">
+<h2>⏪</h2>
+<ul>
+<li><p>remove the repository configuration from your project <code>.Rprofile</code></p></li>
+<li><p>restart R</p></li>
+<li><p>reinstall whatever version of dplyr you were using before, e.g.:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_version</span>(<span class="st">"dplyr"</span>, <span class="st">"1.0.10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<p>if that process seems silly, <span class="emoji" data-emoji="sparkles">✨</span> <a href="https://github.com/edavidaja/you-should-use-renv">you should use <code>renv</code></a> <span class="emoji" data-emoji="sparkles">✨</span></p>
+</section>
+<section id="renv-1" class="slide level2">
+<h2>renv</h2>
+<div class="r-stack">
+<img data-src="img/renv-small.png" class="r-stretch">
+</div>
+</section>
+<section id="shared-project-environment" class="slide level2">
+<h2>shared project environment</h2>
+<div data-id="env">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"theme": "dark", "look": "handDrawn" } }%%
+graph
+L --- P1
+L --- P2
+L --- P3
+L(library)
+P1(project1)
+P2(project2)
+P3(project3)
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>by default all of your packages are installed into your user library</li>
+<li>the unforunate default behavior in macOS is also that this is the system library</li>
+<li>updating a package in the shared environments updates it for <em>all</em> of your projects</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p><br></p>
+</section>
+<section id="shared-project-environment-1" class="slide level2">
+<h2>shared project environment</h2>
+<h3 id="libpaths"><code>.libPaths()</code></h3>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">.libPaths</span>()</span>
+<span id="cb44-2"><a aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"C:/Users/edavi/AppData/Local/R/win-library/4.4"</span> <span class="co"># user</span></span>
+<span id="cb44-3"><a aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>] <span class="st">"C:/Program Files/R/R-4.4.0/library"</span> <span class="co"># system</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="isolated-project-environments" class="slide level2">
+<h2>isolated project environments</h2>
+<div data-id="env">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"theme": "dark", "look": "handDrawn" } }%%
+graph
+C --- L1
+C --- L2
+C --- L3
+L1 --- P1
+L2 --- P2
+L3 --- P3
+L1(library1)
+L2(library2)
+L3(library3)
+P1(project1)
+P2(project2)
+P3(project3)
+C(global cache)
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="isolated-project-environments-1" class="slide level2">
+<h2>isolated project environments</h2>
+<h3 id="libpaths-1"><code>.libPaths()</code></h3>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Project <span class="st">'~/sample-project'</span> loaded. [renv <span class="dv">1</span>.<span class="fl">0.7</span>]</span>
+<span id="cb45-2"><a aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">.libPaths</span>()</span>
+<span id="cb45-3"><a aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"C:/Users/edavi/Documents/sample-project/renv/library/windows/R-4.4/x86_64-w64-mingw32"</span></span>
+<span id="cb45-4"><a aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>] <span class="st">"C:/Users/edavi/AppData/Local/R/cache/R/renv/sandbox/windows/R-4.4/x86_64-w64-mingw32/88765555"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="isolated-project-environments-2" class="slide level2">
+<h2>isolated project environments</h2>
+<ul>
+<li>experiment with new packages without breaking other projects</li>
+<li>share exactly which versions you’re using with your team or future you</li>
+<li>re-use packages you’ve already installed</li>
+</ul>
+</section>
+<section id="activity-2" class="slide level2">
+<h2>activity</h2>
+<div class="question">
+<p>create an isolated project library</p>
+</div>
+<p><code>CMD|CTRL + SHIFT + P &gt; Close Current Project</code></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>usethis<span class="sc">::</span><span class="fu">create_project</span>(<span class="st">"~/wtf-renv"</span>) <span class="co"># or wherever you typically put projects</span></span>
+<span id="cb46-2"><a></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span>
+<span id="cb46-3"><a></a>renv<span class="sc">::</span><span class="fu">init</span>()</span>
+<span id="cb46-4"><a></a>renv<span class="sc">::</span><span class="fu">status</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="timer_1ba467aa7656d6a4edde4392b395bab89cb53c8a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="activity-3" class="slide level2">
+<h2>activity</h2>
+<div class="question">
+<p>manage dependencies</p>
+</div>
+<p>add <code>library(parallelly)</code> to any file in the <code>wtf-renv/R</code> directory</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>renv<span class="sc">::</span><span class="fu">status</span>()</span>
+<span id="cb47-2"><a></a><span class="fu">install.packages</span>(<span class="st">"parallelly"</span>)</span>
+<span id="cb47-3"><a></a>renv<span class="sc">::</span><span class="fu">status</span>()</span>
+<span id="cb47-4"><a></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>remove <code>library(parallelly)</code> from the file you added it to</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>renv<span class="sc">::</span><span class="fu">status</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="timer_1ba467aa7656d6a4edde4392b395bab89cb53c8a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+<aside class="notes">
+<p>run <code>.libPaths()</code> to see what your default package libraries are initialize an renv–you’ll see that the environment is now local to the project note the .Rprofile that gets placed into your project, which runs an R script in <code>renv/activate.R</code> deactivate the environment and check libPaths() again–it should be back to normal</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="renvinstall" class="slide level2">
+<h2><code>renv::install()</code></h2>
+<p>or <a href="https://rstudio.github.io/renv/articles/renv.html#shims"><code>install.packages()</code></a> with shims enabled</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"jsonlite"</span>)</span>
+<span id="cb50-2"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"jsonlite@1.2"</span>) <span class="co"># at version</span></span>
+<span id="cb50-3"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"jeroen/jsonlite"</span>) <span class="co"># latest</span></span>
+<span id="cb50-4"><a></a>renv<span class="sc">::</span>install<span class="st">"jeroen/jsonlite@80854359976250f30a86a6992c0d8c3b3d95473d"</span><span class="er">)</span> <span class="co"># at SHA</span></span>
+<span id="cb50-5"><a></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"path/to/package"</span>) <span class="co"># local source</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<div class="fragment">
+<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>devtools<span class="sc">::</span><span class="fu">install</span>(<span class="st">"jsonlite"</span>)</span>
+<span id="cb51-2"><a></a>devtools<span class="sc">::</span><span class="fu">install_version</span>(<span class="st">"jsonlite@1.2"</span>) <span class="co"># at version</span></span>
+<span id="cb51-3"><a></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jeroen/jsonlite"</span>) <span class="co"># latest</span></span>
+<span id="cb51-4"><a></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jeroen/jsonlite@80854359976250f30a86a6992c0d8c3b3d95473d"</span>) <span class="co"># at SHA</span></span>
+<span id="cb51-5"><a></a>devtools<span class="sc">::</span><span class="fu">install</span>(<span class="st">"path/to/package"</span>) <span class="co"># local source</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-junk-drawer" class="slide level2">
+<h2>the junk drawer</h2>
+<p>for reprexes, tweets, and other ephemera:</p>
+<p><code>~/Documents/scratch</code></p>
+<aside class="notes">
+<p>I use <code>renv</code> for everything, and have one junk project into which I install things without regard for stability or reproducibility</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="img/wtf-logo-square-transparent.png" class="slide-logo"></p>
