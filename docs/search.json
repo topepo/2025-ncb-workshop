@@ -438,7 +438,7 @@
     "href": "index.html#nice-data-conversions",
     "title": "Making Project Work Better with R",
     "section": "Nice data conversions",
-    "text": "Nice data conversions\n\nlibrary(scales)\n\nord &lt;- scales::label_ordinal()\nscale_p &lt;- scales::pvalue_format() # or prettyunits::pretty_p_value()\n\npvals &lt;- c(0.02, 0.000001)\nformat_inline(\"The { {ord(1:2)} } p-values were {scale_p(pvals)}\")\n\n\nThe 1st and 2nd p-values were 0.020 and &lt;0.001\n\n\n\nlibrary(emo)\nlibrary(prettyunits)\n\nduration &lt;- as.difftime(20.214, units = \"hours\")\nformat_inline(\"{ji('horror')} this workshop feels {pretty_dt(duration)} long\")\n\n\n🙀 this workshop feels 20h 12m 50.4s long"
+    "text": "Nice data conversions\n\nlibrary(scales)\n\nord &lt;- scales::label_ordinal()\nscale_p &lt;- scales::pvalue_format() # or prettyunits::pretty_p_value()\n\npvals &lt;- c(0.02, 0.000001)\nformat_inline(\"The { {ord(1:2)} } p-values were {scale_p(pvals)}\")\n\n\nThe 1st and 2nd p-values were 0.020 and &lt;0.001\n\n\n\nlibrary(emo)\nlibrary(prettyunits)\n\nduration &lt;- as.difftime(20.214, units = \"hours\")\nformat_inline(\"{ji('horror')} this workshop feels {pretty_dt(duration)} long\")\n\n\n😱 this workshop feels 20h 12m 50.4s long"
   },
   {
     "objectID": "index.html#writing-longer-text",

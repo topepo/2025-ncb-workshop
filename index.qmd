@@ -36,13 +36,13 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 
 <br>
 
-  - Part 1: Original sides were authored by [**Shannon Pileggi**](https://www.pipinghotdata.com/){target="_blank"}, some added or altered by [**Max Kuhn**](https://max-kuhn.org/){target="_blank"}
+-   Part 1: Original sides were authored by [**Shannon Pileggi**](https://www.pipinghotdata.com/){target="_blank"}, some added or altered by [**Max Kuhn**](https://max-kuhn.org/){target="_blank"}
 
-- Part 2: [**Max Kuhn**](https://max-kuhn.org/){target="_blank"}  largely created these
+-   Part 2: [**Max Kuhn**](https://max-kuhn.org/){target="_blank"} largely created these
 
-- Part 3: Created from [**E. David Aja**](https://edavidaja.com/){target="_blank"}'s previous work
+-   Part 3: Created from [**E. David Aja**](https://edavidaja.com/){target="_blank"}'s previous work
 
-Other authors are identified on a slide-by-slide basis. 
+Other authors are identified on a slide-by-slide basis.
 
 None of this would exist without vision (and patience) of [**Jennifer Bryan**](https://jennybryan.org/){target="_blank"}
 
@@ -52,7 +52,7 @@ None of this would exist without vision (and patience) of [**Jennifer Bryan**](h
 
 `r fontawesome::fa("check", fill = fa_fill)` R installed? Pretty recent?
 
-     Recommended R ≥ 4.4.1  (4.5.0 has `r emo::ji("penguin")` though)
+     Recommended R ≥ 4.4.1 (4.5.0 has `r emo::ji("penguin")` though)
 
 `r fontawesome::fa("check", fill = fa_fill)` RStudio installed?
 
@@ -81,7 +81,7 @@ Book: [What They Forgot to Teach You About R](https://rstats.wtf/){target="_blan
 
 Book: [Happy Git and GitHub for the useR](https://happygitwithr.com/){target="_blank"}
 
-<br> 
+<br>
 
 Website: [Tidyteam code review principles](https://code-review.tidyverse.org/){target="_blank"}
 
@@ -99,43 +99,34 @@ What [*Did*]{.important} They Forget <br> to Teach You?
 
 In a character string, what does `"~"` indicate?
 
-<br> 
+<br>
 
 . . .
 
-The _home_ directory on your computer. 
+The *home* directory on your computer.
 
 . . .
 
-
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
 For example, on my mac, it is `/Users/max`
-
 :::
 
 ::: {.column width="50%"}
+On windows it is the user's home directory.
 
-On windows it is the user's home directory. 
+*Probably* at:
 
-_Probably_ at:
-
- - `C:\Users\username`
- - but really it is wherever `%UserProfile%` points to
+-   `C:\Users\username`
+-   but really it is wherever `%UserProfile%` points to
 :::
+:::::
 
-::::
+<br> <br>
 
+. . .
 
-<br> <br> 
-
-
-. . . 
-
-You should *never use absolute paths* but, if you do, make them platform agnostic using the tilde. 
-
+You should *never use absolute paths* but, if you do, make them platform agnostic using the tilde.
 
 ## Syntax aside: pipes
 
@@ -213,14 +204,13 @@ mtcars |>
 :::
 ::::::
 
-
 ## Syntax aside: Rmd/qmd chunk options
 
 <br>
 
 We've probably all be used to a knitr computing chunk that looks like this:
 
-````markdown
+```` markdown
 `r '' ````{r chunk_name, echo = TRUE, eval = FALSE}
 
 summary(mtcars)
@@ -231,9 +221,9 @@ summary(mtcars)
 
 <br>
 
-The more modern version uses `yaml` arguments: 
+The more modern version uses `yaml` arguments:
 
-````markdown
+```` markdown
 `r '' ````{r}
 #| label: chunk_name
 #| echo: true
@@ -313,31 +303,27 @@ Wilson, Bryan, Cranston, Kitzes, Nederbragt, Teal (2017)
 :::
 ::::::
 
-# Practical Example: 
+# Practical Example:
 
 ## Predictors of reproductive toxicity
 
 Original GH repo for [publication](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C7&q=More+than+just+hormones%3A+H295R+cells+as+predictors+of+reproductive+toxicity&btnG=) (circa 2012):
 
-
-[https://github.com/topepo/steroidogenic_tox](https://github.com/topepo/steroidogenic_tox)
+<https://github.com/topepo/steroidogenic_tox>
 
 <br>
 
 . . .
 
+Refactored to look like a modern data analysis project:
 
-Refactored to look like a modern data analysis project: 
-
-[https://github.com/topepo/steroidogenic-tox-wtf](https://github.com/topepo/steroidogenic-tox-wtf)
-
+<https://github.com/topepo/steroidogenic-tox-wtf>
 
 . . .
 
 <br>
 
 Normally, I would put the Quarto report/summary in a `reports` directory but using `index.qmd` I get a [free website out of it](https://topepo.github.io/steroidogenic-tox-wtf/).
-
 
 # Project-oriented workflows
 
@@ -385,13 +371,10 @@ rm(list = ls())
 
 ...
 
+. . .
 
-. . . 
-
-:::: {.columns}
-
+::::::: columns
 ::: {.column width="7%"}
-
 :::
 
 ::: {.column width="40%"}
@@ -399,26 +382,23 @@ rm(list = ls())
 :::
 
 ::: {.column width="10%"}
-
 :::
 
 ::: {.column width="40%"}
 ![](img/fire-2.jpeg)
 :::
-
-::::
+:::::::
 
 ::: footer
 <https://twitter.com/hadleywickham/status/940021008764846080>
 
 <https://www.tidyverse.org/articles/2017/12/workflow-vs-script/>
-
 :::
 
 ## Which persist after rm(list = ls())?
 
 | Option | Persists? |
-|------------------------------------------------------|------------------|
+|-----------------------------------------------------|-------------------|
 | A. library(dplyr) | `r fontawesome::fa("check", fill = "#343838")` |
 | B. summary \<- head | `r fontawesome::fa("xmark", fill = "#343838")` |
 | C. options(stringsAsFactors = FALSE) | `r fontawesome::fa("check", fill = "#343838")` |
@@ -435,7 +415,7 @@ countdown(
 ## Which persist after rm(list = ls())?
 
 | Option | Persists? |
-|------------------------------------------------------|------------------|
+|-----------------------------------------------------|-------------------|
 | A. library(dplyr) | `r fontawesome::fa("check", fill = fa_fill)` |
 | B. summary \<- head | `r fontawesome::fa("xmark", fill = "white")` |
 | C. options(stringsAsFactors = FALSE) | `r fontawesome::fa("check", fill = fa_fill)` |
@@ -487,9 +467,7 @@ Tools -\> Global Options
 
 ## Get (git) vaccinated!!!
 
-
-<br> 
-
+<br>
 
 :::::: columns
 ::: {.column width="50%"}
@@ -500,22 +478,15 @@ Tools -\> Global Options
 :::
 
 ::: {.column width="46%"}
-
-
-```r
+``` r
 usethis::git_vaccinate()
 ```
 
 <br>
 
 > Adds `.Rproj.user`, `.Rhistory`, `.Rdata`, `.httr-oauth`, `.DS_Store`, and `.quarto` to your global (a.k.a. user-level) `.gitignore`. This is good practice as it decreases the chance that you will accidentally leak credentials to GitHub.
-
 :::
 ::::::
-
-
-
-
 
 ## Restart R often
 
@@ -779,31 +750,6 @@ Relative path within the RStudio <ins>**P**</ins>roject directory.
 dat <- read.csv(here::here("data/installed-packages.csv"))
 ```
 
-## Your turn
-
-<br>
-
-Practice calling `here::here()` in a project <br> to get a feel for it.
-
-<br>
-
-```{r, echo=TRUE, eval=FALSE}
-library(usethis)
-# saves project on desktop by default for most users
-use_course("rstats-wtf/wtf-fix-paths")
-# use_course("rstats-wtf/wtf-fix-paths", destdir = "my/new/location")
-# can alternatively download from 
-# https://github.com/rstats-wtf/wtf-fix-paths
-```
-
-<br> Read the `README.md` to get started.
-
-```{r}
-countdown(
-  minutes = 10
-  )
-```
-
 ## What if my data can't live in my project directory? {.smaller}
 
 1.  Are you sure it can't?
@@ -880,7 +826,7 @@ optimized for tab-complete
 ## 
 
 ::: question
-What features differentiate 😔 vs 😍?
+What features differentiate :pensive: vs :heart_eyes:?
 :::
 
 :::::::: columns
@@ -888,7 +834,7 @@ What features differentiate 😔 vs 😍?
 <br>
 
 ::: r-fit-text
-😔
+:pensive:
 :::
 
 <br>
@@ -896,7 +842,7 @@ What features differentiate 😔 vs 😍?
 <br>
 
 ::: r-fit-text
-😍
+:heart_eyes:
 :::
 :::::
 
@@ -958,7 +904,7 @@ countdown(
 
 <br>
 
-This creates names that are regular expression and globbing friendly, and easy to compute on! 🎉
+This creates names that are regular expression and globbing friendly, and easy to compute on! :tada:
 
 ::: footer
 Adapted from <br> <https://djnavarro.net/slides-project-structure/#1>.
@@ -972,7 +918,7 @@ name contains info on content
 
 name anticipates context
 
-concept of a slug 🐌 from user-friendly URLs
+concept of a slug :snail: from user-friendly URLs
 
 -   1986-01-28\_`raw-data-from-challenger-o-rings`.txt
 
@@ -1021,7 +967,7 @@ ISO 8601
 <https://twitter.com/JennyBryan/status/816143967695687684>
 :::
 
-## 👍 file names {.center-x}
+## :+1: file names {.center-x}
 
 ![](img/file-names-01.png)
 
@@ -1029,13 +975,13 @@ ISO 8601
 
 Anyone can guess at file's purpose
 
-## 👍 file names {.center-x}
+## :+1: file names {.center-x}
 
 ![](img/file-names-02.png)
 
 Easy to filter in R (or the shell or whatever)
 
-## 👍 file names {.center-x}
+## :+1: file names {.center-x}
 
 ![](img/file-names-03.png)
 
@@ -1043,7 +989,7 @@ Intentional delimiters means meta-data is easily recovered.
 
 `_` delimits fields; `-` delimits words
 
-## 👍 file names {.center-x}
+## :+1: file names {.center-x}
 
 ![](img/file-names-04.png)
 
@@ -1143,22 +1089,21 @@ ests.csv
 
 ## Max's Preference
 
-- `raw_data`: original source data (e.g., xls*, csv, images, etc)
-- `code`: source files for import, preprocessing, analysis, summaries
-- `rdata`: location for any {`.RData`, `.rds`, `.rda`} files that will be used later
-- `reports`: files and sub-directories created for dissemination (`[Rq]md` files). 
-- `exports`: objects that are given to someone else (e.g., model object, shiny app)
+-   `raw_data`: original source data (e.g., xls\*, csv, images, etc)
+-   `code`: source files for import, preprocessing, analysis, summaries
+-   `rdata`: location for any {`.RData`, `.rds`, `.rda`} files that will be used later
+-   `reports`: files and sub-directories created for dissemination (`[Rq]md` files).
+-   `exports`: objects that are given to someone else (e.g., model object, shiny app)
 
-<br> 
+<br>
 
-Subjective but thought out. 
-
+Subjective but thought out.
 
 ## Max's Preference
 
 <br><br>
 
-```r
+``` r
 usethis::create_project("~/potato")
 
 # ... wait for it
@@ -1173,32 +1118,28 @@ purrr::walk(
 )
 ```
 
-
-
 ## A little bit on partial automation
 
- If your project requires many computing iterations because:
- 
- - the project requires a lot of data transformations _and_ 
- - the rows may change (in number or value)
- 
-then think about how you would automate some parts. 
+If your project requires many computing iterations because:
+
+-   the project requires a lot of data transformations *and*
+-   the rows may change (in number or value)
+
+then think about how you would automate some parts.
 
 <br>
 
-Using [`makefiles`](https://makefiletutorial.com/) or the [targets package](https://books.ropensci.org/targets/) could be a lifesaver. 
+Using [`makefiles`](https://makefiletutorial.com/) or the [targets package](https://books.ropensci.org/targets/) could be a lifesaver.
 
 <br>
 
-You'll want to make sure that the raw data and intermediary data are consistent with the results you give to your clients. 
+You'll want to make sure that the raw data and intermediary data are consistent with the results you give to your clients.
 
 <br>
 
-But you probably can't automate interpretation. 
-
+But you probably can't automate interpretation.
 
 # Part 2: Resilient Reports {background-color="#A60A3D"}
-
 
 ```{r}
 #| label: load
@@ -1217,86 +1158,80 @@ library(gtsummary)
 
 ## What's your horror story?
 
-So many of my projects went through different rounds of adding and removing rows of data. 
+So many of my projects went through different rounds of adding and removing rows of data.
 
-<br> 
+<br>
 
-The cascading effect wreaks havoc on reports, tables, and _interpretation_. 
+The cascading effect wreaks havoc on reports, tables, and *interpretation*.
 
-<br> 
+<br>
 
 **Someone tell their worst experience (or I will)**
 
-<br> 
+<br>
 
 How can you avoid as much of this as possible?
 
 ## Treat writing like coding
 
-1. Write for the most general result. 
+1.  Write for the most general result.
 
-2. Never hard-code a number
+2.  Never hard-code a number
 
-3. Think about the end result. What format will it be? 
-
+3.  Think about the end result. What format will it be?
 
 The lesson of most of this workshop is
 
-# Tooling doesn't define you.  {background-color="#EF7C12FF"}
+# Tooling doesn't define you. {background-color="#EF7C12FF"}
 
-# But it can catalyze your efficiency and effectiveness.  {background-color="#F7AA14FF"}
+# But it can catalyze your efficiency and effectiveness. {background-color="#F7AA14FF"}
 
 # Tools, tools, tools
 
-<br> 
+<br>
 
-You might want to invest some time into good tools for reporting. 
-
-. . .
-
-<br> 
-
-First, we'll talk about writing text with the help of R packages (no AI involved). 
+You might want to invest some time into good tools for reporting.
 
 . . .
 
 <br>
 
-Then tables. 
+First, we'll talk about writing text with the help of R packages (no AI involved).
 
 . . .
 
-<br> 
+<br>
 
-And a little about figures. 
+Then tables.
 
+. . .
 
+<br>
 
+And a little about figures.
 
 ## `cli` and `glue`
 
-- These two packages have excellent features for writing text from data. 
+-   These two packages have excellent features for writing text from data.
 
-- They do many of the same things and your preference may vary. 
+-   They do many of the same things and your preference may vary.
 
-- `glue` tends to be better for simple things
+-   `glue` tends to be better for simple things
 
-- `cli` can do more, especially for writing output in your code
+-   `cli` can do more, especially for writing output in your code
 
-- Sites of interest: 
+-   Sites of interest:
 
-  - [https://glue.tidyverse.org/](https://glue.tidyverse.org/)
-  - [https://cli.r-lib.org/](https://cli.r-lib.org/)
-  - [`cli` pluralization](https://cli.r-lib.org/reference/pluralization.html)
-  - [`cli` inline formatting](https://cli.r-lib.org/reference/inline-markup.html)
+    -   <https://glue.tidyverse.org/>
+    -   <https://cli.r-lib.org/>
+    -   [`cli` pluralization](https://cli.r-lib.org/reference/pluralization.html)
+    -   [`cli` inline formatting](https://cli.r-lib.org/reference/inline-markup.html)
 
-<br> 
+<br>
 
-Also, the [`epoxy` package](https://github.com/gadenbuie/epoxy) extends glue. 
-
+Also, the [`epoxy` package](https://github.com/gadenbuie/epoxy) extends glue.
 
 ## The `cli` package ...
-
 
 ```{r}
 #| label: cli-pluralize-1
@@ -1313,9 +1248,7 @@ format_inline("{num_samples} sample{?s} {?was/were} available with groups: {grou
 # This gives us:
 ```
 
-
 > `r format_inline("{num_samples} sample{?s} {?was/were} available with groups: {groups}")`
-
 
 ## ... and friends
 
@@ -1336,11 +1269,9 @@ format_inline(
 # Now we have: 
 ```
 
-> `r format_inline("{numbers_to_words(qty(groups))} {qty(groups)}group{?s}: {.or {.val {toTitleCase(groups)}}}", keep_whitespace = FALSE) `
-
+> `r format_inline("{numbers_to_words(qty(groups))} {qty(groups)}group{?s}: {.or {.val {toTitleCase(groups)}}}", keep_whitespace = FALSE)`
 
 ## Nice data conversions
-
 
 ```{r}
 #| label: cli-and-scales
@@ -1358,9 +1289,7 @@ format_inline("The { {ord(1:2)} } p-values were {scale_p(pvals)}")
 
 > `r format_inline("The { {ord(1:2)} } p-values were {scale_p(pvals)}")`
 
-
-<br> 
-
+<br>
 
 ```{r}
 #| label: cli-and-others
@@ -1377,12 +1306,11 @@ format_inline("{ji('horror')} this workshop feels {pretty_dt(duration)} long")
 
 ## Writing longer text
 
-You can make a glue chunk as long as there is no line break or empty lines. 
+You can make a glue chunk as long as there is no line break or empty lines.
 
 <br>
 
-
-````markdown
+```` markdown
 `r '' ````{glue}
 #| label: glue-it
 #| results: asis
@@ -1400,12 +1328,11 @@ Did I say that there were **{length(groups)} groups** and _{num_samples}_ sample
 
 ## Writing longer text with `epoxy`
 
-After loading `epoxy` you can make that type of chunk with line breaks and empty lines: 
+After loading `epoxy` you can make that type of chunk with line breaks and empty lines:
 
 <br>
 
-
-````markdown
+```` markdown
 `r '' ````{epoxy}
 #| label: epoxy-ramble
 #| echo: false
@@ -1433,37 +1360,33 @@ line just to make a point.
 {ji("point_up_2")} was an empty line and `<br>`!
 ```
 
-
 ## Options for tables
 
-You might want to keep a browser tab open with the [Reproducible Research CRAN Task View](https://cran.r-project.org/web/views/ReproducibleResearch.html).  
-
-<br> 
-
-The primary contenders are:
-
-- [`kableExtra`](https://haozhu233.github.io/kableExtra/)
-- [`gt`](https://gt.rstudio.com/)
-
-. . .
-
-<br> 
-
-`gt` is my choice based on its design and support, but also because of extensions:
-
-- [`gtsummary`](https://www.danieldsjoberg.com/gtsummary/)
-- [`gtExtras`](https://jthomasmock.github.io/gtExtras/)
-
-
-(I don't convert many reports to Word though)
-
-## gt is _very_ tidyverse
+You might want to keep a browser tab open with the [Reproducible Research CRAN Task View](https://cran.r-project.org/web/views/ReproducibleResearch.html).
 
 <br>
 
+The primary contenders are:
 
-:::: {.columns}
+-   [`kableExtra`](https://haozhu233.github.io/kableExtra/)
+-   [`gt`](https://gt.rstudio.com/)
 
+. . .
+
+<br>
+
+`gt` is my choice based on its design and support, but also because of extensions:
+
+-   [`gtsummary`](https://www.danieldsjoberg.com/gtsummary/)
+-   [`gtExtras`](https://jthomasmock.github.io/gtExtras/)
+
+(I don't convert many reports to Word though)
+
+## gt is *very* tidyverse
+
+<br>
+
+::::: columns
 ::: {.column width="50%"}
 ```{r}
 #| label: some-penguins-code
@@ -1500,17 +1423,13 @@ select_penguins |>
   gt()
 ```
 :::
+:::::
 
-::::
-
-
-## gt is _very_ tidyverse
+## gt is *very* tidyverse
 
 <br>
 
-
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
 ```{r}
 #| label: some-penguins-cols-code
@@ -1537,17 +1456,13 @@ select_penguins |>
   )
 ```
 :::
+:::::
 
-::::
-
-
-## gt is _very_ tidyverse
+## gt is *very* tidyverse
 
 <br>
 
-
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
 ```{r}
 #| label: some-penguins-span-code
@@ -1582,23 +1497,19 @@ select_penguins |>
   )
 ```
 :::
+:::::
 
-::::
-
-etcetera, etcetera 
-
+etcetera, etcetera
 
 ## Cross-referencing in Quarto
 
-<br> 
+<br>
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
+Before:
 
-Before: 
-
-````markdown
+```` markdown
 `r '' ````{r}
 #| label: some-penguins
 
@@ -1617,9 +1528,9 @@ select_penguins |>
 :::
 
 ::: {.column width="50%"}
-After: 
+After:
 
-````markdown
+```` markdown
 `r '' ````{r}
 #| label: tbl-some-penguins
 #| tbl-cap: "These penguins are the best."
@@ -1636,23 +1547,18 @@ select_penguins |>
 ```
 ````
 :::
-
-::::
-
+:::::
 
 <br>
 
 In our report, we can use `@tbl-some-penguins` to produce `Table 1`.
 
-## `gtsummary` descriptive statistics 
+## `gtsummary` descriptive statistics
 
+<br>
 
-<br> 
-
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
 ```{r}
 #| label: summary-code
 #| eval: false
@@ -1668,7 +1574,6 @@ tbl_summary(
   modify_header(label = "**Predictor**") |> 
   bold_labels()
 ```
-
 :::
 
 ::: {.column width="50%"}
@@ -1686,20 +1591,15 @@ tbl_summary(
   modify_header(label = "**Predictor**") |> 
   bold_labels()
 ```
-
 :::
+:::::
 
-::::
+## `gtsummary` model summaries
 
-## `gtsummary` model summaries 
+<br>
 
-
-<br> 
-
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
 ```{r}
 #| label: summary-model-code
 #| eval: false
@@ -1709,7 +1609,6 @@ lm(bill_len ~ bill_dep + species, data = penguins,
    na.action = "na.omit") |>
   tbl_regression()
 ```
-
 :::
 
 ::: {.column width="50%"}
@@ -1721,21 +1620,15 @@ lm(bill_len ~ bill_dep + species, data = penguins,
    na.action = "na.omit") |>
   tbl_regression()
 ```
-
 :::
-
-::::
-
+:::::
 
 ## `gtExtras` descriptive statistics + plot
 
+<br>
 
-<br> 
-
-:::: {.columns}
-
+:::::: columns
 ::: {.column width="55%"}
-
 ```{r}
 #| label: summarize
 #| eval: false
@@ -1769,7 +1662,6 @@ vertical_penguins |>
     same_limit = FALSE
   )
 ```
-
 :::
 
 ::: {.column width="5%"}
@@ -1802,9 +1694,9 @@ penguins |>
   )
 ```
 
-<br> 
+<br>
 
-Add a `gt_theme_dark()`: 
+Add a `gt_theme_dark()`:
 
 ```{r}
 #| label: hist-dark
@@ -1832,35 +1724,31 @@ penguins |>
   ) |> 
   gt_theme_dark()
 ```
-
 :::
-
-::::
-
+::::::
 
 ## Figures
 
 Like tables, Quarto has excellent cross-referencing
 
-- use `label: fig-plot` to reference `@fig-plot` later
+-   use `label: fig-plot` to reference `@fig-plot` later
 
 . . .
 
 <br>
 
-The two best resources about plots that I know: 
+The two best resources about plots that I know:
 
- - [_Taking Control of Plot Scaling_](https://www.tidyverse.org/blog/2020/08/taking-control-of-plot-scaling/)
- - [_Fonts in R_](https://www.tidyverse.org/blog/2025/05/fonts-in-r/)
- 
+-   [*Taking Control of Plot Scaling*](https://www.tidyverse.org/blog/2020/08/taking-control-of-plot-scaling/)
+-   [*Fonts in R*](https://www.tidyverse.org/blog/2025/05/fonts-in-r/)
+
 Both by Thomas Lin Pedersen.
 
-The first post shows how to [scale your ggplot](https://www.tidyverse.org/blog/2020/08/taking-control-of-plot-scaling/#the-solution) so that your points and text are not too large or small.  
-
+The first post shows how to [scale your ggplot](https://www.tidyverse.org/blog/2020/08/taking-control-of-plot-scaling/#the-solution) so that your points and text are not too large or small.
 
 # Part 3: Project Admin {background-color="#A60A3D"}
 
-## ➡️
+## :arrow_right:
 
 <https://rstats-wtf.github.io/wtf-personal-radmin-slides/>
 
@@ -1881,9 +1769,7 @@ The first post shows how to [scale your ggplot](https://www.tidyverse.org/blog/2
 Sometimes we want to change the way our code behaves *without* having to change the code.
 
 ::: notes
-behaves might mean
-- "what computer do I think I'm on"
-- "is this dev or prod"?
+behaves might mean - "what computer do I think I'm on" - "is this dev or prod"?
 :::
 
 ## R startup sequence {.smaller background-color="#cccccc"}
@@ -1914,14 +1800,15 @@ environment variables
 
 <br/>
 
-::: {.r-fit-text}
-```{.r}
+::: r-fit-text
+``` r
 usethis::edit_r_environ(scope = ?)
 ```
 :::
+
 <br/>
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
 ### user
 
@@ -1933,7 +1820,7 @@ usethis::edit_r_environ(scope = ?)
 
 `path/to/your/project/.Renviron`
 :::
-:::
+:::::
 
 ## example `.Renviron`
 
@@ -1950,7 +1837,6 @@ DB_PASS=p0stgr3s
 ::: {.r .r-fit-text}
 `Sys.getenv()`
 :::
-
 
 ## edit your user `.Renviron` {.smaller}
 
@@ -1980,8 +1866,7 @@ what's the value of `WTF_USER` after you set `WTF_PROJECT`?
 
 ## `.Renviron` recap
 
-project `.Renviron` "short-circuits"
-if it exists, your user `.Renviron` will not be evaluated
+project `.Renviron` "short-circuits" if it exists, your user `.Renviron` will not be evaluated
 
 ## `.Rprofile`
 
@@ -1989,8 +1874,8 @@ R code that runs at the start of each session
 
 ## ?interactive()
 
-::: columns
-::: column
+:::::: columns
+:::: column
 ### `TRUE`
 
 :technologist: <br/>
@@ -2002,7 +1887,7 @@ R code that runs at the start of each session
 ::: fragment
 :point_up: most `.Rprofile` customization
 :::
-:::
+::::
 
 ::: column
 ### `FALSE`
@@ -2012,7 +1897,7 @@ R code that runs at the start of each session
 -   knitting an RMarkdown document
 -   `R -e script.R`
 :::
-:::
+::::::
 
 ## what to put in `.Rprofile`
 
@@ -2058,7 +1943,6 @@ https://github.com/search?q=.Rprofile
 
 {{< fa brands github >}} [HenrikBengtsson/dotfiles-for-R](https://github.com/HenrikBengtsson/dotfiles-for-R)
 
-
 ## activity
 
 ::: panel-tabset
@@ -2090,7 +1974,7 @@ if it exists, your user `.Rprofile` will not be evaluated
 
 ## wrapping up
 
-::: columns
+::::: columns
 ::: column
 ### `.Renviron`
 
@@ -2103,7 +1987,7 @@ if it exists, your user `.Rprofile` will not be evaluated
 
 -   development dependencies
 :::
-:::
+:::::
 
 ::: notes
 environment variables are inherited by child processes, so setting them early in the startup process is valuable Hosting providers trying to deal with secrets will often let you supply environment variables
@@ -2119,37 +2003,32 @@ environment variables are inherited by child processes, so setting them early in
 
 ![](https://solutions.posit.co/envs-pkgs/environments/reproduce/reproducibility-strategies-and-danger-zones.png)
 
-
 ::: notes
 we're focused in particular on systems where we have both access and responsibility
 :::
 
 ## tools
 
-::: columns
-::: column
+::::::: columns
+:::: column
 ### p3m
 
 ::: r-stack
 ![](img/icon-rspm.png){.r-stretch}
 :::
-:::
+::::
 
-::: column
+:::: column
 ### renv
 
 ::: r-stack
 ![](img/renv-small.png){.r-stretch}
 :::
-:::
-:::
+::::
+:::::::
 
 ::: notes
-renv has a number of tools that are helpful for adopting a project-based workflow:
-- lockfile records what packages you use and where you instaled them from
-- `renv::install()` can handle installation from remote sources, local sources, package versions, bioconductor, rspm
-- per-project library isolation with global package cache
-- makes it easy to install experimental versions of packages and then roll back to a stable release if it doesn't work out
+renv has a number of tools that are helpful for adopting a project-based workflow: - lockfile records what packages you use and where you instaled them from - `renv::install()` can handle installation from remote sources, local sources, package versions, bioconductor, rspm - per-project library isolation with global package cache - makes it easy to install experimental versions of packages and then roll back to a stable release if it doesn't work out
 :::
 
 ## p3m
@@ -2160,7 +2039,7 @@ renv has a number of tools that are helpful for adopting a project-based workflo
 
 ## p3m: latest
 
-![](img/p3m-latest.png) 
+![](img/p3m-latest.png)
 
 ## p3m: date-based snapshots
 
@@ -2173,6 +2052,7 @@ time travel!
 :::
 
 1.  open the `wtf-explore-libraries` project
+
 2.  run `packageVersion("dplyr")`
 
 3.  update your project `.Rprofile` with a date-based snapshot of CRAN
@@ -2189,15 +2069,17 @@ what version of dplyr did you install?
 
 {{< countdown "5:00" >}}
 
-##  ⏪
+## :rewind:
 
-- remove the repository configuration from your project `.Rprofile`
-- restart R
-- reinstall whatever version of dplyr you were using before, e.g.:
+-   remove the repository configuration from your project `.Rprofile`
 
-  ```{.r code-line-numbers="false"}
-  remotes::install_version("dplyr", "1.0.10")
-  ```
+-   restart R
+
+-   reinstall whatever version of dplyr you were using before, e.g.:
+
+    ``` {.r code-line-numbers="false"}
+    remotes::install_version("dplyr", "1.0.10")
+    ```
 
 if that process seems silly, :sparkles: [you should use `renv`](https://github.com/edavidaja/you-should-use-renv) :sparkles:
 
@@ -2288,12 +2170,13 @@ create an isolated project library
 
 `CMD|CTRL + SHIFT + P > Close Current Project`
 
-```{.r}
+``` r
 usethis::create_project("~/wtf-renv") # or wherever you typically put projects
 install.packages("renv")
 renv::init()
 renv::status()
 ```
+
 {{< countdown "3:00" >}}
 
 ## activity
@@ -2304,15 +2187,16 @@ manage dependencies
 
 add `library(parallelly)` to any file in the `wtf-renv/R` directory
 
-```{.r}
+``` r
 renv::status()
 install.packages("parallelly")
 renv::status()
 renv::snapshot()
 ```
+
 remove `library(parallelly)` from the file you added it to
 
-```{.r}
+``` r
 renv::status()
 ```
 
