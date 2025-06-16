@@ -12,6 +12,7 @@ format:
     transition: fade
     slide-number: true
 editor: visual
+from: markdown+emoji
 execute:
   freeze: auto
 ---
@@ -1859,6 +1860,536 @@ The first post shows how to [scale your ggplot](https://www.tidyverse.org/blog/2
 
 # Part 3: Project Admin {background-color="#A60A3D"}
 
+## ➡️
+
+<https://rstats-wtf.github.io/wtf-personal-radmin-slides/>
+
+## the onion
+
+::: r-stack
+![](img/project-onion-base.svg)
+:::
+
+## starting R
+
+::: {style="text-align: center;"}
+![](img/project-onion-starting-r.svg)
+:::
+
+## why?
+
+Sometimes we want to change the way our code behaves *without* having to change the code.
+
+::: notes
+behaves might mean
+- "what computer do I think I'm on"
+- "is this dev or prod"?
+:::
+
+## R startup sequence {.smaller background-color="#cccccc"}
+
+::: r-stack
+![](img/R-startup.svg)
+:::
+
+## R startup sequence (our focus) {.smaller background-color="#cccccc"}
+
+::: r-stack
+![](img/r-startup-focus.svg)
+:::
+
+## `.Renviron`
+
+environment variables
+
+> a \[...\] named value that can affect the way running processes will behave on a computer
+
+## what goes in `.Renviron`
+
+:white_check_mark: R-specific environment variables\
+:white_check_mark: API keys or other secrets\
+:x: R code
+
+## Editing `.Renviron`
+
+<br/>
+
+::: {.r-fit-text}
+```{.r}
+usethis::edit_r_environ(scope = ?)
+```
+:::
+<br/>
+
+::: columns
+::: {.column width="40%"}
+### user
+
+`~/.Renviron`
+:::
+
+::: {.column width="60%"}
+### project
+
+`path/to/your/project/.Renviron`
+:::
+:::
+
+## example `.Renviron`
+
+``` bash
+PATH="${RTOOLS40_HOME}\usr\bin;${PATH}" # windows users
+CONNECT_API_KEY=DaYK2hBUriSBYUEGIAiyXsRJHSjTYJN3
+R_HISTSIZE=100000
+DB_USER=elephant
+DB_PASS=p0stgr3s
+```
+
+## read environment variables
+
+::: {.r .r-fit-text}
+`Sys.getenv()`
+:::
 
 
+## edit your user `.Renviron` {.smaller}
 
+1.  `usethis::edit_r_environ()`
+2.  add `WTF_USER=<your name>_user`
+3.  restart your R session\
+    `CTRL + SHIFT + F10`\
+    `CMD  + SHIFT + 0`
+4.  Retrieve the value of WTF_USER `Sys.getenv("WTF_USER")`
+
+{{< countdown "2:00" >}}
+
+## edit your project `.Renviron` {.smaller}
+
+1.  `usethis::edit_r_environ("project")`
+2.  add `WTF_PROJECT=<your name>_project`
+3.  restart your R session\
+    `CTRL + SHIFT + F10`\
+    `CMD  + SHIFT + 0`
+4.  Retrieve the value of WTF_PROJECT `Sys.getenv("WTF_PROJECT")`
+
+{{< countdown "2:00" >}}
+
+::: question
+what's the value of `WTF_USER` after you set `WTF_PROJECT`?
+:::
+
+## `.Renviron` recap
+
+project `.Renviron` "short-circuits"
+if it exists, your user `.Renviron` will not be evaluated
+
+## `.Rprofile`
+
+R code that runs at the start of each session
+
+## ?interactive()
+
+::: columns
+::: column
+### `TRUE`
+
+:technologist: <br/>
+
+-   sending individual lines of code to the console
+
+<br/> <br/>
+
+::: fragment
+:point_up: most `.Rprofile` customization
+:::
+:::
+
+::: column
+### `FALSE`
+
+:robot: <br/>
+
+-   knitting an RMarkdown document
+-   `R -e script.R`
+:::
+:::
+
+## what to put in `.Rprofile`
+
+-   set a default CRAN mirror
+-   customize [R prompt](https://github.com/gaborcsardi/prompt/)
+
+## what *not* to put in `.Rprofile`
+
+If it matters for code you share, it **should not** be in `.Rprofile`
+
+## why shouldn't these go in `.Rprofile`?
+
+::: incremental
+-   `library(tidyverse)`
+-   `f <- dplyr::filter`
+-   `theme_set(theme_bw())`
+:::
+
+## discuss with your neighbor
+
+::: question
+Why *might* these be safe to put in `.Rprofile`?
+:::
+
+<br>
+
+``` r
+library(usethis)
+library(devtools)
+```
+
+{{< countdown "2:00" >}}
+
+## dotfiles
+
+::: r-fit-text
+https://github.com/search?q=.Rprofile
+:::
+
+{{< fa brands github >}} [csgillespie/rprofile](https://github.com/csgillespie/rprofile)
+
+{{< fa brands github >}} [klmr/rprofile](https://github.com/klmr/rprofile)
+
+{{< fa brands github >}} [HenrikBengtsson/dotfiles-for-R](https://github.com/HenrikBengtsson/dotfiles-for-R)
+
+
+## activity
+
+::: panel-tabset
+### edit your user `.Rprofile` {.smaller}
+
+1.  `usethis::edit_r_profile()`
+2.  add `print("from my user Rprofile")`
+3.  restart your R session\
+    `CTRL + SHIFT + F10`\
+    `CMD  + SHIFT + 0`
+4.  what value is printed when you restart?
+
+### edit your project `.Rprofile` {.smaller}
+
+1.  `usethis::edit_r_profile("project")`
+2.  add `print("from my project Rprofile")`
+3.  restart your R session\
+    `CTRL + SHIFT + F10`\
+    `CMD  + SHIFT + 0`
+4.  what value is printed when you restart?
+:::
+
+{{< countdown "5:00" >}}
+
+## `.Rprofile` recap
+
+project `.Rprofile` "short-circuits"\
+if it exists, your user `.Rprofile` will not be evaluated
+
+## wrapping up
+
+::: columns
+::: column
+### `.Renviron`
+
+-   secrets
+-   environment information
+:::
+
+::: column
+### `.Rprofile`
+
+-   development dependencies
+:::
+:::
+
+::: notes
+environment variables are inherited by child processes, so setting them early in the startup process is valuable Hosting providers trying to deal with secrets will often let you supply environment variables
+:::
+
+## reproducible environments
+
+::: {style="text-align: center;"}
+![](img/project-onion-reproducible-environments.svg)
+:::
+
+## [reproducibility strategies](https://solutions.posit.co/envs-pkgs/environments/)
+
+![](https://solutions.posit.co/envs-pkgs/environments/reproduce/reproducibility-strategies-and-danger-zones.png)
+
+
+::: notes
+we're focused in particular on systems where we have both access and responsibility
+:::
+
+## tools
+
+::: columns
+::: column
+### p3m
+
+::: r-stack
+![](img/icon-rspm.png){.r-stretch}
+:::
+:::
+
+::: column
+### renv
+
+::: r-stack
+![](img/renv-small.png){.r-stretch}
+:::
+:::
+:::
+
+::: notes
+renv has a number of tools that are helpful for adopting a project-based workflow:
+- lockfile records what packages you use and where you instaled them from
+- `renv::install()` can handle installation from remote sources, local sources, package versions, bioconductor, rspm
+- per-project library isolation with global package cache
+- makes it easy to install experimental versions of packages and then roll back to a stable release if it doesn't work out
+:::
+
+## p3m
+
+::: r-stack
+![](img/icon-rspm.png){.r-stretch}
+:::
+
+## p3m: latest
+
+![](img/p3m-latest.png) 
+
+## p3m: date-based snapshots
+
+![](img/rspm-2021-03-31-highlight.png)
+
+## activity
+
+::: question
+time travel!
+:::
+
+1.  open the `wtf-explore-libraries` project
+2.  run `packageVersion("dplyr")`
+
+3.  update your project `.Rprofile` with a date-based snapshot of CRAN
+
+    ``` {.r code-line-numbers="false"}
+    options(repos = c(P3M = "https://p3m.dev/cran/2023-12-31"))
+    ```
+
+4.  Restart R
+
+5.  `install.packages("dplyr")`
+
+what version of dplyr did you install?
+
+{{< countdown "5:00" >}}
+
+##  ⏪
+
+- remove the repository configuration from your project `.Rprofile`
+- restart R
+- reinstall whatever version of dplyr you were using before, e.g.:
+
+  ```{.r code-line-numbers="false"}
+  remotes::install_version("dplyr", "1.0.10")
+  ```
+
+if that process seems silly, :sparkles: [you should use `renv`](https://github.com/edavidaja/you-should-use-renv) :sparkles:
+
+## renv
+
+::: r-stack
+![](img/renv-small.png){.r-stretch}
+:::
+
+## shared project environment
+
+::: {data-id="env"}
+```{mermaid}
+%%{init: {"theme": "dark", "look": "handDrawn" } }%%
+graph
+L --- P1
+L --- P2
+L --- P3
+L(library)
+P1(project1)
+P2(project2)
+P3(project3)
+```
+:::
+
+::: notes
+-   by default all of your packages are installed into your user library
+-   the unforunate default behavior in macOS is also that this is the system library
+-   updating a package in the shared environments updates it for *all* of your projects
+:::
+
+<br/>
+
+## shared project environment
+
+### `.libPaths()`
+
+``` {.r code-line-numbers="false"}
+> .libPaths()
+[1] "C:/Users/edavi/AppData/Local/R/win-library/4.4" # user
+[2] "C:/Program Files/R/R-4.4.0/library" # system
+```
+
+## isolated project environments
+
+::: {data-id="env"}
+```{mermaid}
+%%{init: {"theme": "dark", "look": "handDrawn" } }%%
+graph
+C --- L1
+C --- L2
+C --- L3
+L1 --- P1
+L2 --- P2
+L3 --- P3
+L1(library1)
+L2(library2)
+L3(library3)
+P1(project1)
+P2(project2)
+P3(project3)
+C(global cache)
+```
+:::
+
+## isolated project environments
+
+### `.libPaths()`
+
+``` {.r code-line-numbers="false"}
+- Project '~/sample-project' loaded. [renv 1.0.7]
+> .libPaths()
+[1] "C:/Users/edavi/Documents/sample-project/renv/library/windows/R-4.4/x86_64-w64-mingw32"
+[2] "C:/Users/edavi/AppData/Local/R/cache/R/renv/sandbox/windows/R-4.4/x86_64-w64-mingw32/88765555"
+```
+
+## isolated project environments
+
+-   experiment with new packages without breaking other projects
+-   share exactly which versions you're using with your team or future you
+-   re-use packages you've already installed
+
+## activity
+
+::: question
+create an isolated project library
+:::
+
+`CMD|CTRL + SHIFT + P > Close Current Project`
+
+```{.r}
+usethis::create_project("~/wtf-renv") # or wherever you typically put projects
+install.packages("renv")
+renv::init()
+renv::status()
+```
+{{< countdown "3:00" >}}
+
+## activity
+
+::: question
+manage dependencies
+:::
+
+add `library(parallelly)` to any file in the `wtf-renv/R` directory
+
+```{.r}
+renv::status()
+install.packages("parallelly")
+renv::status()
+renv::snapshot()
+```
+remove `library(parallelly)` from the file you added it to
+
+```{.r}
+renv::status()
+```
+
+{{< countdown "5:00" >}}
+
+::: notes
+run `.libPaths()` to see what your default package libraries are initialize an renv--you'll see that the environment is now local to the project note the .Rprofile that gets placed into your project, which runs an R script in `renv/activate.R` deactivate the environment and check libPaths() again--it should be back to normal
+:::
+
+## `renv.lock` {visibility="hidden"}
+
+``` json
+{
+  "R": {
+    "Version": "4.1.2",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cloud.r-project.org"
+      }
+    ]
+  },
+  "Packages": {
+    [...]
+    "knitr": {
+      "Package": "knitr",
+      "Version": "1.39",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "029ab7c4badd3cf8af69016b2ba27493",
+      "Requirements": [
+        "evaluate",
+        "highr",
+        "stringr",
+        "xfun",
+        "yaml"
+      ]
+    },
+    ...
+  }
+}
+```
+
+::: notes
+created from `renv::snapshot()` by default, identifies dependencies of your code for example: usethis doesn't usually appear in my lockfiles, because I'm running it interactively, rather than making it a dependency of my projects
+:::
+
+## `renv::install()`
+
+or [`install.packages()`](https://rstudio.github.io/renv/articles/renv.html#shims) with shims enabled
+
+``` r
+renv::install("jsonlite")
+renv::install("jsonlite@1.2") # at version
+renv::install("jeroen/jsonlite") # latest
+renv::install"jeroen/jsonlite@80854359976250f30a86a6992c0d8c3b3d95473d") # at SHA
+renv::install("path/to/package") # local source
+```
+
+<hr>
+
+::: fragment
+``` r
+devtools::install("jsonlite")
+devtools::install_version("jsonlite@1.2") # at version
+devtools::install_github("jeroen/jsonlite") # latest
+devtools::install_github("jeroen/jsonlite@80854359976250f30a86a6992c0d8c3b3d95473d") # at SHA
+devtools::install("path/to/package") # local source
+```
+:::
+
+## the junk drawer
+
+for reprexes, tweets, and other ephemera:
+
+`~/Documents/scratch`
+
+::: notes
+I use `renv` for everything, and have one junk project into which I install things without regard for stability or reproducibility
+:::

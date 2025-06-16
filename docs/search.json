@@ -254,9 +254,9 @@
   {
     "objectID": "index.html#section-5",
     "href": "index.html#section-5",
-    "title": "Project oriented workflows",
-    "section": "",
-    "text": "’Tis but thy name that is my enemy; Thou art thyself, though not a Montague. What’s Montague? It is nor hand, nor foot, Nor arm, nor face, nor any other part Belonging to a man. O, be some other name! What’s in a name? That which we call a rose By any other name would smell as sweet; So Romeo would, were he not Romeo call’d, Retain that dear perfection which he owes Without that title. Romeo, doff thy name; And for thy name, which is no part of thee, Take all myself.\n\n\n\nThis\nis\nnot\ntrue\nfor\nfile\nnames.\n\n\nFrom Danielle Navarro’s Project Structure slides\nhttps://slides.djnavarro.net/"
+    "title": "Making Project Work Better with R",
+    "section": "⏪",
+    "text": "⏪\n\nremove the repository configuration from your project .Rprofile\nrestart R\nreinstall whatever version of dplyr you were using before, e.g.:\nremotes::install_version(\"dplyr\", \"1.0.10\")\n\nif that process seems silly, ✨ you should use renv ✨"
   },
   {
     "objectID": "index.html#names-matter-1",
@@ -508,7 +508,7 @@
     "href": "index.html#nice-data-conversions",
     "title": "Making Project Work Better with R",
     "section": "Nice data conversions",
-    "text": "Nice data conversions\n\nlibrary(scales)\n\nord &lt;- scales::label_ordinal()\nscale_p &lt;- scales::pvalue_format() # or prettyunits::pretty_p_value()\n\npvals &lt;- c(0.02, 0.000001)\nformat_inline(\"The { {ord(1:2)} } p-values were {scale_p(pvals)}\")\n\n\nThe 1st and 2nd p-values were 0.020 and &lt;0.001\n\n\n\nlibrary(emo)\nlibrary(prettyunits)\n\nduration &lt;- as.difftime(20.214, units = \"hours\")\nformat_inline(\"{ji('horror')} this workshop feels {pretty_dt(duration)} long\")\n\n\n😱 this workshop feels 20h 12m 50.4s long"
+    "text": "Nice data conversions\n\nlibrary(scales)\n\nord &lt;- scales::label_ordinal()\nscale_p &lt;- scales::pvalue_format() # or prettyunits::pretty_p_value()\n\npvals &lt;- c(0.02, 0.000001)\nformat_inline(\"The { {ord(1:2)} } p-values were {scale_p(pvals)}\")\n\n\nThe 1st and 2nd p-values were 0.020 and &lt;0.001\n\n\n\nlibrary(emo)\nlibrary(prettyunits)\n\nduration &lt;- as.difftime(20.214, units = \"hours\")\nformat_inline(\"{ji('horror')} this workshop feels {pretty_dt(duration)} long\")\n\n\n🙀 this workshop feels 20h 12m 50.4s long"
   },
   {
     "objectID": "index.html#writing-longer-text",
@@ -564,7 +564,7 @@
     "href": "index.html#gtsummary-descriptive-statistics",
     "title": "Making Project Work Better with R",
     "section": "gtsummary descriptive statistics",
-    "text": "gtsummary descriptive statistics\n\n\n\n\npenguins |&gt; \ntbl_summary(\n  include = c(bill_len, bill_dep, island),\n  by = species\n) |&gt; \n  add_n() |&gt; \n  add_p() |&gt; \n  modify_header(label = \"**Predictor**\") |&gt; \n  bold_labels()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPredictor\nN\nAdelie\nN = 1521\nChinstrap\nN = 681\nGentoo\nN = 1241\np-value2\n\n\n\n\nbill_len\n342\n38.8 (36.7, 40.8)\n49.6 (46.3, 51.2)\n47.3 (45.3, 49.6)\n&lt;0.001\n\n\n    Unknown\n\n\n1\n0\n1\n\n\n\n\nbill_dep\n342\n18.40 (17.50, 19.00)\n18.45 (17.50, 19.40)\n15.00 (14.20, 15.70)\n&lt;0.001\n\n\n    Unknown\n\n\n1\n0\n1\n\n\n\n\nisland\n344\n\n\n\n\n\n\n&lt;0.001\n\n\n    Biscoe\n\n\n44 (29%)\n0 (0%)\n124 (100%)\n\n\n\n\n    Dream\n\n\n56 (37%)\n68 (100%)\n0 (0%)\n\n\n\n\n    Torgersen\n\n\n52 (34%)\n0 (0%)\n0 (0%)\n\n\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n2 Kruskal-Wallis rank sum test; Pearson’s Chi-squared test"
+    "text": "gtsummary descriptive statistics\n\n\n\n\npenguins |&gt; \ntbl_summary(\n  include = c(bill_len, bill_dep, island),\n  by = species\n) |&gt; \n  add_n() |&gt; \n  add_p() |&gt; \n  modify_header(label = \"**Predictor**\") |&gt; \n  bold_labels()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPredictor\nN\nAdelie\nN = 1521\nChinstrap\nN = 681\nGentoo\nN = 1241\np-value\n\n\n\n\nbill_len\n342\n38.8 (36.7, 40.8)\n49.6 (46.3, 51.2)\n47.3 (45.3, 49.6)\n\n\n\n\n    Unknown\n\n\n1\n0\n1\n\n\n\n\nbill_dep\n342\n18.40 (17.50, 19.00)\n18.45 (17.50, 19.40)\n15.00 (14.20, 15.70)\n\n\n\n\n    Unknown\n\n\n1\n0\n1\n\n\n\n\nisland\n344\n\n\n\n\n\n\n\n\n\n\n    Biscoe\n\n\n44 (29%)\n0 (0%)\n124 (100%)\n\n\n\n\n    Dream\n\n\n56 (37%)\n68 (100%)\n0 (0%)\n\n\n\n\n    Torgersen\n\n\n52 (34%)\n0 (0%)\n0 (0%)\n\n\n\n\n\n1 Median (Q1, Q3); n (%)"
   },
   {
     "objectID": "index.html#gtsummary-model-summaries",
@@ -586,5 +586,292 @@
     "title": "Making Project Work Better with R",
     "section": "Figures",
     "text": "Figures\nLike tables, Quarto has excellent cross-referencing\n\nuse label: fig-plot to reference @fig-plot later\n\n\n\nThe two best resources about plots that I know:\n\nTaking Control of Plot Scaling\nFonts in R\n\nBoth by Thomas Lin Pedersen.\nThe first post shows how to scale your ggplot so that your points and text are not too large or small."
+  },
+  {
+    "objectID": "index.html#the-onion",
+    "href": "index.html#the-onion",
+    "title": "Making Project Work Better with R",
+    "section": "the onion",
+    "text": "the onion"
+  },
+  {
+    "objectID": "index.html#starting-r",
+    "href": "index.html#starting-r",
+    "title": "Making Project Work Better with R",
+    "section": "starting R",
+    "text": "starting R"
+  },
+  {
+    "objectID": "index.html#why-1",
+    "href": "index.html#why-1",
+    "title": "Making Project Work Better with R",
+    "section": "why?",
+    "text": "why?\nSometimes we want to change the way our code behaves without having to change the code.\n\nbehaves might mean - “what computer do I think I’m on” - “is this dev or prod”?"
+  },
+  {
+    "objectID": "index.html#r-startup-sequence",
+    "href": "index.html#r-startup-sequence",
+    "title": "Making Project Work Better with R",
+    "section": "R startup sequence",
+    "text": "R startup sequence"
+  },
+  {
+    "objectID": "index.html#r-startup-sequence-our-focus",
+    "href": "index.html#r-startup-sequence-our-focus",
+    "title": "Making Project Work Better with R",
+    "section": "R startup sequence (our focus)",
+    "text": "R startup sequence (our focus)"
+  },
+  {
+    "objectID": "index.html#renviron",
+    "href": "index.html#renviron",
+    "title": "Making Project Work Better with R",
+    "section": ".Renviron",
+    "text": ".Renviron\nenvironment variables\n\na […] named value that can affect the way running processes will behave on a computer"
+  },
+  {
+    "objectID": "index.html#what-goes-in-.renviron",
+    "href": "index.html#what-goes-in-.renviron",
+    "title": "Making Project Work Better with R",
+    "section": "what goes in .Renviron",
+    "text": "what goes in .Renviron\n✅ R-specific environment variables\n✅ API keys or other secrets\n❌ R code"
+  },
+  {
+    "objectID": "index.html#editing-.renviron",
+    "href": "index.html#editing-.renviron",
+    "title": "Making Project Work Better with R",
+    "section": "Editing .Renviron",
+    "text": "Editing .Renviron\n\n\nusethis::edit_r_environ(scope = ?)\n\n\n\n\nuser\n~/.Renviron\n\nproject\npath/to/your/project/.Renviron"
+  },
+  {
+    "objectID": "index.html#example-.renviron",
+    "href": "index.html#example-.renviron",
+    "title": "Making Project Work Better with R",
+    "section": "example .Renviron",
+    "text": "example .Renviron\nPATH=\"${RTOOLS40_HOME}\\usr\\bin;${PATH}\" # windows users\nCONNECT_API_KEY=DaYK2hBUriSBYUEGIAiyXsRJHSjTYJN3\nR_HISTSIZE=100000\nDB_USER=elephant\nDB_PASS=p0stgr3s"
+  },
+  {
+    "objectID": "index.html#read-environment-variables",
+    "href": "index.html#read-environment-variables",
+    "title": "Making Project Work Better with R",
+    "section": "read environment variables",
+    "text": "read environment variables\n\nSys.getenv()"
+  },
+  {
+    "objectID": "index.html#edit-your-user-.renviron",
+    "href": "index.html#edit-your-user-.renviron",
+    "title": "Making Project Work Better with R",
+    "section": "edit your user .Renviron",
+    "text": "edit your user .Renviron\n\nusethis::edit_r_environ()\nadd WTF_USER=&lt;your name&gt;_user\nrestart your R session\nCTRL + SHIFT + F10\nCMD  + SHIFT + 0\nRetrieve the value of WTF_USER Sys.getenv(\"WTF_USER\")\n\n\n  \n    −\n    +\n \n 02:00"
+  },
+  {
+    "objectID": "index.html#edit-your-project-.renviron",
+    "href": "index.html#edit-your-project-.renviron",
+    "title": "Making Project Work Better with R",
+    "section": "edit your project .Renviron",
+    "text": "edit your project .Renviron\n\nusethis::edit_r_environ(\"project\")\nadd WTF_PROJECT=&lt;your name&gt;_project\nrestart your R session\nCTRL + SHIFT + F10\nCMD  + SHIFT + 0\nRetrieve the value of WTF_PROJECT Sys.getenv(\"WTF_PROJECT\")\n\n\n  \n    −\n    +\n \n 02:00\n \n\nwhat’s the value of WTF_USER after you set WTF_PROJECT?"
+  },
+  {
+    "objectID": "index.html#renviron-recap",
+    "href": "index.html#renviron-recap",
+    "title": "Making Project Work Better with R",
+    "section": ".Renviron recap",
+    "text": ".Renviron recap\nproject .Renviron “short-circuits” if it exists, your user .Renviron will not be evaluated"
+  },
+  {
+    "objectID": "index.html#rprofile",
+    "href": "index.html#rprofile",
+    "title": "Making Project Work Better with R",
+    "section": ".Rprofile",
+    "text": ".Rprofile\nR code that runs at the start of each session"
+  },
+  {
+    "objectID": "index.html#interactive",
+    "href": "index.html#interactive",
+    "title": "Making Project Work Better with R",
+    "section": "?interactive()",
+    "text": "?interactive()\n\n\nTRUE\n🧑‍💻 \n\nsending individual lines of code to the console\n\n \n\n☝️ most .Rprofile customization\n\n\nFALSE\n🤖 \n\nknitting an RMarkdown document\nR -e script.R"
+  },
+  {
+    "objectID": "index.html#what-to-put-in-.rprofile",
+    "href": "index.html#what-to-put-in-.rprofile",
+    "title": "Making Project Work Better with R",
+    "section": "what to put in .Rprofile",
+    "text": "what to put in .Rprofile\n\nset a default CRAN mirror\ncustomize R prompt"
+  },
+  {
+    "objectID": "index.html#what-not-to-put-in-.rprofile",
+    "href": "index.html#what-not-to-put-in-.rprofile",
+    "title": "Making Project Work Better with R",
+    "section": "what not to put in .Rprofile",
+    "text": "what not to put in .Rprofile\nIf it matters for code you share, it should not be in .Rprofile"
+  },
+  {
+    "objectID": "index.html#why-shouldnt-these-go-in-.rprofile",
+    "href": "index.html#why-shouldnt-these-go-in-.rprofile",
+    "title": "Making Project Work Better with R",
+    "section": "why shouldn’t these go in .Rprofile?",
+    "text": "why shouldn’t these go in .Rprofile?\n\nlibrary(tidyverse)\nf &lt;- dplyr::filter\ntheme_set(theme_bw())"
+  },
+  {
+    "objectID": "index.html#discuss-with-your-neighbor",
+    "href": "index.html#discuss-with-your-neighbor",
+    "title": "Making Project Work Better with R",
+    "section": "discuss with your neighbor",
+    "text": "discuss with your neighbor\n\nWhy might these be safe to put in .Rprofile?\n\n\nlibrary(usethis)\nlibrary(devtools)\n\n  \n    −\n    +\n \n 02:00"
+  },
+  {
+    "objectID": "index.html#dotfiles",
+    "href": "index.html#dotfiles",
+    "title": "Making Project Work Better with R",
+    "section": "dotfiles",
+    "text": "dotfiles\n\nhttps://github.com/search?q=.Rprofile\n\n csgillespie/rprofile\n klmr/rprofile\n HenrikBengtsson/dotfiles-for-R"
+  },
+  {
+    "objectID": "index.html#activity",
+    "href": "index.html#activity",
+    "title": "Making Project Work Better with R",
+    "section": "activity",
+    "text": "activity\n\nedit your user .Rprofileedit your project .Rprofile\n\n\n\nusethis::edit_r_profile()\nadd print(\"from my user Rprofile\")\nrestart your R session\nCTRL + SHIFT + F10\nCMD  + SHIFT + 0\nwhat value is printed when you restart?\n\n\n\n\nusethis::edit_r_profile(\"project\")\nadd print(\"from my project Rprofile\")\nrestart your R session\nCTRL + SHIFT + F10\nCMD  + SHIFT + 0\nwhat value is printed when you restart?\n\n\n\n\n\n  \n    −\n    +\n \n 05:00"
+  },
+  {
+    "objectID": "index.html#rprofile-recap",
+    "href": "index.html#rprofile-recap",
+    "title": "Making Project Work Better with R",
+    "section": ".Rprofile recap",
+    "text": ".Rprofile recap\nproject .Rprofile “short-circuits”\nif it exists, your user .Rprofile will not be evaluated"
+  },
+  {
+    "objectID": "index.html#wrapping-up",
+    "href": "index.html#wrapping-up",
+    "title": "Making Project Work Better with R",
+    "section": "wrapping up",
+    "text": "wrapping up\n\n\n.Renviron\n\nsecrets\nenvironment information\n\n\n.Rprofile\n\ndevelopment dependencies\n\n\n\nenvironment variables are inherited by child processes, so setting them early in the startup process is valuable Hosting providers trying to deal with secrets will often let you supply environment variables"
+  },
+  {
+    "objectID": "index.html#reproducible-environments",
+    "href": "index.html#reproducible-environments",
+    "title": "Making Project Work Better with R",
+    "section": "reproducible environments",
+    "text": "reproducible environments"
+  },
+  {
+    "objectID": "index.html#reproducibility-strategies",
+    "href": "index.html#reproducibility-strategies",
+    "title": "Making Project Work Better with R",
+    "section": "reproducibility strategies",
+    "text": "reproducibility strategies\n\n\nwe’re focused in particular on systems where we have both access and responsibility"
+  },
+  {
+    "objectID": "index.html#tools",
+    "href": "index.html#tools",
+    "title": "Making Project Work Better with R",
+    "section": "tools",
+    "text": "tools\n\n\np3m\n\n\n\n\nrenv\n\n\n\n\n\nrenv has a number of tools that are helpful for adopting a project-based workflow: - lockfile records what packages you use and where you instaled them from - renv::install() can handle installation from remote sources, local sources, package versions, bioconductor, rspm - per-project library isolation with global package cache - makes it easy to install experimental versions of packages and then roll back to a stable release if it doesn’t work out"
+  },
+  {
+    "objectID": "index.html#p3m-1",
+    "href": "index.html#p3m-1",
+    "title": "Making Project Work Better with R",
+    "section": "p3m",
+    "text": "p3m"
+  },
+  {
+    "objectID": "index.html#p3m-latest",
+    "href": "index.html#p3m-latest",
+    "title": "Making Project Work Better with R",
+    "section": "p3m: latest",
+    "text": "p3m: latest"
+  },
+  {
+    "objectID": "index.html#p3m-date-based-snapshots",
+    "href": "index.html#p3m-date-based-snapshots",
+    "title": "Making Project Work Better with R",
+    "section": "p3m: date-based snapshots",
+    "text": "p3m: date-based snapshots"
+  },
+  {
+    "objectID": "index.html#activity-1",
+    "href": "index.html#activity-1",
+    "title": "Making Project Work Better with R",
+    "section": "activity",
+    "text": "activity\n\ntime travel!\n\n\nopen the wtf-explore-libraries project\nrun packageVersion(\"dplyr\")\nupdate your project .Rprofile with a date-based snapshot of CRAN\noptions(repos = c(P3M = \"https://p3m.dev/cran/2023-12-31\"))\nRestart R\ninstall.packages(\"dplyr\")\n\nwhat version of dplyr did you install?\n\n  \n    −\n    +\n \n 05:00"
+  },
+  {
+    "objectID": "index.html#section-4",
+    "href": "index.html#section-4",
+    "title": "Making Project Work Better with R",
+    "section": "➡️",
+    "text": "➡️\nhttps://rstats-wtf.github.io/wtf-personal-radmin-slides/"
+  },
+  {
+    "objectID": "index.html#renv-1",
+    "href": "index.html#renv-1",
+    "title": "Making Project Work Better with R",
+    "section": "renv",
+    "text": "renv"
+  },
+  {
+    "objectID": "index.html#shared-project-environment",
+    "href": "index.html#shared-project-environment",
+    "title": "Making Project Work Better with R",
+    "section": "shared project environment",
+    "text": "shared project environment\n\n\n\n\n\n\n%%{init: {\"theme\": \"dark\", \"look\": \"handDrawn\" } }%%\ngraph\nL --- P1\nL --- P2\nL --- P3\nL(library)\nP1(project1)\nP2(project2)\nP3(project3)\n\n\n\n\n\n\n\n\n\nby default all of your packages are installed into your user library\nthe unforunate default behavior in macOS is also that this is the system library\nupdating a package in the shared environments updates it for all of your projects"
+  },
+  {
+    "objectID": "index.html#shared-project-environment-1",
+    "href": "index.html#shared-project-environment-1",
+    "title": "Making Project Work Better with R",
+    "section": "shared project environment",
+    "text": "shared project environment\n.libPaths()\n&gt; .libPaths()\n[1] \"C:/Users/edavi/AppData/Local/R/win-library/4.4\" # user\n[2] \"C:/Program Files/R/R-4.4.0/library\" # system"
+  },
+  {
+    "objectID": "index.html#isolated-project-environments",
+    "href": "index.html#isolated-project-environments",
+    "title": "Making Project Work Better with R",
+    "section": "isolated project environments",
+    "text": "isolated project environments\n\n\n\n\n\n\n%%{init: {\"theme\": \"dark\", \"look\": \"handDrawn\" } }%%\ngraph\nC --- L1\nC --- L2\nC --- L3\nL1 --- P1\nL2 --- P2\nL3 --- P3\nL1(library1)\nL2(library2)\nL3(library3)\nP1(project1)\nP2(project2)\nP3(project3)\nC(global cache)"
+  },
+  {
+    "objectID": "index.html#isolated-project-environments-1",
+    "href": "index.html#isolated-project-environments-1",
+    "title": "Making Project Work Better with R",
+    "section": "isolated project environments",
+    "text": "isolated project environments\n.libPaths()\n- Project '~/sample-project' loaded. [renv 1.0.7]\n&gt; .libPaths()\n[1] \"C:/Users/edavi/Documents/sample-project/renv/library/windows/R-4.4/x86_64-w64-mingw32\"\n[2] \"C:/Users/edavi/AppData/Local/R/cache/R/renv/sandbox/windows/R-4.4/x86_64-w64-mingw32/88765555\""
+  },
+  {
+    "objectID": "index.html#isolated-project-environments-2",
+    "href": "index.html#isolated-project-environments-2",
+    "title": "Making Project Work Better with R",
+    "section": "isolated project environments",
+    "text": "isolated project environments\n\nexperiment with new packages without breaking other projects\nshare exactly which versions you’re using with your team or future you\nre-use packages you’ve already installed"
+  },
+  {
+    "objectID": "index.html#activity-2",
+    "href": "index.html#activity-2",
+    "title": "Making Project Work Better with R",
+    "section": "activity",
+    "text": "activity\n\ncreate an isolated project library\n\nCMD|CTRL + SHIFT + P &gt; Close Current Project\nusethis::create_project(\"~/wtf-renv\") # or wherever you typically put projects\ninstall.packages(\"renv\")\nrenv::init()\nrenv::status()\n\n  \n    −\n    +\n \n 03:00"
+  },
+  {
+    "objectID": "index.html#activity-3",
+    "href": "index.html#activity-3",
+    "title": "Making Project Work Better with R",
+    "section": "activity",
+    "text": "activity\n\nmanage dependencies\n\nadd library(parallelly) to any file in the wtf-renv/R directory\nrenv::status()\ninstall.packages(\"parallelly\")\nrenv::status()\nrenv::snapshot()\nremove library(parallelly) from the file you added it to\nrenv::status()\n\n  \n    −\n    +\n \n 05:00\n \n\nrun .libPaths() to see what your default package libraries are initialize an renv–you’ll see that the environment is now local to the project note the .Rprofile that gets placed into your project, which runs an R script in renv/activate.R deactivate the environment and check libPaths() again–it should be back to normal"
+  },
+  {
+    "objectID": "index.html#renvinstall",
+    "href": "index.html#renvinstall",
+    "title": "Making Project Work Better with R",
+    "section": "renv::install()",
+    "text": "renv::install()\nor install.packages() with shims enabled\nrenv::install(\"jsonlite\")\nrenv::install(\"jsonlite@1.2\") # at version\nrenv::install(\"jeroen/jsonlite\") # latest\nrenv::install\"jeroen/jsonlite@80854359976250f30a86a6992c0d8c3b3d95473d\") # at SHA\nrenv::install(\"path/to/package\") # local source\n\n\ndevtools::install(\"jsonlite\")\ndevtools::install_version(\"jsonlite@1.2\") # at version\ndevtools::install_github(\"jeroen/jsonlite\") # latest\ndevtools::install_github(\"jeroen/jsonlite@80854359976250f30a86a6992c0d8c3b3d95473d\") # at SHA\ndevtools::install(\"path/to/package\") # local source"
+  },
+  {
+    "objectID": "index.html#the-junk-drawer",
+    "href": "index.html#the-junk-drawer",
+    "title": "Making Project Work Better with R",
+    "section": "the junk drawer",
+    "text": "the junk drawer\nfor reprexes, tweets, and other ephemera:\n~/Documents/scratch\n\nI use renv for everything, and have one junk project into which I install things without regard for stability or reproducibility"
   }
 ]
